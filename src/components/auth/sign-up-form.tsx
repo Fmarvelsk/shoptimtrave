@@ -9,10 +9,11 @@ import { ImGoogle2, ImFacebook2 } from "react-icons/im";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
+import { SignUp } from "@framework/utils/apolloAuth";
 
 const SignUpForm: React.FC = () => {
 	const { t } = useTranslation();
-	const { mutate: signUp, isLoading } = useSignUpMutation();
+	//const { mutate: signUp, isLoading } = useSignUpMutation();
 	const { setModalView, openModal, closeModal } = useUI();
 	const {
 		register,
@@ -26,12 +27,8 @@ const SignUpForm: React.FC = () => {
 	}
 
 	function onSubmit({ name, email, password }: SignUpInputType) {
-		signUp({
-			name,
-			email,
-			password,
-		});
-		console.log(name, email, password, "sign form values");
+		  SignUp({name, email, password})
+		;
 	}
 	return (
 		<div className="py-5 px-5 sm:px-8 bg-white mx-auto rounded-lg w-full sm:w-96 md:w-450px border border-gray-300">
@@ -95,8 +92,6 @@ const SignUpForm: React.FC = () => {
 					<div className="relative">
 						<Button
 							type="submit"
-							loading={isLoading}
-							disabled={isLoading}
 							className="h-11 md:h-12 w-full mt-2"
 						>
 							{t("common:text-login")}
@@ -113,8 +108,6 @@ const SignUpForm: React.FC = () => {
 
 			<Button
 				type="submit"
-				loading={isLoading}
-				disabled={isLoading}
 				className="h-11 md:h-12 w-full mt-2.5 bg-facebook hover:bg-facebookHover"
 			>
 				<ImFacebook2 className="text-sm sm:text-base me-1.5" />
@@ -122,8 +115,6 @@ const SignUpForm: React.FC = () => {
 			</Button>
 			<Button
 				type="submit"
-				loading={isLoading}
-				disabled={isLoading}
 				className="h-11 md:h-12 w-full mt-2.5 bg-google hover:bg-googleHover"
 			>
 				<ImGoogle2 className="text-sm sm:text-base me-1.5" />

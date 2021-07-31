@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 // import { ReactQueryDevtools } from "react-query/devtools";
 import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "@components/common/default-seo";
+import { client, ApolloProvider } from "./apollo";
 
 // Load Open Sans and satisfy typeface font
 import "@fontsource/open-sans";
@@ -48,6 +49,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
 
 	return (
 		<AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+			<ApolloProvider client={client}>
 			<QueryClientProvider client={queryClientRef.current}>
 				<Hydrate state={pageProps.dehydratedState}>
 					<ManagedUIContext>
@@ -62,6 +64,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
 				</Hydrate>
 				{/* <ReactQueryDevtools /> */}
 			</QueryClientProvider>
+			</ApolloProvider>
 		</AnimatePresence>
 	);
 };
