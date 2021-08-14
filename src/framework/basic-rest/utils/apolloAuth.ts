@@ -9,9 +9,10 @@ export interface SignUpInputType {
   }
 
 export const SignUp = async (input : SignUpInputType) => {
+    
     try {
     const UserMutate = gql`
- mutation UserMutate($name: String!, $username: String!, $password: String!){
+ mutation createUser($name: String!, $username: String!, $password: String!){
      UserMutate(registerUser : {
          name: $name,
          username : $username,
