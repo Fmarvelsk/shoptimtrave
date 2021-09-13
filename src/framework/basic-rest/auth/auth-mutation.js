@@ -21,4 +21,5 @@ export const DELETEUSERMUTATION = gql`
   }
 `;
 
+// no login
 export const SIGNINMUTATION = gql``;
