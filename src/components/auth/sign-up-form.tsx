@@ -26,8 +26,8 @@ const SignUpForm: React.FC = () => {
 		return openModal();
 	}
 
-	function onSubmit({ name, email, password }: SignUpInputType) {
-		  SignUp({name, email, password})
+	function onSubmit({ username, email, password }: SignUpInputType) {
+		  SignUp({ username, email, password})
 		;
 	}
 	return (
@@ -60,13 +60,13 @@ const SignUpForm: React.FC = () => {
 			>
 				<div className="flex flex-col space-y-4">
 					<Input
-						labelKey="forms:label-name"
+						labelKey="forms:label-username"
 						type="text"
 						variant="solid"
-						{...register("name", {
-							required: "forms:name-required",
+						{...register("username", {
+							required: "forms:username-required",
 						})}
-						errorKey={errors.name?.message}
+						errorKey={errors.username?.message}
 					/>
 					<Input
 						labelKey="forms:label-email"
