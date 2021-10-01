@@ -30,36 +30,33 @@ import { ROUTES } from "@utils/routes";
 import { useUI } from "@contexts/ui.context";
 
 export default function Home() {
-	const { openModal, setModalView } = useUI();
+	//const { openModal, setModalView } = useUI();
 	useEffect(() => {
-		setModalView("NEWSLETTER_VIEW");
+		/*setModalView("NEWSLETTER_VIEW");
 		setTimeout(() => {
 			openModal();
-		}, 2000);
+		}, 2000);*/
 	}, []);
 	return (
 		<>
 			<HeroBlock />
 			<Container>
-				<FlashSaleBlock />
-				<BannerCarouselBlock />
+				{/*<FlashSaleBlock />
+				<BannerCarouselBlock />*/}
 				<CategoryBlock sectionHeading="text-shop-by-category" />
 				<Divider />
 				<BestSellerProductFeed />
-				<BannerCard
+			{/*	<BannerCard
 					key={`banner--key${banner.id}`}
 					banner={banner}
 					href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
 					className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
 					classNameInner="h-28 sm:h-auto"
-				/>
+			/>*/}
 				<NewArrivalsProductFeed />
 				<Divider />
 				<BrandBlock sectionHeading="text-top-brands" />
-				<CollectionBlock />
-				<FeatureBlock />
-				<DownloadApps className="bg-linen" />
-				<Support />
+				
 				<Subscription className="bg-linen px-5 sm:px-8 md:px-16 2xl:px-24" />
 			</Container>
 		</>

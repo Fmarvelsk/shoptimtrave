@@ -52,10 +52,6 @@ export default function Home() {
 			<NewArrivalsProductFeed />
 			<Divider />
 			<BrandBlock sectionHeading="text-top-brands" />
-			<FeatureBlock />
-			<CollectionBlock />
-			<DownloadApps />
-			<Support />
 			<Subscription />
 		</Container>
 	);

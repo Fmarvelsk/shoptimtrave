@@ -4,12 +4,12 @@ import { siteSettings } from "@settings/site-settings";
 import HeaderMenu from "@components/layout/header/header-menu";
 import Logo from "@components/ui/logo";
 import { useUI } from "@contexts/ui.context";
-import { ROUTES } from "@utils/routes";
+//import { ROUTES } from "@utils/routes";
 import { addActiveScroll } from "@utils/add-active-scroll";
 import dynamic from "next/dynamic";
-import { useTranslation } from "next-i18next";
+//import { useTranslation } from "next-i18next";
 import LanguageSwitcher from "@components/ui/language-switcher";
-const AuthMenu = dynamic(() => import("./auth-menu"), { ssr: false });
+//const AuthMenu = dynamic(() => import("./auth-menu"), { ssr: false });
 const CartButton = dynamic(() => import("@components/cart/cart-button"), {
 	ssr: false,
 });
@@ -21,18 +21,14 @@ const Header: React.FC = () => {
 		openSidebar,
 		setDrawerView,
 		openSearch,
-		openModal,
-		setModalView,
-		isAuthorized,
+		//openModal,
+		//setModalView,
+		//isAuthorized,
 	} = useUI();
-	const { t } = useTranslation("common");
+	//const { t } = useTranslation("common");
 	const siteHeaderRef = useRef() as DivElementRef;
 	addActiveScroll(siteHeaderRef);
 
-	function handleLogin() {
-		setModalView("LOGIN_VIEW");
-		return openModal();
-	}
 	function handleMobileMenu() {
 		setDrawerView("MOBILE_MENU");
 		return openSidebar();
@@ -62,7 +58,7 @@ const Header: React.FC = () => {
 					<HeaderMenu
 						data={site_header.menu}
 						className="hidden lg:flex md:ms-6 xl:ms-10"
-					/>
+				/>
 
 					<div className="flex-shrink-0 ms-auto lg:me-5 xl:me-8 2xl:me-10">
 						<LanguageSwitcher />
@@ -75,7 +71,7 @@ const Header: React.FC = () => {
 						>
 							<SearchIcon />
 						</button>
-						<div className="-mt-0.5 flex-shrink-0">
+						{/*<div className="-mt-0.5 flex-shrink-0">
 							<AuthMenu
 								isAuthorized={isAuthorized}
 								href={ROUTES.ACCOUNT}
@@ -89,7 +85,7 @@ const Header: React.FC = () => {
 							>
 								{t("text-account")}
 							</AuthMenu>
-						</div>
+							</div>*/}
 						<CartButton />
 					</div>
 				</div>
