@@ -53,11 +53,6 @@ export const footer = {
 				},
 				{
 					id: 3,
-					title: "link-email-two",
-					path: "/",
-				},
-				{
-					id: 4,
 					title: "link-phone",
 					path: "/",
 				},
@@ -69,18 +64,13 @@ export const footer = {
 			lists: [
 				{
 					id: 1,
-					title: "link-support-center",
+					title: "link-about-us",
 					path: "/contact-us",
 				},
 				{
 					id: 2,
-					title: "link-customer-support",
-					path: "/",
-				},
-				{
-					id: 3,
-					title: "link-about-us",
-					path: "/contact-us",
+					title: "link-faq",
+					path: "/faq",
 				},
 				{
 					id: 4,
@@ -91,27 +81,6 @@ export const footer = {
 		},
 		{
 			id: 4,
-			widgetTitle: "widget-title-customer-care",
-			lists: [
-				{
-					id: 1,
-					title: "link-faq",
-					path: "/faq",
-				},
-				{
-					id: 2,
-					title: "link-shipping",
-					path: "/",
-				},
-				{
-					id: 3,
-					title: "link-exchanges",
-					path: "/",
-				},
-			],
-		},
-		{
-			id: 5,
 			widgetTitle: "widget-title-our-information",
 			lists: [
 				{
@@ -128,37 +97,6 @@ export const footer = {
 					id: 3,
 					title: "link-return-policy",
 					path: "/privacy",
-				},
-				{
-					id: 4,
-					title: "link-site-map",
-					path: "/",
-				},
-			],
-		},
-		{
-			id: 6,
-			widgetTitle: "widget-title-top-categories",
-			lists: [
-				{
-					id: 1,
-					title: "link-men-wear",
-					path: "/search",
-				},
-				{
-					id: 2,
-					title: "link-men-wear",
-					path: "/search",
-				},
-				{
-					id: 3,
-					title: "link-kids-wear",
-					path: "/search",
-				},
-				{
-					id: 4,
-					title: "link-sports-wear",
-					path: "/search",
 				},
 			],
 		},

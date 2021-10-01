@@ -944,11 +944,6 @@ export const siteSettings = {
 						path: "/category/man",
 						label: "menu-category",
 					},
-					{
-						id: 8,
-						path: "/404",
-						label: "menu-404",
-					},
 				],
 			},
 		],

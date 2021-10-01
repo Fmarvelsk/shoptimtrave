@@ -38,17 +38,17 @@ export default function Home() {
 	return (
 		<Container>
 			<HeroWithCategory />
-			<ProductsWithFlashSale carouselBreakpoint={flashSaleCarouselBreakpoint} />
-			<BannerGridBlock />
+			{/*<ProductsWithFlashSale carouselBreakpoint={flashSaleCarouselBreakpoint} />
+			<BannerGridBlock />*/}
 			<CategoryGridBlock sectionHeading="text-featured-categories" />
 			<Divider />
 			<BestSellerProductFeed />
-			<BannerCard
+			{/*<BannerCard
 				key={`banner--key${banner.id}`}
 				banner={banner}
 				href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
 				className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
-			/>
+			/>*/}
 			<NewArrivalsProductFeed />
 			<Divider />
 			<BrandBlock sectionHeading="text-top-brands" />

@@ -65,18 +65,6 @@ const BottomNavigation: React.FC = () => {
 					<HomeIcon />
 				</Link>
 				<CartButton />
-				<AuthMenu
-					isAuthorized={isAuthorized}
-					href={ROUTES.ACCOUNT}
-					className="flex-shrink-0"
-					btnProps={{
-						className: "flex-shrink-0 focus:outline-none",
-						children: <UserIcon />,
-						onClick: handleLogin,
-					}}
-				>
-					<UserIcon />
-				</AuthMenu>
 			</div>
 			<Drawer
 				placement={dir === "rtl" ? "right" : "left"}
