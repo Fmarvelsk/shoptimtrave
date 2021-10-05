@@ -882,33 +882,6 @@ export const siteSettings = {
 				path: "/",
 				label: "menu-pages",
 				subMenu: [
-				/*	{
-						id: 1,
-						path: "/",
-						label: "menu-users",
-						subMenu: [
-							{
-								id: 1,
-								path: "/my-account",
-								label: "menu-my-account",
-							},
-							{
-								id: 2,
-								path: "/signin",
-								label: "menu-sign-in",
-							},
-							{
-								id: 3,
-								path: "/signup",
-								label: "menu-sign-up",
-							},
-							{
-								id: 4,
-								path: "/forget-password",
-								label: "menu-forget-password",
-							},
-						],
-					},*/
 					{
 						id: 1,
 						path: "/faq",
