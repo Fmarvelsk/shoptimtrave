@@ -1,20 +1,12 @@
-import BannerCard from "@components/common/banner-card";
 import Container from "@components/ui/container";
-import CollectionBlock from "@containers/collection-block";
-import BannerCarouselBlock from "@containers/banner-carousel-block";
 import Divider from "@components/ui/divider";
-import DownloadApps from "@components/common/download-apps";
-import Support from "@components/common/support";
 import Subscription from "@components/common/subscription";
 import HeroBlock from "@containers/hero-block";
 import BrandBlock from "@containers/brand-block";
 import CategoryBlock from "@containers/category-block";
-import FeatureBlock from "@containers/feature-block";
 import Layout from "@components/layout/layout";
-import FlashSaleBlock from "@components/product/feeds/flash-sale-product-feed";
 import BestSellerProductFeed from "@components/product/feeds/best-seller-product-feed";
 import NewArrivalsProductFeed from "@components/product/feeds/new-arrivals-product-feed";
-import { homeOneBanner as banner } from "@framework/static/banner";
 import { GetStaticProps } from "next";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
@@ -26,8 +18,6 @@ import { fetchNewArrivalProducts } from "@framework/product/get-all-new-arrival-
 import { fetchBrands } from "@framework/brand/get-all-brands";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useEffect } from "react";
-import { ROUTES } from "@utils/routes";
-import { useUI } from "@contexts/ui.context";
 
 export default function Home() {
 	//const { openModal, setModalView } = useUI();

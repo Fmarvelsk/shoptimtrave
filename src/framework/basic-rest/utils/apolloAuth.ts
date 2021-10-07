@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { client } from "src/pages/apollo";
+import { client } from "./apollo";
 
 export interface SignUpInputType {
   email: string;
