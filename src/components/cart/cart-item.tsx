@@ -8,7 +8,7 @@ import { useCart } from "@contexts/cart/cart.context";
 import usePrice from "@framework/product/use-price";
 import { ROUTES } from "@utils/routes";
 import { generateCartItemName } from "@utils/generate-cart-item-name";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next"
 
 type CartItemProps = {
 	item: any;

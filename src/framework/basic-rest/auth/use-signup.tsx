@@ -7,12 +7,12 @@ import { useMutation } from "react-query";
 export interface SignUpInputType {
   email: string;
   password: string;
-  name: string;
+  username: string;
 }
 async function signUp(input: SignUpInputType) {
  return http.post(API_ENDPOINTS.LOGIN, input);
   return {
-    token: `${input.email}.${input.name}`.split("").reverse().join(""),
+    token: `${input.email}.${input.username}`.split("").reverse().join(""),
   };
 }
 export const useSignUpMutation = () => {

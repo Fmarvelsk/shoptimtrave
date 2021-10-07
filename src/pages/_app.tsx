@@ -18,6 +18,7 @@ import "@fontsource/open-sans";
 import "@fontsource/open-sans/600.css";
 import "@fontsource/open-sans/700.css";
 import "@fontsource/satisfy";
+
 // external
 import "react-toastify/dist/ReactToastify.css";
 // base css file
@@ -25,6 +26,7 @@ import "@styles/scrollbar.css";
 import "@styles/swiper-carousel.css";
 import "@styles/custom-plugins.css";
 import "@styles/tailwind.css";
+import "@styles/checkout.css";
 import { getDirection } from "@utils/get-direction";
 
 function handleExitComplete() {

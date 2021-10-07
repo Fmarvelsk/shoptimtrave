@@ -7,6 +7,8 @@ import Button from "@components/ui/button";
 import Router from "next/router";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
+//import Payment from './payment'
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
 interface CheckoutInputType {
 	firstName: string;
@@ -28,8 +30,63 @@ const CheckoutForm: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<CheckoutInputType>();
-	function onSubmit(input: CheckoutInputType) {
-		updateUser(input);
+
+	const stripe = useStripe();
+	const elements = useElements();
+
+	const CARD_ELEMENT_OPTIONS = {
+		style: {
+			base: {
+				color: "#32325d",
+				fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+				fontSmoothing: "antialiased",
+				fontSize: "16px",
+				"::placeholder": {
+					color: "#aab7c4",
+				},
+			},
+			invalid: {
+				color: "#fa755a",
+				iconColor: "#fa755a",
+			},
+		},
+	};
+
+	async function onSubmit(input: CheckoutInputType) {
+		console.log('me')
+		if (!stripe || !elements) {
+			// Stripe.js has not yet loaded.
+			// Make sure to disable form submission until Stripe.js has loaded.
+			return;
+		}
+
+		const cardElement = elements.getElement(CardElement);
+
+		if (cardElement) {
+			const result = await stripe.confirmCardPayment('{CLIENT_SECRET}', {
+				payment_method: {
+					card: cardElement,
+					billing_details: {
+						name: 'Jenny Rosen',
+					},
+				}
+			})
+
+			if (result.error) {
+				// Show error to your customer (e.g., insufficient funds)
+				console.log(result.error.message);
+			} else {
+				// The payment has been processed!
+				if (result.paymentIntent.status === 'succeeded') {
+					// Show a success message to your customer
+					// There's a risk of the customer closing the window before callback
+					// execution. Set up a webhook or plugin to listen for the
+					// payment_intent.succeeded event that handles any business critical
+					// post-payment actions.
+					updateUser(input)
+				}
+			}
+		};
 		Router.push(ROUTES.ORDER);
 	}
 
@@ -113,7 +170,14 @@ const CheckoutForm: React.FC = () => {
 							variant="solid"
 							className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
 						/>
+
 					</div>
+					<div>
+					<label className="block mb-2 text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+						Card details</label>
+						<CardElement options={CARD_ELEMENT_OPTIONS} className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0" />
+					</div>
+
 					<div className="relative flex items-center ">
 						<CheckBox labelKey="forms:label-save-information" />
 					</div>
@@ -127,7 +191,7 @@ const CheckoutForm: React.FC = () => {
 						<Button
 							className="w-full sm:w-auto"
 							loading={isLoading}
-							disabled={isLoading}
+							disabled={isLoading || !stripe}
 						>
 							{t("common:button-place-order")}
 						</Button>
