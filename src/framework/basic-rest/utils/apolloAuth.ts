@@ -33,14 +33,3 @@ export const SignUp = async (input: SignUpInputType) => {
     console.log("error siging up", err);
   }
 };
-
-// mutation createUser( $username: String!,$email: String!, $password: String!){
-//     createdUser( {
-//         username : $username,
-//         email: $email,
-//         password : $password
-//     }
-//    ){
-//         username, token
-//     }
-// }

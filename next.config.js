@@ -7,5 +7,6 @@ module.exports = withPWA({
     dest: "public",
     runtimeCaching,
   },
+  target: "experimental-serverless-trace",
   i18n,
 });

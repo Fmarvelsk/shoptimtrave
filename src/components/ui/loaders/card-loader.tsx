@@ -1,7 +1,7 @@
-import ContentLoader from "react-content-loader";
+import {Facebook} from "react-content-loader";
 
 const CardLoader = (props: any) => (
-	<ContentLoader
+	<Facebook
 		speed={2}
 		width={180}
 		height={232}
@@ -13,7 +13,7 @@ const CardLoader = (props: any) => (
 	>
 		<rect x="34" y="215" rx="3" ry="3" width="110" height="10" />
 		<rect x="0" y="0" rx="100" ry="100" width="180" height="180" />
-	</ContentLoader>
+	</Facebook>
 );
 
 export default CardLoader;

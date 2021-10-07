@@ -91,8 +91,8 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
 						? Array.from({ length: 10 }).map((_, idx) => {
 								if (type === "rounded") {
 									return (
-										<SwiperSlide key={`card-rounded-${idx}`}>
-											<CardRoundedLoader uniqueKey={`card-rounded-${idx}`} />
+										<SwiperSlide key={`my-random-value`}>
+											<CardRoundedLoader uniqueKey="my-random-value" />
 										</SwiperSlide>
 									);
 								}
