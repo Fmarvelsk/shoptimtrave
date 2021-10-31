@@ -51,7 +51,6 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
 
 	return (
 		<AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-			<ApolloProvider client={client}>
 			<QueryClientProvider client={queryClientRef.current}>
 				<Hydrate state={pageProps.dehydratedState}>
 					<ManagedUIContext>
@@ -66,8 +65,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
 				</Hydrate>
 				{/* <ReactQueryDevtools /> */}
 			</QueryClientProvider>
-			</ApolloProvider>
-		</AnimatePresence>
+				</AnimatePresence>
 	);
 };
 

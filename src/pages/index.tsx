@@ -15,9 +15,9 @@ export default function Home() {
 		<>
 			<BannerBlock data={masonryBanner} />
 			<Container>
-				<CategoryBlock sectionHeading="text-shop-by-category" type="rounded" />
+		{/*		<CategoryBlock sectionHeading="text-shop-by-category" type="rounded" />
 				<ProductsFeatured sectionHeading="text-featured-products" />
-				{/*<BannerCard
+				<BannerCard
 					key={`banner--key${banner[0].id}`}
 					banner={banner[0]}
 					href={`${ROUTES.COLLECTIONS}/${banner[0].slug}`}
@@ -33,8 +33,9 @@ export default function Home() {
 				<BannerWithProducts
 					sectionHeading="text-on-selling-products"
 					categorySlug="/search"
-				/>*/}
-				<NewArrivalsProductFeed />
+				/>
+				<NewArrivalsProductFeed />*/}
+
 				<Subscription className="bg-opacity-0 px-5 sm:px-16 xl:px-0 py-12 md:py-14 xl:py-16" />
 			</Container>
 			<Divider className="mb-0" />

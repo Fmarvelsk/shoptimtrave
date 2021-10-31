@@ -21,9 +21,7 @@ const BannerBlock: React.FC<BannerProps> = ({
 					effectActive={true}
 					variant="default"
 					className={
-						banner.type === "medium"
-							? "col-span-full sm:col-span-5"
-							: "col-span-1 sm:col-span-2"
+							 "col-span-1 banner sm:col-span-2"
 					}
 				/>
 			))}

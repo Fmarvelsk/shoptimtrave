@@ -20,6 +20,19 @@ export type ProductsQueryOptionsType = {
   status?: string;
   limit?: number;
 };
+export type AllProduct = {
+    id: string | number
+    name: string;
+    description: string;
+    colours: string;
+    sizes: string;
+    stock?: number;
+    price: number;
+    sale_price?: number;
+    category?: string;
+    image?: string   
+}
+
 export type QueryOptionsType = {
   text?: string;
   category?: string;
@@ -76,7 +89,7 @@ export type Product = {
   price: number;
   quantity: number;
   sale_price?: number;
-  image: Attachment;
+  image: string;
   sku?: string;
   gallery?: Attachment[];
   category?: Category;

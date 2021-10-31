@@ -80,7 +80,7 @@ export default function ProductPopup() {
 				<div className="flex-shrink-0 flex items-center justify-center w-full lg:w-430px max-h-430px lg:max-h-full overflow-hidden bg-gray-300">
 					<img
 						src={
-							image?.original ??
+							image ??
 							"/assets/placeholder/products/product-thumbnail.svg"
 						}
 						alt={name}
@@ -94,7 +94,7 @@ export default function ProductPopup() {
 							className="mb-2 md:mb-2.5 block -mt-1.5"
 							onClick={navigateToProductPage}
 							role="button"
-						>
+						>{console.log(data)}
 							<h2 className="text-heading text-lg md:text-xl lg:text-2xl font-semibold hover:text-black">
 								{name}
 							</h2>

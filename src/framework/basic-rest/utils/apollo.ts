@@ -19,4 +19,4 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
   });
   
-export {client, ApolloProvider}
+export {client, ApolloProvider, httpLink}

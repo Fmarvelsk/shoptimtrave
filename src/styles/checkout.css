@@ -22,3 +22,14 @@
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
   }
+@media (min-width: 480px){
+  .sm\:col-span-2.banner {
+      grid-column: span 3 /span 3 !important;
+  }
+}
+.lang {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  margin-right: 25px;
+}

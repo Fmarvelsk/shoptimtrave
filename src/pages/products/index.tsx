@@ -12,7 +12,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
 import { GetStaticProps } from "next";
-
+//import { useGQLQuery } from "@framework/product/product-queries";
 export default function Products() {
 	const { t } = useTranslation("common");
 	return (
