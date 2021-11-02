@@ -11,58 +11,75 @@ import { useTranslation } from "next-i18next";
 import CollectionTopBar from "@components/collection/collection-top-bar";
 import { CollectionFilters } from "@components/collection/collection-filters";
 import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
+import { useGetByCategory } from "@framework/product/product-queries";
 
 export default function Shop() {
-	const { t } = useTranslation("common");
+  const { t } = useTranslation("common");
+  const {
+    query: { slug },
+  } = useRouter();
 
-	return (
-		<div className="border-t-2 border-borderBottom">
-			<Container>
-				<div className={`flex pt-8 pb-16 lg:pb-20`}>
-					<div className="flex-shrink-0 pe-24 hidden lg:block w-96">
-						<StickyBox offsetTop={50} offsetBottom={20}>
-							<div className="pb-7">
-								<BreadcrumbItems separator="/">
-									<ActiveLink
-										href={"/"}
-										activeClassName="font-semibold text-heading"
-									>
-										<a>{t("breadcrumb-home")}</a>
-									</ActiveLink>
-									<ActiveLink
-										href={ROUTES.SEARCH}
-										activeClassName="font-semibold text-heading"
-									>
-										<a className="capitalize">{t("breadcrumb-collection")}</a>
-									</ActiveLink>
-								</BreadcrumbItems>
-							</div>
-							<CollectionFilters />
-						</StickyBox>
-					</div>
+  const {
+    data,
+    isFetching: isLoading,
+    error,
+  } = useGetByCategory("byCategory", null, {
+    category: slug,
+  });
 
-					<div className="w-full lg:-ms-9">
-						<CollectionTopBar />
-						<ProductGrid />
-					</div>
-				</div>
-				<Subscription />
-			</Container>
-		</div>
-	);
+  return (
+    <div className="border-t-2 border-borderBottom">
+      <Container>
+        <div className={`flex pt-8 pb-16 lg:pb-20`}>
+          <div className="flex-shrink-0 pe-24 hidden lg:block w-96">
+            <StickyBox offsetTop={50} offsetBottom={20}>
+              <div className="pb-7">
+                <BreadcrumbItems separator="/">
+                  <ActiveLink
+                    href={"/"}
+                    activeClassName="font-semibold text-heading"
+                  >
+                    <a>{t("breadcrumb-home")}</a>
+                  </ActiveLink>
+                  <ActiveLink
+                    href={ROUTES.SEARCH}
+                    activeClassName="font-semibold text-heading"
+                  >
+                    <a className="capitalize">{t("breadcrumb-collection")}</a>
+                  </ActiveLink>
+                </BreadcrumbItems>
+              </div>
+              <CollectionFilters />
+            </StickyBox>
+          </div>
+
+          <div className="w-full lg:-ms-9">
+            <CollectionTopBar />
+            <ProductGrid
+              data={data?.returnProductsByCategory}
+              error={error}
+              isLoading={isLoading}
+            />
+          </div>
+        </div>
+        <Subscription />
+      </Container>
+    </div>
+  );
 }
 
 Shop.Layout = Layout;
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common",
-				"forms",
-				"menu",
-				"footer",
-			])),
-		},
-	};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

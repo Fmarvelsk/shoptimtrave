@@ -31,7 +31,7 @@
         "original": "/assets/images/products/p-11-4.png"
       }
     ],
-    "price": 20.00,
+    "price": 20.0,
     "sale_price": 17.99,
     "variations": [
       {
@@ -144,8 +144,8 @@
         "original": "/assets/images/products/p-12-4.png"
       }
     ],
-    "price": 40.00,
-    "sale_price": 30.00,
+    "price": 40.0,
+    "sale_price": 30.0,
     "variations": [
       {
         "id": 1,
@@ -257,8 +257,8 @@
         "original": "/assets/images/products/p-18-4.png"
       }
     ],
-    "price": 32.00,
-    "sale_price": 25.00,
+    "price": 32.0,
+    "sale_price": 25.0,
     "variations": [
       {
         "id": 1,
@@ -371,7 +371,7 @@
       }
     ],
     "price": "",
-    "sale_price": 15.00,
+    "sale_price": 15.0,
     "variations": [
       {
         "id": 1,
@@ -483,8 +483,8 @@
         "original": "/assets/images/products/p-15-4.png"
       }
     ],
-    "price": 16.00,
-    "sale_price": 12.00,
+    "price": 16.0,
+    "sale_price": 12.0,
     "variations": [
       {
         "id": 1,
@@ -596,8 +596,8 @@
         "original": "/assets/images/products/p-16-4.png"
       }
     ],
-    "price": 80.00,
-    "sale_price": 60.00,
+    "price": 80.0,
+    "sale_price": 60.0,
     "variations": [
       {
         "id": 1,
@@ -822,8 +822,8 @@
         "original": "/assets/images/products/p-13-2.png"
       }
     ],
-    "price": 23.00,
-    "sale_price": 13.00,
+    "price": 23.0,
+    "sale_price": 13.0,
     "variations": [
       {
         "id": 1,
@@ -935,8 +935,8 @@
         "original": "/assets/images/products/p-19-4.png"
       }
     ],
-    "price": 300.00,
-    "sale_price": 250.00,
+    "price": 300.0,
+    "sale_price": 250.0,
     "variations": [
       {
         "id": 1,
@@ -1038,8 +1038,8 @@
         "original": "/assets/images/products/p-20-2.png"
       }
     ],
-    "price": 20.00,
-    "sale_price": 15.00,
+    "price": 20.0,
+    "sale_price": 15.0,
     "variations": [
       {
         "id": 1,
@@ -1151,8 +1151,8 @@
         "original": "/assets/images/products/p-1-4.png"
       }
     ],
-    "price": 15.00,
-    "sale_price": 11.00,
+    "price": 15.0,
+    "sale_price": 11.0,
     "variations": [
       {
         "id": 1,
@@ -1491,7 +1491,7 @@
       }
     ],
     "price": "",
-    "sale_price": 8.00,
+    "sale_price": 8.0,
     "variations": [
       {
         "id": 1,
@@ -1603,8 +1603,8 @@
         "original": "/assets/images/products/p-5-4.png"
       }
     ],
-    "price": 28.00,
-    "sale_price": 20.00,
+    "price": 28.0,
+    "sale_price": 20.0,
     "variations": [
       {
         "id": 1,
@@ -1716,8 +1716,8 @@
         "original": "/assets/images/products/p-6-4.png"
       }
     ],
-    "price": 70.00,
-    "sale_price": 55.00,
+    "price": 70.0,
+    "sale_price": 55.0,
     "variations": [
       {
         "id": 1,
@@ -1933,7 +1933,7 @@
       }
     ],
     "price": "",
-    "sale_price": 50.00,
+    "sale_price": 50.0,
     "variations": [
       {
         "id": 1,
@@ -2045,8 +2045,8 @@
         "original": "/assets/images/products/p-9-4.png"
       }
     ],
-    "price": 30.00,
-    "sale_price": 28.00,
+    "price": 30.0,
+    "sale_price": 28.0,
     "variations": [
       {
         "id": 1,

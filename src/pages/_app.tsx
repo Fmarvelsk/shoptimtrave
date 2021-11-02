@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 // import { ReactQueryDevtools } from "react-query/devtools";
 import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "@components/common/default-seo";
-import { client, ApolloProvider } from "../framework/basic-rest/utils/apollo";
+//import { client, ApolloProvider } from "../framework/basic-rest/utils/apollo";
 
 // Load Open Sans and satisfy typeface font
 import "@fontsource/open-sans";
@@ -30,43 +30,43 @@ import "@styles/checkout.css";
 import { getDirection } from "@utils/get-direction";
 
 function handleExitComplete() {
-	if (typeof window !== "undefined") {
-		window.scrollTo({ top: 0 });
-	}
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0 });
+  }
 }
 
 const Noop: React.FC = ({ children }) => <>{children}</>;
 
 const CustomApp = ({ Component, pageProps }: AppProps) => {
-	const queryClientRef = useRef<any>();
-	if (!queryClientRef.current) {
-		queryClientRef.current = new QueryClient();
-	}
-	const router = useRouter();
-	const dir = getDirection(router.locale);
-	useEffect(() => {
-		document.documentElement.dir = dir;
-	}, [dir]);
-	const Layout = (Component as any).Layout || Noop;
+  const queryClientRef = useRef<any>();
+  if (!queryClientRef.current) {
+    queryClientRef.current = new QueryClient();
+  }
+  const router = useRouter();
+  const dir = getDirection(router.locale);
+  useEffect(() => {
+    document.documentElement.dir = dir;
+  }, [dir]);
+  const Layout = (Component as any).Layout || Noop;
 
-	return (
-		<AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-			<QueryClientProvider client={queryClientRef.current}>
-				<Hydrate state={pageProps.dehydratedState}>
-					<ManagedUIContext>
-						<Layout pageProps={pageProps}>
-							<DefaultSeo />
-							<Component {...pageProps} key={router.route} />
-							<ToastContainer />
-						</Layout>
-						<ManagedModal />
-						<ManagedDrawer />
-					</ManagedUIContext>
-				</Hydrate>
-				{/* <ReactQueryDevtools /> */}
-			</QueryClientProvider>
-				</AnimatePresence>
-	);
+  return (
+    <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+      <QueryClientProvider client={queryClientRef.current}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <ManagedUIContext>
+            <Layout pageProps={pageProps}>
+              <DefaultSeo />
+              <Component {...pageProps} key={router.route} />
+              <ToastContainer />
+            </Layout>
+            <ManagedModal />
+            <ManagedDrawer />
+          </ManagedUIContext>
+        </Hydrate>
+        {/* <ReactQueryDevtools /> */}
+      </QueryClientProvider>
+    </AnimatePresence>
+  );
 };
 
 export default appWithTranslation(CustomApp);

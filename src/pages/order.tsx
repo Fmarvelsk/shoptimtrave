@@ -7,28 +7,28 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 
 export default function Order() {
-	return (
-		<>
-			<PageHeader pageHeader="text-page-order" />
-			<Container>
-				<OrderInformation />
-				<Subscription />
-			</Container>
-		</>
-	);
+  return (
+    <>
+      <PageHeader pageHeader="text-page-order" />
+      <Container>
+        <OrderInformation />
+        <Subscription />
+      </Container>
+    </>
+  );
 }
 
 Order.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common",
-				"forms",
-				"menu",
-				"footer",
-			])),
-		},
-	};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

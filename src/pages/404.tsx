@@ -4,20 +4,20 @@ import ErrorInformation from "@components/404/error-information";
 import { GetStaticProps } from "next";
 
 export default function ErrorPage() {
-	return <ErrorInformation />;
+  return <ErrorInformation />;
 }
 
 ErrorPage.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common",
-				"forms",
-				"menu",
-				"footer",
-			])),
-		},
-	};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

@@ -20,65 +20,65 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 // All data file
 import {
-	bannerDataOne,
-	bannerDataTwo,
-	homeFiveBanner as banner,
+  bannerDataOne,
+  bannerDataTwo,
+  homeFiveBanner as banner,
 } from "@framework/static/banner";
 import { GetStaticProps } from "next";
 
 export default function Home() {
-	return (
-		<>
-			<ExclusiveBlock className="mb-12 md:mb-14 xl:mb-16 px-2.5 mx-auto max-w-[1920px]" />
-			<Container>
-				<CategoryBlock sectionHeading="text-shop-by-category" />
-				<ProductsFeatured
-					sectionHeading="text-featured-products"
-					variant="center"
-				/>
-			</Container>
-			<BannerBlock data={bannerDataOne} />
-			<Container>
-				<BannerWithProducts
-					sectionHeading="text-on-selling-products"
-					categorySlug="/#"
-				/>
-			</Container>
-			<BannerSliderBlock />
-			<Container>
-				<ProductsFlashSaleBlock date={"2023-03-01T01:02:03"} />
-			</Container>
-			<BannerBlock data={bannerDataTwo} />
-			<Container>
-				<BrandGridBlock sectionHeading="text-top-brands" />
-				<BannerCard
-					banner={banner}
-					href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
-					className="mb-11 md:mb-12 lg:mb-14 2xl:mb-16"
-					effectActive={true}
-				/>
-				<NewArrivalsProductFeed />
-				<DownloadApps />
-				<Support />
-				<Instagram />
-				<Subscription className="bg-opacity-0 px-8 sm:px-16 xl:px-0" />
-			</Container>
-			<Divider className="mb-0" />
-		</>
-	);
+  return (
+    <>
+      <ExclusiveBlock className="mb-12 md:mb-14 xl:mb-16 px-2.5 mx-auto max-w-[1920px]" />
+      <Container>
+        <CategoryBlock sectionHeading="text-shop-by-category" />
+        <ProductsFeatured
+          sectionHeading="text-featured-products"
+          variant="center"
+        />
+      </Container>
+      <BannerBlock data={bannerDataOne} />
+      <Container>
+        <BannerWithProducts
+          sectionHeading="text-on-selling-products"
+          categorySlug="/#"
+        />
+      </Container>
+      <BannerSliderBlock />
+      <Container>
+        <ProductsFlashSaleBlock date={"2023-03-01T01:02:03"} />
+      </Container>
+      <BannerBlock data={bannerDataTwo} />
+      <Container>
+        <BrandGridBlock sectionHeading="text-top-brands" />
+        <BannerCard
+          banner={banner}
+          href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
+          className="mb-11 md:mb-12 lg:mb-14 2xl:mb-16"
+          effectActive={true}
+        />
+        <NewArrivalsProductFeed />
+        <DownloadApps />
+        <Support />
+        <Instagram />
+        <Subscription className="bg-opacity-0 px-8 sm:px-16 xl:px-0" />
+      </Container>
+      <Divider className="mb-0" />
+    </>
+  );
 }
 
 Home.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common",
-				"forms",
-				"menu",
-				"footer",
-			])),
-		},
-	};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

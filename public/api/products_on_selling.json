@@ -21,7 +21,7 @@
         "original": "/assets/images/products/p-11-2.png"
       }
     ],
-    "price": 20.00,
+    "price": 20.0,
     "sale_price": 17.99,
     "variations": [
       {
@@ -125,7 +125,7 @@
       }
     ],
     "price": 99.99,
-    "sale_price": 45.00,
+    "sale_price": 45.0,
     "variations": [
       {
         "id": 1,
@@ -330,8 +330,8 @@
         "original": "/assets/images/products/p-15-2.png"
       }
     ],
-    "price": 16.00,
-    "sale_price": 12.00,
+    "price": 16.0,
+    "sale_price": 12.0,
     "variations": [
       {
         "id": 1,
@@ -537,7 +537,7 @@
       }
     ],
     "price": "",
-    "sale_price": 15.00,
+    "sale_price": 15.0,
     "variations": [
       {
         "id": 1,
@@ -639,8 +639,8 @@
         "original": "/assets/images/products/p-27-2.png"
       }
     ],
-    "price": 25.00,
-    "sale_price": 20.00,
+    "price": 25.0,
+    "sale_price": 20.0,
     "variations": [
       {
         "id": 1,
@@ -742,8 +742,8 @@
         "original": "/assets/images/products/p-16-2.png"
       }
     ],
-    "price": 80.00,
-    "sale_price": 60.00,
+    "price": 80.0,
+    "sale_price": 60.0,
     "variations": [
       {
         "id": 1,
@@ -845,8 +845,8 @@
         "original": "/assets/images/products/p-26-2.png"
       }
     ],
-    "price": 120.00,
-    "sale_price": 80.00,
+    "price": 120.0,
+    "sale_price": 80.0,
     "variations": [
       {
         "id": 1,

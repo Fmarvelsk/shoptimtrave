@@ -22,64 +22,64 @@ import { homeFourBanner as banner } from "@framework/static/banner";
 import { GetStaticProps } from "next";
 
 export default function Home() {
-	return (
-		<>
-			<Container>
-				<HeroWithCategoryFlash />
-			</Container>
-			<BannerSliderBlock />
-			<Container>
-				<CategoryBlock sectionHeading="text-shop-by-category" />
-				<BannerWithProducts
-					sectionHeading="text-on-selling-products"
-					categorySlug="/search"
-					variant="reverse"
-				/>
-				<BannerCard
-					banner={banner[0]}
-					href={`${ROUTES.COLLECTIONS}/${banner[0].slug}`}
-					className="mb-11 md:mb-12 lg:mb-14 2xl:mb-16"
-				/>
-				<ProductsFeatured
-					sectionHeading="text-featured-products"
-					variant="center"
-				/>
-				<BannerCard
-					banner={banner[1]}
-					href={`${ROUTES.COLLECTIONS}/${banner[1].slug}`}
-					className="mb-11 md:mb-12 lg:mb-14 2xl:mb-16"
-				/>
-				<ProductsFlashSaleBlock date={"2023-03-01T01:02:03"} />
-				<BrandBlock sectionHeading="text-top-brands" />
-				<ExclusiveBlock />
-				<NewArrivalsProductFeed />
-				<BannerCard
-					banner={banner[2]}
-					href={`${ROUTES.COLLECTIONS}/${banner[2].slug}`}
-					className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
-				/>
-				<CategoryGridBlock sectionHeading="text-featured-categories" />
-				<DownloadApps />
-				<Support />
-				<Instagram />
-				<Subscription className="bg-opacity-0 px-5 sm:px-16 xl:px-0 py-12 md:py-14 xl:py-16" />
-			</Container>
-			<Divider className="mb-0" />
-		</>
-	);
+  return (
+    <>
+      <Container>
+        <HeroWithCategoryFlash />
+      </Container>
+      <BannerSliderBlock />
+      <Container>
+        <CategoryBlock sectionHeading="text-shop-by-category" />
+        <BannerWithProducts
+          sectionHeading="text-on-selling-products"
+          categorySlug="/search"
+          variant="reverse"
+        />
+        <BannerCard
+          banner={banner[0]}
+          href={`${ROUTES.COLLECTIONS}/${banner[0].slug}`}
+          className="mb-11 md:mb-12 lg:mb-14 2xl:mb-16"
+        />
+        <ProductsFeatured
+          sectionHeading="text-featured-products"
+          variant="center"
+        />
+        <BannerCard
+          banner={banner[1]}
+          href={`${ROUTES.COLLECTIONS}/${banner[1].slug}`}
+          className="mb-11 md:mb-12 lg:mb-14 2xl:mb-16"
+        />
+        <ProductsFlashSaleBlock date={"2023-03-01T01:02:03"} />
+        <BrandBlock sectionHeading="text-top-brands" />
+        <ExclusiveBlock />
+        <NewArrivalsProductFeed />
+        <BannerCard
+          banner={banner[2]}
+          href={`${ROUTES.COLLECTIONS}/${banner[2].slug}`}
+          className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
+        />
+        <CategoryGridBlock sectionHeading="text-featured-categories" />
+        <DownloadApps />
+        <Support />
+        <Instagram />
+        <Subscription className="bg-opacity-0 px-5 sm:px-16 xl:px-0 py-12 md:py-14 xl:py-16" />
+      </Container>
+      <Divider className="mb-0" />
+    </>
+  );
 }
 
 Home.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common",
-				"forms",
-				"menu",
-				"footer",
-			])),
-		},
-	};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

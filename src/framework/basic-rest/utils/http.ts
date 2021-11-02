@@ -1,3 +1,7 @@
+export const graphqlHttp = {
+  baseUrl: process.env.NEXT_PUBLIC_GQL,
+};
+
 import axios from "axios";
 import { getToken } from "./get-token";
 

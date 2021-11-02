@@ -1,1 +1,1 @@
-// no queries and mutations on brand 
+// no queries and mutations on brand

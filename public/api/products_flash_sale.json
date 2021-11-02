@@ -22,88 +22,88 @@
           "original": "/assets/images/products/p-29-2.png"
         }
       ],
-      "price": 120.00,
-      "sale_price": 80.00,
+      "price": 120.0,
+      "sale_price": 80.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 2,
@@ -127,88 +127,88 @@
           "original": "/assets/images/products/p-27-2.png"
         }
       ],
-      "price": 25.00,
-      "sale_price": 20.00,
+      "price": 25.0,
+      "sale_price": 20.0,
       "quantity": 267,
       "sold": 120,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 3,
@@ -232,88 +232,88 @@
           "original": "/assets/images/products/p-24-2.png"
         }
       ],
-      "price": 80.00,
-      "sale_price": 50.00,
+      "price": 80.0,
+      "sale_price": 50.0,
       "quantity": 267,
       "sold": 120,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     }
   ],
   "productFlashSellGrid": [
@@ -339,88 +339,88 @@
           "original": "/assets/images/products/p-25-2.png"
         }
       ],
-      "price": 35.00,
-      "sale_price": 20.00,
+      "price": 35.0,
+      "sale_price": 20.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 2,
@@ -445,87 +445,87 @@
         }
       ],
       "price": 99.99,
-      "sale_price": 45.00,
+      "sale_price": 45.0,
       "quantity": 267,
       "sold": 120,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     }
   ],
   "productFlashSellGridOne": [
@@ -551,88 +551,88 @@
           "original": "/assets/images/products/p-16-2.png"
         }
       ],
-      "price": 80.00,
-      "sale_price": 60.00,
+      "price": 80.0,
+      "sale_price": 60.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 2,
@@ -656,88 +656,88 @@
           "original": "/assets/images/products/p-15-2.png"
         }
       ],
-      "price": 16.00,
-      "sale_price": 12.00,
+      "price": 16.0,
+      "sale_price": 12.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     }
   ],
   "productFlashSellGridTwo": [
@@ -764,87 +764,87 @@
         }
       ],
       "price": 99.99,
-      "sale_price": 45.00,
+      "sale_price": 45.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 2,
@@ -868,88 +868,88 @@
           "original": "/assets/images/products/p-16-2.png"
         }
       ],
-      "price": 16.00,
-      "sale_price": 12.00,
+      "price": 16.0,
+      "sale_price": 12.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 3,
@@ -974,87 +974,87 @@
         }
       ],
       "price": "16.38",
-      "sale_price": 50.00,
+      "sale_price": 50.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 4,
@@ -1078,88 +1078,88 @@
           "original": "/assets/images/products/p-25-2.png"
         }
       ],
-      "price": 18.00,
-      "sale_price": 15.00,
+      "price": 18.0,
+      "sale_price": 15.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 5,
@@ -1184,87 +1184,87 @@
         }
       ],
       "price": "",
-      "sale_price": 600.00,
+      "sale_price": 600.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 6,
@@ -1289,87 +1289,87 @@
         }
       ],
       "price": "",
-      "sale_price": 15.00,
+      "sale_price": 15.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 7,
@@ -1393,88 +1393,88 @@
           "original": "/assets/images/products/p-27-2.png"
         }
       ],
-      "price": 35.00,
-      "sale_price": 20.00,
+      "price": 35.0,
+      "sale_price": 20.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 8,
@@ -1503,83 +1503,83 @@
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 9,
@@ -1603,88 +1603,88 @@
           "original": "/assets/images/products/p-24-2.png"
         }
       ],
-      "price": 80.00,
-      "sale_price": 50.00,
+      "price": 80.0,
+      "sale_price": 50.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     },
     {
       "id": 10,
@@ -1708,88 +1708,88 @@
           "original": "/assets/images/products/p-12-2.png"
         }
       ],
-      "price": 25.00,
-      "sale_price": 20.00,
+      "price": 25.0,
+      "sale_price": 20.0,
       "quantity": 320,
       "sold": 180,
       "variations": [
-      {
-        "id": 1,
-        "value": "S",
-        "attribute": {
+        {
           "id": 1,
-          "name": "Size",
-          "slug": "size"
+          "value": "S",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 2,
+          "value": "M",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 3,
+          "value": "L",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 4,
+          "value": "XL",
+          "attribute": {
+            "id": 1,
+            "name": "Size",
+            "slug": "size"
+          }
+        },
+        {
+          "id": 5,
+          "value": "Orange",
+          "meta": "#e86c25",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 6,
+          "value": "Pink",
+          "meta": "#ffa5b4",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 7,
+          "value": "Purple",
+          "meta": "#8224e3",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
+        },
+        {
+          "id": 8,
+          "value": "Red",
+          "meta": "#dd3333",
+          "attribute": {
+            "id": 1,
+            "name": "Color",
+            "slug": "color"
+          }
         }
-      },
-      {
-        "id": 2,
-        "value": "M",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 3,
-        "value": "L",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 4,
-        "value": "XL",
-        "attribute": {
-          "id": 1,
-          "name": "Size",
-          "slug": "size"
-        }
-      },
-      {
-        "id": 5,
-        "value": "Orange",
-        "meta": "#e86c25",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 6,
-        "value": "Pink",
-        "meta": "#ffa5b4",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 7,
-        "value": "Purple",
-        "meta": "#8224e3",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      },
-      {
-        "id": 8,
-        "value": "Red",
-        "meta": "#dd3333",
-        "attribute": {
-          "id": 1,
-          "name": "Color",
-          "slug": "color"
-        }
-      }
-    ]
+      ]
     }
   ]
 }

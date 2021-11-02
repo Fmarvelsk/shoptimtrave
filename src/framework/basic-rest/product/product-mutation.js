@@ -1,8 +1,11 @@
 import { gql } from "@apollo/client";
+import { useQuery } from "react-query";
+import { GraphQLClient, request } from "graphql-request";
+import { graphqlHttp } from "@framework/utils/http";
 
 // stock supposed to be Int! but the doc only accepts Float!
 // prices is supposed to Float! but it's Int! on documentation
-export const CREATEPRODUCTQUERY = gql`
+const CREATEPRODUCTQUERY = gql`
   mutation ProductMutation(
     $name: String!
     $description: String!
@@ -37,8 +40,77 @@ export const CREATEPRODUCTQUERY = gql`
   }
 `;
 
-export const DELETEPRODUCTMUTATION = gql`
+const DELETEPRODUCTMUTATION = gql`
   mutation DeleteProduct($id: String!) {
     deleteProduct(id: $id)
   }
 `;
+
+const MAKEPAYMENT = gql`
+  mutation makePayment($items: [ItemInput!]!) {
+    makePayment(data: { items: $items })
+  }
+`;
+
+const SENDORDEREDPRODUCT = gql`
+  mutation createOrder(
+    $fName: String!
+    $lName: String!
+    $address: String!
+    $phoneNo: String!
+    $email: String!
+    $city: String!
+    $postcode: String!
+    $items: [ProductsInput!]!
+  ) {
+    createOrder(
+      data: {
+        fName: $fName
+        lName: $lName
+        address: $address
+        phoneNo: $phoneNo
+        email: $email
+        city: $city
+        postcode: $postcode
+        items: $items
+      }
+    ) {
+      id
+      fName
+      email
+    }
+  }
+`;
+
+export const usePaymentMutation = async (variables, config = {}) => {
+  const endpoint = graphqlHttp.baseUrl;
+  const headers = {
+    headers: {
+      authorization: `Bearer token goes here`,
+    },
+  };
+
+  const graphQLClient = new GraphQLClient(endpoint, headers);
+
+  let vard = {
+    items: variables,
+  };
+
+  let result = await graphQLClient.request(MAKEPAYMENT, vard);
+  return Promise.resolve(result);
+  //fetchData()
+};
+
+export const usePushOrderedItem = async (variables, config = {}) => {
+  const endpoint = graphqlHttp.baseUrl;
+  const headers = {
+    headers: {
+      authorization: `Bearer token goes here`,
+    },
+  };
+
+  const graphQLClient = new GraphQLClient(endpoint, headers);
+
+  let result = await graphQLClient.request(SENDORDEREDPRODUCT, variables);
+  return Promise.resolve(result);
+};

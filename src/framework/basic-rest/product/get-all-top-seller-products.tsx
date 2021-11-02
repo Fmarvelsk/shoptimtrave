@@ -4,13 +4,13 @@ import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import { useQuery } from "react-query";
 
 export const fetchTopSellerProducts = async ({ queryKey }: any) => {
-	const [_key, _params] = queryKey;
-	const { data } = await http.get(API_ENDPOINTS.TOP_SELLER_PRODUCTS);
-	return data;
+  const [_key, _params] = queryKey;
+  const { data } = await http.get(API_ENDPOINTS.TOP_SELLER_PRODUCTS);
+  return data;
 };
 export const useTopSellerProductsQuery = (options: QueryOptionsType) => {
-	return useQuery<Product[], Error>(
-		[API_ENDPOINTS.TOP_SELLER_PRODUCTS, options],
-		fetchTopSellerProducts
-	);
+  return useQuery<Product[], Error>(
+    [API_ENDPOINTS.TOP_SELLER_PRODUCTS, options],
+    fetchTopSellerProducts
+  );
 };

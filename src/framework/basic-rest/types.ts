@@ -21,17 +21,17 @@ export type ProductsQueryOptionsType = {
   limit?: number;
 };
 export type AllProduct = {
-    id: string | number
-    name: string;
-    description: string;
-    colours: string;
-    sizes: string;
-    stock?: number;
-    price: number;
-    sale_price?: number;
-    category?: string;
-    image?: string   
-}
+  id: string | number;
+  name: string;
+  description: string;
+  colours: string;
+  sizes: string;
+  stock?: number;
+  price: number;
+  sale_price?: number;
+  category?: string;
+  image?: string;
+};
 
 export type QueryOptionsType = {
   text?: string;

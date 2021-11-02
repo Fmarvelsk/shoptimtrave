@@ -1,53 +1,44 @@
 import ProductCard from "@components/product/product-card";
-import Button from "@components/ui/button";
+//import Button from "@components/ui/button";
 import type { FC } from "react";
-import { useProductsQuery } from "@framework/product/get-all-products";
-import { useRouter } from "next/router";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
-import { useTranslation } from "next-i18next";
-import { useGQLQuery } from "@framework/product/product-queries";
 interface ProductGridProps {
-	className?: string;
+  className?: string;
+  slug?: any;
+  isLoading: boolean;
+  data: [];
+  error: unknown;
 }
 
-export const ProductGrid: FC<ProductGridProps> = ({ className = "" }) => {
-	const { query } = useRouter();
-	const {
-		data,
-		isFetching: isLoading,
-		error
-	} = useGQLQuery('allproduct', {
-		code: 'SE'
-	})
+export const ProductGrid: FC<ProductGridProps> = ({
+  className = "",
+  isLoading,
+  data,
+  error,
+}) => {
+  if (error) return <p>Error something went wrong</p>;
 
-	const {
-		isFetchingNextPage: loadingMore,
-		fetchNextPage,
-		hasNextPage
-	} = useProductsQuery({ limit: 10, ...query });
-	if (error) return <p>Error something went wrong</p>;
-
-	const { t } = useTranslation("common");
-	return (
-		<>
-			<div
-				className={`grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ${className}`}
-			>
-				{isLoading && !data?.returnAllProduct?.length ? (
-					<ProductFeedLoader limit={20} uniqueKey="search-product" />
-				) : (
-					data?.returnAllProduct?.map((product: any) => (
-						<ProductCard
-							key={`product--key${product.id}`}
-							product={product}
-							variant="grid"
-						/>
-					)
-				)
-				)}
-			</div>
-			<div className="text-center pt-8 xl:pt-14">
-				{hasNextPage && (
+  //	const { t } = useTranslation("common");
+  return (
+    <>
+      <div
+        className={`grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ${className}`}
+      >
+        {isLoading && !data?.length ? (
+          <ProductFeedLoader limit={20} uniqueKey="search-product" />
+        ) : (
+          data?.map((product: any) => (
+            <ProductCard
+              key={`product--key${product.id}`}
+              product={product}
+              variant="grid"
+            />
+          ))
+        )}
+        {data?.length < 1 && <div> No Product Fot these Categories</div>}
+      </div>
+      <div className="text-center pt-8 xl:pt-14">
+        {/*hasNextPage && (
 					<Button
 						loading={loadingMore}
 						disabled={loadingMore}
@@ -56,8 +47,8 @@ export const ProductGrid: FC<ProductGridProps> = ({ className = "" }) => {
 					>
 						{t("button-load-more")}
 					</Button>
-				)}
-			</div>
-		</>
-	);
+				)*/}
+      </div>
+    </>
+  );
 };

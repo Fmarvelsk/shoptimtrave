@@ -17,64 +17,64 @@ export const homeOneBanner = {
 };
 
 export const homeOneHeroBanner = [
-	{
-		id: 1,
-		title: "winter collection",
-		slug: "winter-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/hero/banner-mobile-1.jpg",
-				width: 480,
-				height: 275,
-			},
-			desktop: {
-				url: "/assets/images/hero/banner-1.jpg",
-				width: 1800,
-				height: 800,
-			},
-		},
-	},
-	{
-		id: 2,
-		title: "gift collection",
-		slug: "gift-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/hero/banner-mobile-2.jpg",
-				width: 480,
-				height: 275,
-			},
-			desktop: {
-				url: "/assets/images/hero/banner-2.jpg",
-				width: 1800,
-				height: 800,
-			},
-		},
-	},
-	{
-		id: 3,
-		title: "party collection",
-		slug: "party-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/hero/banner-mobile-3.jpg",
-				width: 480,
-				height: 275,
-			},
-			desktop: {
-				url: "/assets/images/hero/banner-3.jpg",
-				width: 1800,
-				height: 800,
-			},
-		},
-	},
+  {
+    id: 1,
+    title: "winter collection",
+    slug: "winter-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/hero/banner-mobile-1.jpg",
+        width: 480,
+        height: 275,
+      },
+      desktop: {
+        url: "/assets/images/hero/banner-1.jpg",
+        width: 1800,
+        height: 800,
+      },
+    },
+  },
+  {
+    id: 2,
+    title: "gift collection",
+    slug: "gift-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/hero/banner-mobile-2.jpg",
+        width: 480,
+        height: 275,
+      },
+      desktop: {
+        url: "/assets/images/hero/banner-2.jpg",
+        width: 1800,
+        height: 800,
+      },
+    },
+  },
+  {
+    id: 3,
+    title: "party collection",
+    slug: "party-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/hero/banner-mobile-3.jpg",
+        width: 480,
+        height: 275,
+      },
+      desktop: {
+        url: "/assets/images/hero/banner-3.jpg",
+        width: 1800,
+        height: 800,
+      },
+    },
+  },
 ];
 
 export const homeTwoHeroBanner = [
   {
     id: 1,
     title: "winter collection",
-		slug: "winter-collection",
+    slug: "winter-collection",
     image: {
       mobile: {
         url: "/assets/images/hero/two/banner-mobile-1.jpg",
@@ -91,7 +91,7 @@ export const homeTwoHeroBanner = [
   {
     id: 2,
     title: "gift collection",
-		slug: "gift-collection",
+    slug: "gift-collection",
     image: {
       mobile: {
         url: "/assets/images/hero/two/banner-mobile-2.jpg",
@@ -108,7 +108,7 @@ export const homeTwoHeroBanner = [
   {
     id: 3,
     title: "party collection",
-		slug: "party-collection",
+    slug: "party-collection",
     image: {
       mobile: {
         url: "/assets/images/hero/two/banner-mobile-3.jpg",
@@ -167,7 +167,7 @@ export const homeThreeMasonryBanner = [
     slug: "beauty",
     image: {
       mobile: {
-        url: "/assets/images/banner/masonry/banner-mobile-1.jpg",
+        url: "/assets/images/banner/masonry/banner-1.jpg",
         width: 234,
         height: 234,
       },
@@ -175,7 +175,7 @@ export const homeThreeMasonryBanner = [
         url: "/assets/images/banner/masonry/banner-1.jpg",
         width: 600,
         height: 600,
-     },
+      },
     },
   },
   {
@@ -184,7 +184,7 @@ export const homeThreeMasonryBanner = [
     slug: "clothing",
     image: {
       mobile: {
-        url: "/assets/images/banner/masonry/banner-mobile-2.jpg",
+        url: "/assets/images/banner/masonry/banner-2.jpg",
         width: 500,
         height: 500,
       },
@@ -201,7 +201,7 @@ export const homeThreeMasonryBanner = [
     slug: "media",
     image: {
       mobile: {
-        url: "/assets/images/banner/masonry/banner-mobile-3.jpg",
+        url: "/assets/images/banner/masonry/banner-3.jpg",
         width: 232,
         height: 232,
       },
@@ -212,174 +212,174 @@ export const homeThreeMasonryBanner = [
       },
     },
   },
-  ];
+];
 
 export const bannerGrid = [
-	{
-		id: 1,
-		title: "Women T-Shirts Collection",
-		slug: "t-shirts-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/grid/banner-mobile-1.jpg",
-				width: 450,
-				height: 140,
-			},
-			desktop: {
-				url: "/assets/images/banner/grid/banner-1.jpg",
-				width: 885,
-				height: 430,
-			},
-		},
-		type: "small",
-	},
-	{
-		id: 2,
-		title: "Women Jins Collection",
-		slug: "jins-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/grid/banner-mobile-2.jpg",
-				width: 450,
-				height: 140,
-			},
-			desktop: {
-				url: "/assets/images/banner/grid/banner-2.jpg",
-				width: 885,
-				height: 430,
-			},
-		},
-		type: "small",
-	},
-	{
-		id: 3,
-		title: "New Backpack",
-		slug: "new-backpack",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/grid/banner-mobile-3.jpg",
-				width: 450,
-				height: 140,
-			},
-			desktop: {
-				url: "/assets/images/banner/grid/banner-3.jpg",
-				width: 1800,
-				height: 430,
-			},
-		},
-		type: "large",
-	},
+  {
+    id: 1,
+    title: "Women T-Shirts Collection",
+    slug: "t-shirts-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/grid/banner-mobile-1.jpg",
+        width: 450,
+        height: 140,
+      },
+      desktop: {
+        url: "/assets/images/banner/grid/banner-1.jpg",
+        width: 885,
+        height: 430,
+      },
+    },
+    type: "small",
+  },
+  {
+    id: 2,
+    title: "Women Jins Collection",
+    slug: "jins-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/grid/banner-mobile-2.jpg",
+        width: 450,
+        height: 140,
+      },
+      desktop: {
+        url: "/assets/images/banner/grid/banner-2.jpg",
+        width: 885,
+        height: 430,
+      },
+    },
+    type: "small",
+  },
+  {
+    id: 3,
+    title: "New Backpack",
+    slug: "new-backpack",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/grid/banner-mobile-3.jpg",
+        width: 450,
+        height: 140,
+      },
+      desktop: {
+        url: "/assets/images/banner/grid/banner-3.jpg",
+        width: 1800,
+        height: 430,
+      },
+    },
+    type: "large",
+  },
 ];
 
 export const promotionBanner = [
-	{
-		id: 1,
-		title: "Travel Baggage",
-		slug: "travel-baggage",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/slider/mobile/banner-1.jpg",
-				width: 450,
-				height: 180,
-			},
-			desktop: {
-				url: "/assets/images/banner/slider/banner-1.jpg",
-				width: 1440,
-				height: 570,
-			},
-		},
-		type: "small",
-	},
-	{
-		id: 2,
-		title: "Women's Collection",
-		slug: "women's-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/slider/mobile/banner-2.jpg",
-				width: 450,
-				height: 180,
-			},
-			desktop: {
-				url: "/assets/images/banner/slider/banner-2.jpg",
-				width: 1440,
-				height: 570,
-			},
-		},
-		type: "small",
-	},
-	{
-		id: 3,
-		title: "Winter Collection",
-		slug: "winter-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/slider/mobile/banner-3.jpg",
-				width: 450,
-				height: 180,
-			},
-			desktop: {
-				url: "/assets/images/banner/slider/banner-3.jpg",
-				width: 1440,
-				height: 570,
-			},
-		},
-		type: "large",
-	},
+  {
+    id: 1,
+    title: "Travel Baggage",
+    slug: "travel-baggage",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/slider/mobile/banner-1.jpg",
+        width: 450,
+        height: 180,
+      },
+      desktop: {
+        url: "/assets/images/banner/slider/banner-1.jpg",
+        width: 1440,
+        height: 570,
+      },
+    },
+    type: "small",
+  },
+  {
+    id: 2,
+    title: "Women's Collection",
+    slug: "women's-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/slider/mobile/banner-2.jpg",
+        width: 450,
+        height: 180,
+      },
+      desktop: {
+        url: "/assets/images/banner/slider/banner-2.jpg",
+        width: 1440,
+        height: 570,
+      },
+    },
+    type: "small",
+  },
+  {
+    id: 3,
+    title: "Winter Collection",
+    slug: "winter-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/slider/mobile/banner-3.jpg",
+        width: 450,
+        height: 180,
+      },
+      desktop: {
+        url: "/assets/images/banner/slider/banner-3.jpg",
+        width: 1440,
+        height: 570,
+      },
+    },
+    type: "large",
+  },
 ];
 
 export const promotionBannerTwo = [
-	{
-		id: 1,
-		title: "Men's Collection",
-		slug: "men's-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/small/banner-mobile-1.jpg",
-				width: 450,
-				height: 150,
-			},
-			desktop: {
-				url: "/assets/images/banner/small/banner-1.jpg",
-				width: 580,
-				height: 360,
-			},
-		},
-	},
-	{
-		id: 2,
-		title: "Women's Collection",
-		slug: "women's-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/small/banner-mobile-2.jpg",
-				width: 450,
-				height: 150,
-			},
-			desktop: {
-				url: "/assets/images/banner/small/banner-2.jpg",
-				width: 580,
-				height: 360,
-			},
-		},
-	},
-	{
-		id: 3,
-		title: "Kid's Collection",
-		slug: "kid's-collection",
-		image: {
-			mobile: {
-				url: "/assets/images/banner/small/banner-mobile-3.jpg",
-				width: 450,
-				height: 150,
-			},
-			desktop: {
-				url: "/assets/images/banner/small/banner-3.jpg",
-				width: 580,
-				height: 360,
-			},
-		},
-	},
+  {
+    id: 1,
+    title: "Men's Collection",
+    slug: "men's-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/small/banner-mobile-1.jpg",
+        width: 450,
+        height: 150,
+      },
+      desktop: {
+        url: "/assets/images/banner/small/banner-1.jpg",
+        width: 580,
+        height: 360,
+      },
+    },
+  },
+  {
+    id: 2,
+    title: "Women's Collection",
+    slug: "women's-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/small/banner-mobile-2.jpg",
+        width: 450,
+        height: 150,
+      },
+      desktop: {
+        url: "/assets/images/banner/small/banner-2.jpg",
+        width: 580,
+        height: 360,
+      },
+    },
+  },
+  {
+    id: 3,
+    title: "Kid's Collection",
+    slug: "kid's-collection",
+    image: {
+      mobile: {
+        url: "/assets/images/banner/small/banner-mobile-3.jpg",
+        width: 450,
+        height: 150,
+      },
+      desktop: {
+        url: "/assets/images/banner/small/banner-3.jpg",
+        width: 580,
+        height: 360,
+      },
+    },
+  },
 ];
 
 export const bannerDataOne = [

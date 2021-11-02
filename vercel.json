@@ -1,6 +1,6 @@
 {
   "env": {
-    "NEXT_PUBLIC_REST_API_ENDPOINT": "Put your api endpoint here" 
+    "NEXT_PUBLIC_REST_API_ENDPOINT": "Put your api endpoint here"
   },
   "build": {
     "env": {

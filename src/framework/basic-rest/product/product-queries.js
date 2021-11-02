@@ -1,9 +1,7 @@
-/*import { gql } from "@apollo/client";
+import { gql } from "@apollo/client";
 import { useInfiniteQuery, useQuery } from "react-query";
-import { GraphQLClient, request } from 'graphql-request'*/
-const { useQuery } = require('react-query')
-const { gql } = require('@apollo/client')
-const {GraphQLClient, request} = require('graphql-request')
+import { GraphQLClient, request } from "graphql-request";
+import { graphqlHttp } from "@framework/utils/http";
 
 const SINGLEPRODUCTQUERY = gql`
   query ($id: String!) {
@@ -30,7 +28,7 @@ const SINGLEPRODUCTQUERY = gql`
   }
 `;
 
- const ALLPRODUCTQUERY = gql`
+const ALLPRODUCTQUERY = gql`
   query {
     returnAllProduct {
       id
@@ -41,32 +39,56 @@ const SINGLEPRODUCTQUERY = gql`
       sizes
       sale_price
       image
-      }
+    }
   }
 `;
 
- const TEST = gql`
-query {
-  countries {
-    code
-    name
-  }
-}
-`
-export const useGQLQuery = (key, query, variables, config = {}) => {
-  const endpoint = 'https://time-travellers-api.herokuapp.com/graphql';
-  const headers = {
-    headers: {
-      authorization: `Bearer token goes here`
+const GETBYCATEGORY = gql`
+  query ($category: String!) {
+    returnProductsByCategory(category: $category) {
+      id
+      name
+      description
+      colours
+      price
+      sizes
+      sale_price
+      image
     }
   }
+`;
+
+export const useGQLQuery = (key, query, variables, config = {}) => {
+  const endpoint = graphqlHttp.baseUrl;
+  const headers = {
+    headers: {
+      authorization: `Bearer token goes here`,
+    },
+  };
 
   const graphQLClient = new GraphQLClient(endpoint, headers);
 
   const fetchData = async () => {
-   let result = await graphQLClient.request(ALLPRODUCTQUERY, variables);
-    return result
-  }
+    let result = await graphQLClient.request(ALLPRODUCTQUERY, variables);
+    return result;
+  };
   //fetchData()
+  return useQuery(key, fetchData, config);
+};
+
+export const useGetByCategory = (key, query, variables, config = {}) => {
+  const endpoint = graphqlHttp.baseUrl;
+  const headers = {
+    headers: {
+      authorization: `Bearer token goes here`,
+    },
+  };
+
+  const graphQLClient = new GraphQLClient(endpoint, headers);
+
+  const fetchData = async () => {
+    let result = await graphQLClient.request(GETBYCATEGORY, variables);
+    return result;
+  };
   return useQuery(key, fetchData, config);
 };

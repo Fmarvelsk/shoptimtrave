@@ -10,6 +10,7 @@ interface CartProviderState extends State {
   clearItemFromCart: (id: Item["id"]) => void;
   getItemFromCart: (id: Item["id"]) => any | undefined;
   isInCart: (id: Item["id"]) => boolean;
+  resetCart: () => void;
   // updateCartMetadata: (metadata: Metadata) => void;
 }
 export const cartContext = React.createContext<CartProviderState | undefined>(
@@ -49,6 +50,8 @@ export const CartProvider: React.FC = (props) => {
   const isInCart = (id: Item["id"]) => !!getItem(state.items, id);
   const getItemFromCart = (id: Item["id"]) => getItem(state.items, id);
   // const inStock=()=>{}
+  const resetCart = () => dispatch({ type: "RESET_CART" });
+
   const value = React.useMemo(
     () => ({
       ...state,
@@ -57,6 +60,7 @@ export const CartProvider: React.FC = (props) => {
       clearItemFromCart,
       getItemFromCart,
       isInCart,
+      resetCart,
     }),
     [state]
   );

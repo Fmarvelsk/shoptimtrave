@@ -2,7 +2,7 @@ export const termsAndServices = [
   {
     id: "1",
     title: "terms-one-title",
-    description:"terms-one-content",
+    description: "terms-one-content",
   },
   {
     id: "2",
@@ -12,21 +12,21 @@ export const termsAndServices = [
   {
     id: "3",
     title: "terms-three-title",
-    description:"terms-three-content",
+    description: "terms-three-content",
   },
   {
     id: "4",
     title: "terms-four-title",
-    description:"terms-four-content",
+    description: "terms-four-content",
   },
   {
     id: "5",
     title: "terms-five-title",
-    description:"terms-five-content",
+    description: "terms-five-content",
   },
   {
     id: "6",
     title: "terms-six-title",
-    description:"terms-six-content",
+    description: "terms-six-content",
   },
 ];

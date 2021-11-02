@@ -5,24 +5,24 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
 
 export default function AccountDetailsPage() {
-	return (
-		<AccountLayout>
-			<AccountDetails />
-		</AccountLayout>
-	);
+  return (
+    <AccountLayout>
+      <AccountDetails />
+    </AccountLayout>
+  );
 }
 
 AccountDetailsPage.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common",
-				"forms",
-				"menu",
-				"footer",
-			])),
-		},
-	};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

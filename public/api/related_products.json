@@ -21,8 +21,8 @@
         "original": "/assets/images/products/p-20-2.png"
       }
     ],
-    "price": 20.00,
-    "sale_price": 15.00,
+    "price": 20.0,
+    "sale_price": 15.0,
     "variations": [
       {
         "id": 1,
@@ -134,8 +134,8 @@
         "original": "/assets/images/products/p-5-4.png"
       }
     ],
-    "price": 28.00,
-    "sale_price": 20.00,
+    "price": 28.0,
+    "sale_price": 20.0,
     "variations": [
       {
         "id": 1,
@@ -237,8 +237,8 @@
         "original": "/assets/images/products/p-23-2.png"
       }
     ],
-    "price": 30.00,
-    "sale_price": 20.00,
+    "price": 30.0,
+    "sale_price": 20.0,
     "variations": [
       {
         "id": 1,
@@ -351,7 +351,7 @@
       }
     ],
     "price": "",
-    "sale_price": 8.00,
+    "sale_price": 8.0,
     "variations": [
       {
         "id": 1,
