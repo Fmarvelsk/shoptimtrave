@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import isEmpty from "lodash/isEmpty";
 import { ROUTES } from "@utils/routes";
@@ -34,7 +34,7 @@ export default function ProductPopup() {
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { slug, image, name, description } = data;
+  const { slug, sizes, image, name, description } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -57,7 +57,7 @@ export default function ProductPopup() {
 
   function navigateToProductPage() {
     closeModal();
-    router.push(`${ROUTES.PRODUCT}/${slug}`, undefined, {
+    router.push(`${ROUTES.PRODUCT}/${name}`, undefined, {
       locale: router.locale,
     });
   }
@@ -75,7 +75,11 @@ export default function ProductPopup() {
       openCart();
     }, 300);
   }
-
+  useEffect(() => {
+    if(sizes.length === 0 )
+    setIsSelectedSize(true)
+  }, [sizes])
+  
   return (
     <div className="rounded-lg bg-white">
       <div className="flex flex-col lg:flex-row w-full md:w-[650px] lg:w-[960px] mx-auto overflow-hidden">
@@ -125,13 +129,15 @@ export default function ProductPopup() {
 							/>
 						);
 					})*/}
+
+          {sizes.length >= 1 &&
           <ProductAttributes
             title={"sizes"}
             isSelected={setIsSelectedSize}
-            attributes={data.sizes}
+            attributes={sizes}
             active={attributes.sizes}
             onClick={handleAttribute}
-          />
+          /> }
           <ProductAttributes
             title={"colours"}
             isSelected={setIsSelected}

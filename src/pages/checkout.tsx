@@ -9,6 +9,7 @@ import { GetStaticProps } from "next";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { usePublishKey } from "@framework/product/get-publish-key";
+
 export default function CheckoutPage() {
   const { data, isLoading } = usePublishKey("keys");
 

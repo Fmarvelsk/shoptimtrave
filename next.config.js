@@ -12,4 +12,9 @@ module.exports = withPWA({
   },
   target: "experimental-serverless-trace",
   i18n,
+  unstableNetlifyFunctionsSupport: {
+    "pages/collection/[slug].jsx": {
+      includeDirs: ["public"],
+    },
+  }
 });
