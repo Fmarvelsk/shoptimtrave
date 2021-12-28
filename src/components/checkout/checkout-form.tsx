@@ -13,6 +13,8 @@ import {
   usePushOrderedItem,
 } from "@framework/product/product-mutation";
 import { useCart } from "@contexts/cart/cart.context";
+import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
+
 
 interface CheckoutInputType {
   fName: string;
@@ -27,91 +29,131 @@ interface CheckoutInputType {
 
 const CheckoutForm: React.FC = () => {
   const { t } = useTranslation();
-  const { items, isEmpty, resetCart } = useCart();
+  const { items, isEmpty, total, resetCart } = useCart();
   const [isLoading, setLoading] = React.useState<boolean>(false);
+  const [emails, setEmails] = React.useState<string>('')
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<CheckoutInputType>();
+  const [userInput, setUserInput] = React.useState<CheckoutInputType>()
 
-  const stripe = useStripe();
-  const elements = useElements();
 
-  const CARD_ELEMENT_OPTIONS = {
-    style: {
-      base: {
-        color: "#32325d",
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: "antialiased",
-        fontSize: "16px",
-        "::placeholder": {
-          color: "#aab7c4",
-        },
+  /* async function onSubmit(input: CheckoutInputType) {
+     let cardElement;
+     if (!stripe || !elements || isEmpty) {
+       // Stripe.js has not yet loaded.
+       // Make sure to disable form submission until Stripe.js has loaded.
+       return;
+     }
+     setLoading(true);
+ 
+     let variables = items.map((item) => ({
+       quantity: item.quantity,
+       sale_price: item.price,
+     }));
+ 
+     await usePaymentMutation(variables)
+       .then(async (res) => {
+         cardElement = elements.getElement(CardElement);
+ 
+         if (cardElement) {
+           const result = await stripe.confirmCardPayment(`${res.makePayment}`, {
+             payment_method: {
+               card: cardElement,
+               },
+           });
+ 
+           if (result.error) {
+             // Show error to your customer (e.g., insufficient funds)
+             console.log(result.error.message);
+           } else {
+             // The payment has been processed!
+             if (result.paymentIntent.status === "succeeded") {
+               await usePushOrderedItem({
+                 ...input,
+                 items: items.map((item) => ({
+                   name: item.name,
+                   sale_price: item.price,
+                   quantity: item.quantity,
+                   size: item.attributes.sizes || "",
+                   colour: item.attributes.colours,
+                   image: item.image,
+                 })),
+               })
+                 .then(() => {
+                   resetCart();
+                   Router.push(ROUTES.ORDER);
+                 })
+                 .catch((err) => console.log(err));
+             }
+           }
+         }
+       })
+       .catch((err) => console.log(err));
+     setLoading(false);
+   }
+ */
+
+  /*const fwConfig = {
+      ...config,
+      text: 'Pay with Flutterwave!',
+      callback: (response) => {
+         console.log(response);
+        closePaymentModal() // this will close the modal programmatically
       },
-      invalid: {
-        color: "#fa755a",
-        iconColor: "#fa755a",
-      },
+      onClose: () => {},
+    };*/
+console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
+
+  const config = {
+    public_key:  'FLWPUBK-c3e350229bbcc677717fd68709074f8e-X',
+    tx_ref: Date.now(),
+    amount: total,
+    currency: "USD",
+    //payment_options: 'card,mobilemoney,ussd',
+    customer: {
+      email: emails,
+      phonenumber: '09055552275',
+      name: `Timtrave`,
+    },
+    customizations: {
+      title: 'Timtrave',
+      description: 'Payment for items in cart',
+      logo: 'https://chawk-shop.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanner%2Fmasonry%2Fbanner-2.jpg&w=1080&q=100',
     },
   };
 
-  async function onSubmit(input: CheckoutInputType) {
-    let cardElement;
-    if (!stripe || !elements || isEmpty) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
-      return;
-    }
-    setLoading(true);
+  // @ts-ignore: Unreachable code error
+  const handleFlutterPayment = useFlutterwave(config);
 
-    let variables = items.map((item) => ({
-      quantity: item.quantity,
-      sale_price: item.price,
-    }));
+  async function onSubmit() {
+    //await setUserInput(input)
+    handleFlutterPayment({
+      callback: async (response: any) => {
+        console.log(response);
+     /*   await usePushOrderedItem({
+          ...input,
+          items: items.map((item) => ({
+            name: item.name,
+            sale_price: item.price,
+            quantity: item.quantity,
+            size: item.attributes.sizes || "",
+            colour: item.attributes.colours,
+            image: item.image,
+          })),
+        })
+          .then(() => {
+            resetCart();
+            Router.push(ROUTES.ORDER);
+          })
+          .catch((err) => console.log(err));*/
+        closePaymentModal() // this will close the modal programmatically
+      },
+      onClose: () => { },
+    });
 
-    await usePaymentMutation(variables)
-      .then(async (res) => {
-        cardElement = elements.getElement(CardElement);
-
-        if (cardElement) {
-          const result = await stripe.confirmCardPayment(`${res.makePayment}`, {
-            payment_method: {
-              card: cardElement,
-              /*	billing_details: {
-								name: 'Jenny Rosen',
-							},*/
-            },
-          });
-
-          if (result.error) {
-            // Show error to your customer (e.g., insufficient funds)
-            console.log(result.error.message);
-          } else {
-            // The payment has been processed!
-            if (result.paymentIntent.status === "succeeded") {
-              await usePushOrderedItem({
-                ...input,
-                items: items.map((item) => ({
-                  name: item.name,
-                  sale_price: item.price,
-                  quantity: item.quantity,
-                  size: item.attributes.sizes || "",
-                  colour: item.attributes.colours,
-                  image: item.image,
-                })),
-              })
-                .then(() => {
-                  resetCart();
-                  Router.push(ROUTES.ORDER);
-                })
-                .catch((err) => console.log(err));
-            }
-          }
-        }
-      })
-      .catch((err) => console.log(err));
-    setLoading(false);
   }
 
   return (
@@ -165,9 +207,10 @@ const CheckoutForm: React.FC = () => {
               className="w-full lg:w-1/2 "
             />
 
-            <Input
+           {/*<Input
               type="email"
               labelKey="forms:label-email-star"
+              onChange={(e) => setSEmail(e.target.value)}
               {...register("email", {
                 required: "forms:email-required",
                 pattern: {
@@ -179,7 +222,17 @@ const CheckoutForm: React.FC = () => {
               errorKey={errors.email?.message}
               variant="solid"
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
+            />*/}
+            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer" >
+              Email
+              </label>
+            <input type="email" 
+            onChange={(e) => setEmails(e.target.value)}
+            //style={{border : '1px solid black'}}
+            className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body rounded-md placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+       
             />
+
           </div>
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
             <Input
@@ -196,7 +249,7 @@ const CheckoutForm: React.FC = () => {
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
             />
           </div>
-          <div>
+          {/*      <div>
             <label className="block mb-2 text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Card details
             </label>
@@ -204,16 +257,18 @@ const CheckoutForm: React.FC = () => {
               options={CARD_ELEMENT_OPTIONS}
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
             />
-          </div>
-
-          <div className="relative flex items-center ">
+    </div>
+         <div className="relative flex items-center ">
             <CheckBox labelKey="forms:label-save-information" />
           </div>
+     
+    */}
+
           <div className="flex w-full">
             <Button
               className="w-full sm:w-auto"
               loading={isLoading}
-              disabled={isLoading || !stripe}
+              disabled={isLoading}
             >
               {t("common:button-place-order")}
             </Button>

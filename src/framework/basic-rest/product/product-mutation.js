@@ -5,6 +5,7 @@ import { graphqlHttp } from "@framework/utils/http";
 
 // stock supposed to be Int! but the doc only accepts Float!
 // prices is supposed to Float! but it's Int! on documentation
+
 const CREATEPRODUCTQUERY = gql`
   mutation ProductMutation(
     $name: String!

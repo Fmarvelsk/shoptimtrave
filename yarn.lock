@@ -2346,6 +2346,13 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
+flutterwave-react-v3@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/flutterwave-react-v3/-/flutterwave-react-v3-1.2.0.tgz#84d6faf1370fdb575bf5e33a50b5361b8fa74c4c"
+  integrity sha512-BcEoQTSu8F8OSuX1efE7neB+GNOwpfFs93DV1J+n9sogePeSwEJlMpVlzWeR2MnvLfoI49AesqOKPyspUzzgTw==
+  dependencies:
+    axios "^0.21.1"
+
 follow-redirects@^1.10.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
