@@ -1,6 +1,5 @@
 import Link from "@components/ui/link";
 import SearchIcon from "@components/icons/search-icon";
-//import UserIcon from "@components/icons/user-icon";
 import HomeIcon from "@components/icons/home-icon";
 import { useUI } from "@contexts/ui.context";
 import dynamic from "next/dynamic";
@@ -10,10 +9,6 @@ const CartButton = dynamic(() => import("@components/cart/cart-button"), {
 
 const BottomNavigation: React.FC = () => {
   const {
-    openSidebar,
-    closeSidebar,
-    displaySidebar,
-    setDrawerView,
     openSearch,
   } = useUI();
 
