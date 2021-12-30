@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import cn from "classnames";
 interface Props {
   className?: string;
@@ -16,6 +17,10 @@ export const ProductAttributes: React.FC<Props> = ({
   onClick,
   isSelected,
 }) => {
+
+    // @ts-ignore: Unreachable code error
+  const [show, setShow] = useState(false);
+
   return (
     <div className={className}>
       <h3 className="text-base md:text-lg text-heading font-semibold mb-2.5 capitalize">
@@ -32,33 +37,14 @@ export const ProductAttributes: React.FC<Props> = ({
               isSelected(true);
               onClick({ [title]: value });
             }}
+            onMouseOver={() => setShow(true)}
+            onMouseLeave={() => setShow(false)}
           >
             {title === "colours" ? (
               <span
                 className="h-full w-full rounded block"
                 style={{
-                  backgroundColor:
-                    value === "Purple"
-                      ? "#8224e3"
-                      : value === "Pink"
-                      ? "#ffa5b4"
-                      : value === "Orange"
-                      ? "#e86c25"
-                      : value === "Green"
-                      ? "#008000"
-                      : value === "Brown"
-                      ? "#A52A2A"
-                      : value === "Red"
-                      ? "#dd3333"
-                      : value === "Black"
-                      ? "#000000"
-                      : value === "Navy Blue" || value === "Blue"
-                      ? "#0066CC"
-                      : value === "Yellow"
-                      ? "#FFFF00"
-                      : value === "Gray" || value === "Grey"
-                      ? "#808080"
-                      : "#ffffff",
+                  backgroundColor: value,
                 }}
               />
             ) : (

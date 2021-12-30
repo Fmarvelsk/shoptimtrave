@@ -9,7 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 import CollectionTopBar from "@components/collection/collection-top-bar";
-import { CollectionFilters } from "@components/collection/collection-filters";
+//import { CollectionFilters } from "@components/collection/collection-filters";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useGetByCategory } from "@framework/product/product-queries";
@@ -50,12 +50,12 @@ export default function Shop() {
                   </ActiveLink>
                 </BreadcrumbItems>
               </div>
-              <CollectionFilters />
+           
             </StickyBox>
           </div>
 
           <div className="w-full lg:-ms-9">
-            <CollectionTopBar />
+            <CollectionTopBar total={data?.returnProductsByCategory?.length} />
             <ProductGrid
               data={data?.returnProductsByCategory}
               error={error}
