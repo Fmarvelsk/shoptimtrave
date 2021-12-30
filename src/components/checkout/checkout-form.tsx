@@ -63,7 +63,8 @@ const CheckoutForm: React.FC = () => {
   // @ts-ignore: Unreachable code error
   const handleFlutterPayment = useFlutterwave(config);
 
-  function onSubmit() {
+  function onSubmit(input : CheckoutInputType) {
+    console.log(input)
     handleFlutterPayment({
       callback: async (response: any) => {
         //console.log(response);
@@ -157,6 +158,15 @@ const CheckoutForm: React.FC = () => {
             </div>
           </div>
 
+          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
+            <Input
+              labelKey="forms:label-address"
+              {...register("address")}
+              variant="solid"
+              /*onChange={(e) => }*/
+              className="w-full lg:w-1/2 "
+            />
+</div>
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
             <Input
               labelKey="forms:label-city"
