@@ -60,6 +60,7 @@ const SENDORDEREDPRODUCT = gql`
     $address: String!
     $phoneNo: String!
     $email: String!
+    $transactionId : Float!
     $city: String!
     $postcode: String!
     $items: [ProductsInput!]!
@@ -74,6 +75,7 @@ const SENDORDEREDPRODUCT = gql`
         city: $city
         postcode: $postcode
         items: $items
+        transactionId : $transactionId
       }
     ) {
       id
@@ -96,6 +98,7 @@ export const usePaymentMutation = async (variables, config = {}) => {
   let vard = {
     items: variables,
   };
+  console.log(vard)
 
   let result = await graphQLClient.request(MAKEPAYMENT, vard);
   return Promise.resolve(result);

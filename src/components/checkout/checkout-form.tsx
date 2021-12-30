@@ -31,93 +31,29 @@ const CheckoutForm: React.FC = () => {
   const { t } = useTranslation();
   const { items, isEmpty, total, resetCart } = useCart();
   const [isLoading, setLoading] = React.useState<boolean>(false);
-  const [emails, setEmails] = React.useState<string>('')
+  const [email, setEmail] = React.useState<string>('')
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<CheckoutInputType>();
   const [userInput, setUserInput] = React.useState<CheckoutInputType>()
-
-
-  /* async function onSubmit(input: CheckoutInputType) {
-     let cardElement;
-     if (!stripe || !elements || isEmpty) {
-       // Stripe.js has not yet loaded.
-       // Make sure to disable form submission until Stripe.js has loaded.
-       return;
-     }
-     setLoading(true);
- 
-     let variables = items.map((item) => ({
-       quantity: item.quantity,
-       sale_price: item.price,
-     }));
- 
-     await usePaymentMutation(variables)
-       .then(async (res) => {
-         cardElement = elements.getElement(CardElement);
- 
-         if (cardElement) {
-           const result = await stripe.confirmCardPayment(`${res.makePayment}`, {
-             payment_method: {
-               card: cardElement,
-               },
-           });
- 
-           if (result.error) {
-             // Show error to your customer (e.g., insufficient funds)
-             console.log(result.error.message);
-           } else {
-             // The payment has been processed!
-             if (result.paymentIntent.status === "succeeded") {
-               await usePushOrderedItem({
-                 ...input,
-                 items: items.map((item) => ({
-                   name: item.name,
-                   sale_price: item.price,
-                   quantity: item.quantity,
-                   size: item.attributes.sizes || "",
-                   colour: item.attributes.colours,
-                   image: item.image,
-                 })),
-               })
-                 .then(() => {
-                   resetCart();
-                   Router.push(ROUTES.ORDER);
-                 })
-                 .catch((err) => console.log(err));
-             }
-           }
-         }
-       })
-       .catch((err) => console.log(err));
-     setLoading(false);
-   }
- */
-
-  /*const fwConfig = {
-      ...config,
-      text: 'Pay with Flutterwave!',
-      callback: (response) => {
-         console.log(response);
-        closePaymentModal() // this will close the modal programmatically
-      },
-      onClose: () => {},
-    };*/
-console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
+  const [phoneNumber, setPhoneNumber] = React.useState<string>('')
+  const [firstname, setFirstname] = React.useState<string>('')
+  const [lastname, setLastname] = React.useState<string>('')
 
   const config = {
-    public_key:  'FLWPUBK-c3e350229bbcc677717fd68709074f8e-X',
+    public_key: 'FLWPUBK_TEST-8d2458cc6c358b90e010f91074f87e69-X',
     tx_ref: Date.now(),
-    amount: total,
+    amount: 1,
     currency: "USD",
-    //payment_options: 'card,mobilemoney,ussd',
+    payment_options: 'card,mobilemoney,ussd',
     customer: {
-      email: emails,
-      phonenumber: '09055552275',
-      name: `Timtrave`,
+      email: email,
+      phone_number: phoneNumber,
+      name: `${firstname} ${lastname}`,
     },
+
     customizations: {
       title: 'Timtrave',
       description: 'Payment for items in cart',
@@ -128,13 +64,19 @@ console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
   // @ts-ignore: Unreachable code error
   const handleFlutterPayment = useFlutterwave(config);
 
-  async function onSubmit() {
-    //await setUserInput(input)
+  function onSubmit() {
     handleFlutterPayment({
       callback: async (response: any) => {
-        console.log(response);
-     /*   await usePushOrderedItem({
-          ...input,
+        //console.log(response);
+        await usePushOrderedItem({
+          transactionId: response.transaction_id,
+          fName: firstname,
+          lName: lastname,
+          phoneNo: response.customer.phone_number ? response.customer.phone_number : phoneNumber,
+          email: response.customer.email,
+          address: 'OAU',
+          city: 'ile-ife',
+          postcode: '220',
           items: items.map((item) => ({
             name: item.name,
             sale_price: item.price,
@@ -148,7 +90,8 @@ console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
             resetCart();
             Router.push(ROUTES.ORDER);
           })
-          .catch((err) => console.log(err));*/
+          .catch((err) => console.log(err));
+
         closePaymentModal() // this will close the modal programmatically
       },
       onClose: () => { },
@@ -176,6 +119,8 @@ console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
               errorKey={errors.fName?.message}
               variant="solid"
               className="w-full lg:w-1/2 "
+              onChange={(e: any) => setFirstname(e.target.value)}
+
             />
             <Input
               labelKey="forms:label-last-name"
@@ -185,84 +130,33 @@ console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
               errorKey={errors.lName?.message}
               variant="solid"
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
+              onChange={(e: any) => setLastname(e.target.value)}
             />
           </div>
-          <Input
-            labelKey="forms:label-address"
-            {...register("address", {
-              required: "forms:address-required",
-            })}
-            errorKey={errors.address?.message}
-            variant="solid"
-          />
-          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
+          <div className="flex flex-col lg:flex-row space-y-4 gap-3 lg:space-y-0">
             <Input
               type="tel"
               labelKey="forms:label-phone"
               {...register("phoneNo", {
                 required: "forms:phone-required",
               })}
+              onChange={(e: any) => setPhoneNumber(e.target.value)}
               errorKey={errors.phoneNo?.message}
               variant="solid"
               className="w-full lg:w-1/2 "
             />
-
-           {/*<Input
-              type="email"
-              labelKey="forms:label-email-star"
-              onChange={(e) => setSEmail(e.target.value)}
-              {...register("email", {
-                required: "forms:email-required",
-                pattern: {
-                  value:
-                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: "forms:email-error",
-                },
-              })}
-              errorKey={errors.email?.message}
-              variant="solid"
-              className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
-            />*/}
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer" >
-              Email
+            <div className="w-full lg:w-1/2 ">
+              <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer" >
+                Email *
               </label>
-            <input type="email" 
-            onChange={(e) => setEmails(e.target.value)}
-            //style={{border : '1px solid black'}}
-            className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body rounded-md placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
-       
-            />
+              <input type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                //style={{border : '1px solid black'}}
+                className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body rounded-md placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
 
+              />
+            </div>
           </div>
-          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
-            <Input
-              labelKey="forms:label-city"
-              {...register("city")}
-              variant="solid"
-              className="w-full lg:w-1/2 "
-            />
-
-            <Input
-              labelKey="forms:label-postcode"
-              {...register("postcode")}
-              variant="solid"
-              className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
-            />
-          </div>
-          {/*      <div>
-            <label className="block mb-2 text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
-              Card details
-            </label>
-            <CardElement
-              options={CARD_ELEMENT_OPTIONS}
-              className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
-            />
-    </div>
-         <div className="relative flex items-center ">
-            <CheckBox labelKey="forms:label-save-information" />
-          </div>
-     
-    */}
 
           <div className="flex w-full">
             <Button
