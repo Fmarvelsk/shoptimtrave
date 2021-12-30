@@ -37,7 +37,6 @@ const CheckoutForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<CheckoutInputType>();
-  const [userInput, setUserInput] = React.useState<CheckoutInputType>()
   const [phoneNumber, setPhoneNumber] = React.useState<string>('')
   const [firstname, setFirstname] = React.useState<string>('')
   const [lastname, setLastname] = React.useState<string>('')
@@ -157,6 +156,24 @@ const CheckoutForm: React.FC = () => {
               />
             </div>
           </div>
+
+          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
+            <Input
+              labelKey="forms:label-city"
+              {...register("city")}
+              variant="solid"
+              /*onChange={(e) => }*/
+              className="w-full lg:w-1/2 "
+            />
+
+            <Input
+              labelKey="forms:label-postcode"
+              {...register("postcode")}
+              variant="solid"
+              className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
+            />
+          </div>
+        
 
           <div className="flex w-full">
             <Button
