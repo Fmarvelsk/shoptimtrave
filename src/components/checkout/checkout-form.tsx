@@ -7,12 +7,14 @@ import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 //import Payment from './payment'
 import {
-  usePaymentMutation,
   usePushOrderedItem,
 } from "@framework/product/product-mutation";
 import { useCart } from "@contexts/cart/cart.context";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 
+
+
+const secret_key = process.env.NEXT_PUBLIC_FLUTTERWAVE_KEY
 
 interface CheckoutInputType {
   fName: string;
@@ -38,9 +40,10 @@ const CheckoutForm: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = React.useState<string>('')
   const [firstname, setFirstname] = React.useState<string>('')
   const [lastname, setLastname] = React.useState<string>('')
+  const [msgCarts, setMsgCarts] = React.useState<string>('')
 
   const config = {
-    public_key: 'FLWPUBK_TEST-8d2458cc6c358b90e010f91074f87e69-X',
+    public_key: secret_key,
     tx_ref: Date.now(),
     amount: total,
     currency: "USD",
@@ -60,8 +63,13 @@ const CheckoutForm: React.FC = () => {
 
   // @ts-ignore: Unreachable code error
   const handleFlutterPayment = useFlutterwave(config);
+  
+
   function onSubmit(input: CheckoutInputType) {
+    if(isEmpty)
+    return setMsgCarts('Carts is Empty')
     setLoading(true)
+    setMsgCarts('')
     handleFlutterPayment({
       callback: async (response: any) => {
         //console.log(response);
@@ -193,6 +201,7 @@ const CheckoutForm: React.FC = () => {
             </Button>
           </div>
         </div>
+        <p className="text-red-500">{msgCarts}</p>
       </form>
     </>
   );
