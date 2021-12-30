@@ -55,7 +55,7 @@ export default function Shop() {
           </div>
 
           <div className="w-full lg:-ms-9">
-            <CollectionTopBar />
+            <CollectionTopBar total={data?.returnProductsByCategory?.length}/>
             <ProductGrid
               data={data?.returnProductsByCategory}
               error={error}

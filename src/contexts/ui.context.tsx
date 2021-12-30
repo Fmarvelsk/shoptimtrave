@@ -4,8 +4,6 @@ import { CartProvider } from "./cart/cart.context";
 
 export interface State {
   isAuthorized: boolean;
-  displaySidebar: boolean;
-  displayFilter: boolean;
   displayModal: boolean;
   displayCart: boolean;
   displaySearch: boolean;
@@ -17,8 +15,6 @@ export interface State {
 
 const initialState = {
   isAuthorized: getToken() ? true : false,
-  displaySidebar: false,
-  displayFilter: false,
   displayModal: false,
   displayCart: false,
   displaySearch: false,
@@ -56,12 +52,6 @@ type Action =
   | {
       type: "SET_TOAST_TEXT";
       text: ToastText;
-    }
-  | {
-      type: "OPEN_FILTER";
-    }
-  | {
-      type: "CLOSE_FILTER";
     }
   | {
       type: "OPEN_MODAL";
@@ -149,18 +139,6 @@ function uiReducer(state: State, action: Action) {
         displaySearch: false,
       };
     }
-    case "OPEN_FILTER": {
-      return {
-        ...state,
-        displayFilter: true,
-      };
-    }
-    case "CLOSE_FILTER": {
-      return {
-        ...state,
-        displayFilter: false,
-      };
-    }
     case "OPEN_MODAL": {
       return {
         ...state,
@@ -214,24 +192,9 @@ export const UIProvider: React.FC = (props) => {
   const unauthorize = () => dispatch({ type: "SET_UNAUTHORIZED" });
   const openSidebar = () => dispatch({ type: "OPEN_SIDEBAR" });
   const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
-  const toggleSidebar = () =>
-    state.displaySidebar
-      ? dispatch({ type: "CLOSE_SIDEBAR" })
-      : dispatch({ type: "OPEN_SIDEBAR" });
-  const closeSidebarIfPresent = () =>
-    state.displaySidebar && dispatch({ type: "CLOSE_CART" });
   const openCart = () => dispatch({ type: "OPEN_CART" });
   const closeCart = () => dispatch({ type: "CLOSE_CART" });
-  const toggleCart = () =>
-    state.displaySidebar
-      ? dispatch({ type: "CLOSE_CART" })
-      : dispatch({ type: "OPEN_CART" });
-  const closeCartIfPresent = () =>
-    state.displaySidebar && dispatch({ type: "CLOSE_CART" });
-
-  const openFilter = () => dispatch({ type: "OPEN_FILTER" });
-  const closeFilter = () => dispatch({ type: "CLOSE_FILTER" });
-
+  
   const openModal = () => dispatch({ type: "OPEN_MODAL" });
   const closeModal = () => dispatch({ type: "CLOSE_MODAL" });
   const openSearch = () => dispatch({ type: "OPEN_SEARCH" });
@@ -254,14 +217,8 @@ export const UIProvider: React.FC = (props) => {
       unauthorize,
       openSidebar,
       closeSidebar,
-      toggleSidebar,
-      closeSidebarIfPresent,
       openCart,
       closeCart,
-      toggleCart,
-      closeCartIfPresent,
-      openFilter,
-      closeFilter,
       openModal,
       closeModal,
       openSearch,

@@ -34,7 +34,7 @@ export default function ProductPopup() {
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { slug, sizes, image, name, description } = data;
+  const {  sizes, image, name, description } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -178,13 +178,13 @@ export default function ProductPopup() {
               </button>
             )}
 
-            <Button
+           {/* <Button
               onClick={navigateToProductPage}
               variant="flat"
               className="w-full h-11 md:h-12"
             >
               {t("text-view-details")}
-            </Button>
+           </Button>*/}
           </div>
         </div>
       </div>
