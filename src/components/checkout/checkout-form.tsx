@@ -1,13 +1,11 @@
 import React from "react";
 import Input from "@components/ui/input";
 import { useForm } from "react-hook-form";
-import { CheckBox } from "@components/ui/checkbox";
 import Button from "@components/ui/button";
 import Router from "next/router";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 //import Payment from './payment'
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import {
   usePaymentMutation,
   usePushOrderedItem,
@@ -44,7 +42,7 @@ const CheckoutForm: React.FC = () => {
   const config = {
     public_key: 'FLWPUBK_TEST-8d2458cc6c358b90e010f91074f87e69-X',
     tx_ref: Date.now(),
-    amount: 1,
+    amount: total,
     currency: "USD",
     payment_options: 'card,mobilemoney,ussd',
     customer: {
@@ -62,9 +60,8 @@ const CheckoutForm: React.FC = () => {
 
   // @ts-ignore: Unreachable code error
   const handleFlutterPayment = useFlutterwave(config);
-
-  function onSubmit(input : CheckoutInputType) {
-    console.log(input)
+  function onSubmit(input: CheckoutInputType) {
+    setLoading(true)
     handleFlutterPayment({
       callback: async (response: any) => {
         //console.log(response);
@@ -74,9 +71,9 @@ const CheckoutForm: React.FC = () => {
           lName: lastname,
           phoneNo: response.customer.phone_number ? response.customer.phone_number : phoneNumber,
           email: response.customer.email,
-          address: 'OAU',
-          city: 'ile-ife',
-          postcode: '220',
+          address: input.address,
+          city: input.city,
+          postcode: input.postcode,
           items: items.map((item) => ({
             name: item.name,
             sale_price: item.price,
@@ -91,11 +88,12 @@ const CheckoutForm: React.FC = () => {
             Router.push(ROUTES.ORDER);
           })
           .catch((err) => console.log(err));
-
         closePaymentModal() // this will close the modal programmatically
       },
       onClose: () => { },
+
     });
+    setLoading(false)
 
   }
 
@@ -158,15 +156,15 @@ const CheckoutForm: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
-            <Input
-              labelKey="forms:label-address"
-              {...register("address")}
-              variant="solid"
-              /*onChange={(e) => }*/
-              className="w-full lg:w-1/2 "
-            />
-</div>
+          <Input
+            labelKey="forms:label-address"
+            {...register("address", {
+              required: "forms:address-required",
+            })}
+            errorKey={errors.address?.message}
+            variant="solid"
+          />
+
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
             <Input
               labelKey="forms:label-city"
@@ -183,7 +181,7 @@ const CheckoutForm: React.FC = () => {
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
             />
           </div>
-        
+
 
           <div className="flex w-full">
             <Button

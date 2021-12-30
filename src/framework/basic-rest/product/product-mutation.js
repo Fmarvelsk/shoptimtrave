@@ -112,7 +112,7 @@ export const usePushOrderedItem = async (variables, config = {}) => {
       authorization: `Bearer token goes here`,
     },
   };
-
+  
   const graphQLClient = new GraphQLClient(endpoint, headers);
 
   let result = await graphQLClient.request(SENDORDEREDPRODUCT, variables);
