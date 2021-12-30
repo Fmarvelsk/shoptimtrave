@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 interface collectionItem {
-  total?: number
+  total?: number;
 }
 const CollectionTopBar = ({ total }: collectionItem) => {
   const { t } = useTranslation("common");
   const {
-     query: { slug },
+    query: { slug },
   } = useRouter();
 
   const collectionTitle = slug?.toString().split("-").join(" ");
@@ -26,7 +26,6 @@ const CollectionTopBar = ({ total }: collectionItem) => {
           {total} {t("text-items")}
         </div>
       </div>
-
     </div>
   );
 };

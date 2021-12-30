@@ -6,15 +6,11 @@ import Router from "next/router";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 //import Payment from './payment'
-import {
-  usePushOrderedItem,
-} from "@framework/product/product-mutation";
+import { usePushOrderedItem } from "@framework/product/product-mutation";
 import { useCart } from "@contexts/cart/cart.context";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 
-
-
-const secret_key = process.env.NEXT_PUBLIC_FLUTTERWAVE_KEY
+const secret_key = process.env.NEXT_PUBLIC_FLUTTERWAVE_KEY;
 
 interface CheckoutInputType {
   fName: string;
@@ -31,23 +27,23 @@ const CheckoutForm: React.FC = () => {
   const { t } = useTranslation();
   const { items, isEmpty, total, resetCart } = useCart();
   const [isLoading, setLoading] = React.useState<boolean>(false);
-  const [email, setEmail] = React.useState<string>('')
+  const [email, setEmail] = React.useState<string>("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<CheckoutInputType>();
-  const [phoneNumber, setPhoneNumber] = React.useState<string>('')
-  const [firstname, setFirstname] = React.useState<string>('')
-  const [lastname, setLastname] = React.useState<string>('')
-  const [msgCarts, setMsgCarts] = React.useState<string>('')
+  const [phoneNumber, setPhoneNumber] = React.useState<string>("");
+  const [firstname, setFirstname] = React.useState<string>("");
+  const [lastname, setLastname] = React.useState<string>("");
+  const [msgCarts, setMsgCarts] = React.useState<string>("");
 
   const config = {
     public_key: secret_key,
     tx_ref: Date.now(),
     amount: total,
     currency: "USD",
-    payment_options: 'card,mobilemoney,ussd',
+    payment_options: "card,mobilemoney,ussd",
     customer: {
       email: email,
       phone_number: phoneNumber,
@@ -55,21 +51,19 @@ const CheckoutForm: React.FC = () => {
     },
 
     customizations: {
-      title: 'Timtrave',
-      description: 'Payment for items in cart',
-      logo: 'https://chawk-shop.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanner%2Fmasonry%2Fbanner-2.jpg&w=1080&q=100',
+      title: "Timtrave",
+      description: "Payment for items in cart",
+      logo: "https://chawk-shop.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanner%2Fmasonry%2Fbanner-2.jpg&w=1080&q=100",
     },
   };
 
   // @ts-ignore: Unreachable code error
   const handleFlutterPayment = useFlutterwave(config);
-  
 
   function onSubmit(input: CheckoutInputType) {
-    if(isEmpty)
-    return setMsgCarts('Carts is Empty')
-    setLoading(true)
-    setMsgCarts('')
+    if (isEmpty) return setMsgCarts("Carts is Empty");
+    setLoading(true);
+    setMsgCarts("");
     handleFlutterPayment({
       callback: async (response: any) => {
         //console.log(response);
@@ -77,7 +71,9 @@ const CheckoutForm: React.FC = () => {
           transactionId: response.transaction_id,
           fName: firstname,
           lName: lastname,
-          phoneNo: response.customer.phone_number ? response.customer.phone_number : phoneNumber,
+          phoneNo: response.customer.phone_number
+            ? response.customer.phone_number
+            : phoneNumber,
           email: response.customer.email,
           address: input.address,
           city: input.city,
@@ -96,13 +92,11 @@ const CheckoutForm: React.FC = () => {
             Router.push(ROUTES.ORDER);
           })
           .catch((err) => console.log(err));
-        closePaymentModal() // this will close the modal programmatically
+        closePaymentModal(); // this will close the modal programmatically
       },
-      onClose: () => { },
-
+      onClose: () => {},
     });
-    setLoading(false)
-
+    setLoading(false);
   }
 
   return (
@@ -126,7 +120,6 @@ const CheckoutForm: React.FC = () => {
               variant="solid"
               className="w-full lg:w-1/2 "
               onChange={(e: any) => setFirstname(e.target.value)}
-
             />
             <Input
               labelKey="forms:label-last-name"
@@ -152,14 +145,14 @@ const CheckoutForm: React.FC = () => {
               className="w-full lg:w-1/2 "
             />
             <div className="w-full lg:w-1/2 ">
-              <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer" >
+              <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
                 Email *
               </label>
-              <input type="email"
+              <input
+                type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 //style={{border : '1px solid black'}}
                 className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body rounded-md placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
-
               />
             </div>
           </div>
@@ -189,7 +182,6 @@ const CheckoutForm: React.FC = () => {
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
             />
           </div>
-
 
           <div className="flex w-full">
             <Button

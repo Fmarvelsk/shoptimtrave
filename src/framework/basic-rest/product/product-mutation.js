@@ -60,7 +60,7 @@ const SENDORDEREDPRODUCT = gql`
     $address: String!
     $phoneNo: String!
     $email: String!
-    $transactionId : Float!
+    $transactionId: Float!
     $city: String!
     $postcode: String!
     $items: [ProductsInput!]!
@@ -75,7 +75,7 @@ const SENDORDEREDPRODUCT = gql`
         city: $city
         postcode: $postcode
         items: $items
-        transactionId : $transactionId
+        transactionId: $transactionId
       }
     ) {
       id
@@ -98,7 +98,7 @@ export const usePaymentMutation = async (variables, config = {}) => {
   let vard = {
     items: variables,
   };
-  console.log(vard)
+  console.log(vard);
 
   let result = await graphQLClient.request(MAKEPAYMENT, vard);
   return Promise.resolve(result);
@@ -112,7 +112,7 @@ export const usePushOrderedItem = async (variables, config = {}) => {
       authorization: `Bearer token goes here`,
     },
   };
-  
+
   const graphQLClient = new GraphQLClient(endpoint, headers);
 
   let result = await graphQLClient.request(SENDORDEREDPRODUCT, variables);

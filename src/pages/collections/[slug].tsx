@@ -50,12 +50,12 @@ export default function Shop() {
                   </ActiveLink>
                 </BreadcrumbItems>
               </div>
-          {/*    <CollectionFilters />*/}
+           
             </StickyBox>
           </div>
 
           <div className="w-full lg:-ms-9">
-            <CollectionTopBar total={data?.returnProductsByCategory?.length}/>
+            <CollectionTopBar total={data?.returnProductsByCategory?.length} />
             <ProductGrid
               data={data?.returnProductsByCategory}
               error={error}

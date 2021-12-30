@@ -194,7 +194,7 @@ export const UIProvider: React.FC = (props) => {
   const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
   const openCart = () => dispatch({ type: "OPEN_CART" });
   const closeCart = () => dispatch({ type: "CLOSE_CART" });
-  
+
   const openModal = () => dispatch({ type: "OPEN_MODAL" });
   const closeModal = () => dispatch({ type: "CLOSE_MODAL" });
   const openSearch = () => dispatch({ type: "OPEN_SEARCH" });
