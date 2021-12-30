@@ -1,9 +1,6 @@
-import { MdCollectionsBookmark } from "react-icons/md";
 import Text from "@components/ui/text";
-import { useUI } from "@contexts/ui.context";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import { getDirection } from "@utils/get-direction";
 
 interface collectionItem {
   total?: number
