@@ -16,5 +16,5 @@ module.exports = withPWA({
     "pages/collection/[slug].jsx": {
       includeDirs: ["public"],
     },
-  }
+  },
 });

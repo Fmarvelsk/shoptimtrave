@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import cn from "classnames";
 interface Props {
   className?: string;
@@ -17,7 +17,9 @@ export const ProductAttributes: React.FC<Props> = ({
   onClick,
   isSelected,
 }) => {
-  const [show, setShow] = useState(false)
+
+    // @ts-ignore: Unreachable code error
+  const [show, setShow] = useState(false);
 
   return (
     <div className={className}>
@@ -38,12 +40,11 @@ export const ProductAttributes: React.FC<Props> = ({
             onMouseOver={() => setShow(true)}
             onMouseLeave={() => setShow(false)}
           >
-            
             {title === "colours" ? (
               <span
                 className="h-full w-full rounded block"
                 style={{
-                  backgroundColor: value
+                  backgroundColor: value,
                 }}
               />
             ) : (
@@ -51,7 +52,6 @@ export const ProductAttributes: React.FC<Props> = ({
             )}
           </li>
         ))}
-
       </ul>
     </div>
   );

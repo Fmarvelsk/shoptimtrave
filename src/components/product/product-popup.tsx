@@ -34,7 +34,7 @@ export default function ProductPopup() {
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { slug, sizes, image, name, description } = data;
+  const { sizes, image, name, description } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -76,10 +76,9 @@ export default function ProductPopup() {
     }, 300);
   }
   useEffect(() => {
-    if(sizes.length === 0 )
-    setIsSelectedSize(true)
-  }, [sizes])
-  
+    if (sizes.length === 0) setIsSelectedSize(true);
+  }, [sizes]);
+
   return (
     <div className="rounded-lg bg-white">
       <div className="flex flex-col lg:flex-row w-full md:w-[650px] lg:w-[960px] mx-auto overflow-hidden">
@@ -130,14 +129,15 @@ export default function ProductPopup() {
 						);
 					})*/}
 
-          {sizes.length >= 1 &&
-          <ProductAttributes
-            title={"sizes"}
-            isSelected={setIsSelectedSize}
-            attributes={sizes}
-            active={attributes.sizes}
-            onClick={handleAttribute}
-          /> }
+          {sizes.length >= 1 && (
+            <ProductAttributes
+              title={"sizes"}
+              isSelected={setIsSelectedSize}
+              attributes={sizes}
+              active={attributes.sizes}
+              onClick={handleAttribute}
+            />
+          )}
           <ProductAttributes
             title={"colours"}
             isSelected={setIsSelected}
@@ -178,13 +178,13 @@ export default function ProductPopup() {
               </button>
             )}
 
-            <Button
+            {/* <Button
               onClick={navigateToProductPage}
               variant="flat"
               className="w-full h-11 md:h-12"
             >
               {t("text-view-details")}
-            </Button>
+           </Button>*/}
           </div>
         </div>
       </div>
