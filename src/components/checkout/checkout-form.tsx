@@ -105,7 +105,6 @@ const CheckoutForm: React.FC = () => {
       },
       onClose: () => {},
     };*/
-console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
 
   const config = {
     public_key:  'FLWPUBK-c3e350229bbcc677717fd68709074f8e-X',
@@ -128,7 +127,8 @@ console.log(userInput, process.env.NEXT_FLUTTERWAVE_PUBLIC_KEY)
   // @ts-ignore: Unreachable code error
   const handleFlutterPayment = useFlutterwave(config);
 
-  async function onSubmit() {
+  async function onSubmit(input : CheckoutInputType) {
+    console.log(input)
     //await setUserInput(input)
     handleFlutterPayment({
       callback: async (response: any) => {
