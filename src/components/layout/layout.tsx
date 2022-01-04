@@ -20,11 +20,11 @@ const Layout: React.FC = ({ children }) => {
             content: "width=device-width, initial-scale=1.0",
           },
         ]}
-        title="TIMTRAVE"
+        title="Timetrave"
         description="Built with React, NextJS, TypeScript, Graphql, React-Query and Tailwind CSS."
-        canonical="https://chawkbazar.vercel.app/"
+        canonical="https://shoptimtrave.com"
         openGraph={{
-          url: "https://chawkbazar.vercel.app",
+          url: "https://shoptimtrave.com",
           title: "",
           description:
             "Built with React, NextJS, TypeScript, Graphql, React-Query and Tailwind CSS.",

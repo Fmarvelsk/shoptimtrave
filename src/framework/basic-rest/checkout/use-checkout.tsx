@@ -1,5 +1,3 @@
-// import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
-// import http from "@framework/utils/http";
 import { useMutation } from "react-query";
 
 export interface CheckoutInputType {

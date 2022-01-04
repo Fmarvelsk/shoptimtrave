@@ -1,23 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import cn from "classnames";
-import SearchResultLoader from "@components/ui/loaders/search-result-loader";
 import { useUI } from "@contexts/ui.context";
 import SearchBox from "@components/common/search-box";
-import { useSearchQuery } from "@framework/product/use-search";
+//import { useSearchQuery } from "@framework/product/use-search";
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock";
-import Scrollbar from "@components/common/scrollbar";
-import SearchProduct from "@components/common/search-product";
 
 export default function Search() {
   const { displaySearch, closeSearch } = useUI();
   const [searchText, setSearchText] = React.useState("");
-  const { data, isLoading } = useSearchQuery({
-    text: searchText,
-  });
 
   function handleSearch(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -72,33 +66,6 @@ export default function Search() {
                 ref={(input) => input && input.focus()}
               />
             </div>
-            {searchText && (
-              <div className="bg-white flex flex-col rounded-md overflow-hidden h-full max-h-64vh lg:max-h-[550px]">
-                <Scrollbar className="os-host-flexbox">
-                  <div className="h-full">
-                    {isLoading ? (
-                      <div className="p-5 border-b border-gray-300 border-opacity-30 last:border-b-0">
-                        {Array.from({ length: 5 }).map((_, idx) => (
-                          <SearchResultLoader
-                            key={idx}
-                            uniqueKey={`top-search-${idx}`}
-                          />
-                        ))}
-                      </div>
-                    ) : (
-                      data?.map((item, index) => (
-                        <div
-                          className=" p-5 border-b border-gray-150 relative last:border-b-0"
-                          onClick={closeSearch}
-                        >
-                          <SearchProduct item={item} key={index} />
-                        </div>
-                      ))
-                    )}
-                  </div>
-                </Scrollbar>
-              </div>
-            )}
           </div>
         </div>
       </div>

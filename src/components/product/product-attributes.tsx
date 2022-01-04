@@ -17,8 +17,7 @@ export const ProductAttributes: React.FC<Props> = ({
   onClick,
   isSelected,
 }) => {
-
-    // @ts-ignore: Unreachable code error
+  // @ts-ignore: Unreachable code error
   const [show, setShow] = useState(false);
 
   return (
