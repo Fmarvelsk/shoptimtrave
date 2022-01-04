@@ -21,7 +21,6 @@ export default function Products() {
     <>
       <Container>
         <div className={`flex pt-8 pb-16 lg:pb-20`}>
-       
           <div className="w-full lg:-ms-9">
             <SearchTopBar total={data?.returnAllProduct?.length} />
             <ProductGrid

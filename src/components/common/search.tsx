@@ -12,7 +12,7 @@ import {
 export default function Search() {
   const { displaySearch, closeSearch } = useUI();
   const [searchText, setSearchText] = React.useState("");
-  
+
   function handleSearch(e: React.SyntheticEvent) {
     e.preventDefault();
   }

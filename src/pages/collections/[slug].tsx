@@ -50,7 +50,6 @@ export default function Shop() {
                   </ActiveLink>
                 </BreadcrumbItems>
               </div>
-           
             </StickyBox>
           </div>
 

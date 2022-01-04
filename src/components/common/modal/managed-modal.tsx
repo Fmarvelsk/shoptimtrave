@@ -11,7 +11,7 @@ const ManagedModal: React.FC = () => {
       {/*{modalView === "LOGIN_VIEW" && <LoginForm />}
       {modalView === "SIGN_UP_VIEW" && <SignUpForm />}
   {modalView === "FORGET_PASSWORD" && <ForgetPasswordForm />}*/}
-  
+
       {modalView === "PRODUCT_VIEW" && <ProductPopup />}
       {modalView === "NEWSLETTER_VIEW" && <Newsletter />}
     </Modal>
