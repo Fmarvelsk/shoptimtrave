@@ -59,7 +59,7 @@ const Subscription: React.FC<Props> = ({
       >
         <div className="flex flex-col sm:flex-row items-start justify-end">
           <Input
-            placeholderKey="forms:placeholder-email-subscribe"
+            placeholderKey="Enter Email"
             type="email"
             variant="solid"
             className="w-full"
