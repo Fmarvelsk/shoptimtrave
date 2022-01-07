@@ -1,11 +1,8 @@
 import Container from "@components/ui/container";
-//import CategoryBlock from "@containers/category-block";
 import Layout from "@components/layout/layout";
 import BannerBlock from "@containers/banner-block";
 import Divider from "@components/ui/divider";
-//import ProductsFeatured from "@containers/products-featured";
 import Subscription from "@components/common/subscription";
-//import NewArrivalsProductFeed from "@components/product/feeds/new-arrivals-product-feed";
 import { homeThreeMasonryBanner as masonryBanner } from "@framework/static/banner";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
@@ -29,7 +26,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     props: {
       ...(await serverSideTranslations(locale!, [
         "common",
-        "forms",
         "menu",
         "footer",
       ])),

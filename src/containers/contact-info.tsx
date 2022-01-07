@@ -2,7 +2,7 @@ import { FC } from "react";
 import { IoLocationSharp, IoMail, IoCallSharp } from "react-icons/io5";
 import Link from "@components/ui/link";
 import { useTranslation } from "next-i18next";
-const mapImage = "/assets/images/map-image.jpg";
+//const mapImage = "/assets/images/map-image.jpg";
 const data = [
   {
     id: 1,
@@ -51,7 +51,7 @@ const ContactInfoBlock: FC<Props> = () => {
           </div>
         </div>
       ))}
-      <img src={mapImage} alt={t("text-map")} className="rounded-md" />
+   {/*   <img src={mapImage} alt={t("text-map")} className="rounded-md" />*/}
     </div>
   );
 };
