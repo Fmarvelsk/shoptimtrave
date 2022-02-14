@@ -97,7 +97,7 @@ export const footer = {
         },
         {
           id: 3,
-          title: "link-phone",
+          title: "+905386040620",
           path: "/",
         },
         {
@@ -108,42 +108,5 @@ export const footer = {
    
       ],
     },
-   /* {
-      id: 5,
-      widgetTitle: "widget-title-about",
-      lists: [
-        {
-          id: 1,
-          title: "link-about-us",
-          path: "/contact-us",
-        },
-        {
-          id: 2,
-          title: "link-faq",
-          path: "/faq",
-        },
-        {
-          id: 4,
-          title: "link-copyright",
-          path: "/",
-        },
-      ],
-    },
-  {
-      id: 6,
-      widgetTitle: "widget-title-our-information",
-      lists: [
-        {
-          id: 1,
-          title: "link-terms",
-          path: "/terms",
-        },
-        {
-          id: 2,
-          title: "link-return-policy",
-          path: "/privacy",
-        },
-      ],
-    },*/
   ],
 };
