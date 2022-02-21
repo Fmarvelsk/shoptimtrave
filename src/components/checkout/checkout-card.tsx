@@ -17,7 +17,7 @@ const CheckoutCard: React.FC = () => {
   });
   const { t } = useTranslation("common");
   const [shippingPrice, setShippingPrice] = useState<number>(35)
-  console.log(totalSum)
+  
   const checkoutFooter = [
     {
       id: 1,

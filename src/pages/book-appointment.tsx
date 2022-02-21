@@ -5,7 +5,7 @@ import PageHeader from "@components/ui/page-header";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
-import Appointment from "@components/common/appoiment";
+import Appointment from "@components/common/appointment";
 
 export default function BookAppointment() {
     return (

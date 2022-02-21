@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import SearchIcon from "@components/icons/search-icon";
-//import { siteSettings } from "@settings/site-settings";
+import Link from "@components/ui/link";
 import Logo from "@components/ui/logo";
+import { useRouter } from "next/router";
 import { useUI } from "@contexts/ui.context";
 import { addActiveScroll } from "@utils/add-active-scroll";
 import dynamic from "next/dynamic";
@@ -15,7 +16,10 @@ type DivElementRef = React.MutableRefObject<HTMLDivElement>;
 //const { site_header } = siteSettings;
 const Header: React.FC = () => {
   const { openSidebar, setDrawerView, openSearch } = useUI();
-  //const { t } = useTranslation("common");
+  const {
+    query: { slug },
+  } = useRouter();
+
   const siteHeaderRef = useRef() as DivElementRef;
   addActiveScroll(siteHeaderRef);
 
@@ -44,15 +48,24 @@ const Header: React.FC = () => {
             </span>
           </button>
           <Logo />
+          {slug === "beauty" &&
+            <nav className={`headerMenu flex w-full relative`}>
 
-          {/*<HeaderMenu
-						data={site_header.menu}
-						className="hidden lg:flex md:ms-6 xl:ms-10"
-					/>*/}
+              <Link
+                href="/book-appointment"
+                className="inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
+              >
+                Book Appointment
+              </Link>
+              <Link
+                href="/custom order"
+                className="inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
+              >
+                Custom Order
+              </Link>
+            </nav>
 
-          {/*	<div className="flex-shrink-0 ms-auto lg:me-5 xl:me-8 2xl:me-10">
-						<LanguageSwitcher />
-				</div>*/}
+          }
           <div className="lang">
             <LanguageSwitcher />
           </div>
