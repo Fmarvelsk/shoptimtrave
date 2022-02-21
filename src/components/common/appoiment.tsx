@@ -22,13 +22,16 @@ const Appointment = () => {
             </ul>
 
             <p>
-                Deposit/cancellation: To secure your slot, a non-refundable $5 deposit is required. In the events of cancellation, this deposit is non-refundable. However, you can reschedule your appointment using the same deposit if done 48hr before your appointment. You can only reschedule using the same deposit once.</p>
+                <span className="font-bold ">Deposit/cancellation: </span> 
+                
+                To secure your slot, a non-refundable $2 deposit is required (This will be added to your total bill). In the events of cancellation, this deposit is non-refundable. </p>
 
-            <p> The deposit will be deducted from the total price and the remaining fee must be paid in cash on the day of your appointment</p>
+            <p> However, you can reschedule your appointment using the same deposit if done 48hr before your appointment. You can only reschedule using the same deposit once. The deposit will be deducted from the total price and the remaining fee must be paid on the day of your appointment. 
+</p>
 
             <p> Address will be sent to your contact for postage immediately after bookings has been confirmed.</p>
 
-            <p> Thank you again, looking forward to meeting you!</p>
+            <p> Thank you again, looking forward to meeting you.</p>
 
            <p className="text-lg font-bold"> TimTrave</p>
 

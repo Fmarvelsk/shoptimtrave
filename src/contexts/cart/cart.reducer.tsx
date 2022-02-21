@@ -10,6 +10,7 @@ import {
   calculateItemTotals,
   calculateTotalItems,
   calculateTotal,
+  calculateSumTotal
 } from "./cart.utils";
 
 interface Metadata {
@@ -22,7 +23,8 @@ type Action =
   | { type: "ADD_ITEM"; id: Item["id"]; item: Item }
   | { type: "UPDATE_ITEM"; id: Item["id"]; item: UpdateItemInput }
   | { type: "REMOVE_ITEM"; id: Item["id"] }
-  | { type: "RESET_CART" };
+  | { type: "RESET_CART" }
+  | { type: "UPDATE_SHIPPING_FEE", shippingFee: number }
 
 export interface State {
   items: Item[];
@@ -31,6 +33,7 @@ export interface State {
   totalUniqueItems: number;
   total: number;
   meta?: Metadata | null;
+  totalSum: number
 }
 export const initialState: State = {
   items: [],
@@ -39,6 +42,7 @@ export const initialState: State = {
   totalUniqueItems: 0,
   total: 0,
   meta: null,
+  totalSum: 0
 };
 export function cartReducer(state: State, action: Action): State {
   switch (action.type) {
@@ -70,6 +74,14 @@ export function cartReducer(state: State, action: Action): State {
       const items = updateItem(state.items, action.id, action.item);
       return generateFinalState(state, items);
     }
+
+    case "UPDATE_SHIPPING_FEE": {
+      return {
+        ...state,
+        totalSum: calculateSumTotal(state.items, action.shippingFee)
+      }
+      // return generateFinalState(state, action.item);
+    }
     case "RESET_CART":
       return initialState;
     default:
@@ -85,6 +97,6 @@ const generateFinalState = (state: State, items: Item[]) => {
     totalItems: calculateTotalItems(items),
     totalUniqueItems,
     total: calculateTotal(items),
-    isEmpty: totalUniqueItems === 0,
+    isEmpty: totalUniqueItems === 0
   };
 };

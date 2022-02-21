@@ -2,10 +2,7 @@ interface Item {
   id: string | number;
   name: string;
   slug: string;
-  image: {
-    thumbnail: string;
-    [key: string]: unknown;
-  };
+  images: Array<string>
   price?: number;
   sale_price: number;
   [key: string]: unknown;
@@ -15,13 +12,13 @@ export function generateCartItem(
   attributes: object,
   quantity: number
 ) {
-  const { id, name, slug, image, sale_price } = item;
+  const { id, name, slug, images, sale_price } = item;
   return {
     id: id,
     name,
     slug,
     quantity,
-    image: image,
+    image: images,
     price: sale_price,
     attributes,
   };

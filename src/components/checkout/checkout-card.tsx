@@ -3,14 +3,21 @@ import { useCart } from "@contexts/cart/cart.context";
 import { CheckoutItem } from "@components/checkout/checkout-card-item";
 import { CheckoutCardFooterItem } from "./checkout-card-footer-item";
 import { useTranslation } from "next-i18next";
+import { useEffect, useState } from "react";
 
 const CheckoutCard: React.FC = () => {
-  const { items, total, isEmpty } = useCart();
+  const { items, total, isEmpty, updateShippingFee, totalSum } = useCart();
   const { price: subtotal } = usePrice({
     amount: total,
     currencyCode: "USD",
   });
+  const { price: sumTotal } = usePrice({
+    amount: totalSum,
+    currencyCode: "USD",
+  });
   const { t } = useTranslation("common");
+  const [shippingPrice, setShippingPrice] = useState<number>(35)
+  console.log(totalSum)
   const checkoutFooter = [
     {
       id: 1,
@@ -20,14 +27,18 @@ const CheckoutCard: React.FC = () => {
     {
       id: 2,
       name: t("text-shipping"),
-      price: t("text-free"),
+      price: shippingPrice,
     },
     {
       id: 3,
       name: t("text-total"),
-      price: subtotal,
+      price: sumTotal,
     },
   ];
+  useEffect(() => {
+    updateShippingFee(shippingPrice)
+  }, [shippingPrice])
+
   return (
     <div className="pt-12 md:pt-0 2xl:ps-4">
       <h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
@@ -45,6 +56,29 @@ const CheckoutCard: React.FC = () => {
       {checkoutFooter.map((item: any) => (
         <CheckoutCardFooterItem item={item} key={item.id} />
       ))}
+
+      <div className="flex flex-wrap justify-between mt-5">
+        <div className="mt-2">
+          <label className="inline-flex items-center">
+            <input type="radio" className="form-radio" 
+            name="basic" 
+            value={35} 
+            defaultChecked
+            onChange={(e) => setShippingPrice(Number(e.target.value))} />
+            <span className="ml-2"> Basic: $35(3-4wks)</span>
+          </label>
+          <label className="inline-flex items-center ml-6">
+            <input 
+            type="radio" 
+            className="form-radio" 
+            name="express" 
+            value={50} 
+            onChange={(e) => setShippingPrice(Number(e.target.value))} />
+            <span className="ml-2"> Express: $50(1{"&"}1/2wk)</span>
+          </label>
+        </div>
+      </div>
+
     </div>
   );
 };

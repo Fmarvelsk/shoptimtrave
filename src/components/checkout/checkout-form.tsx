@@ -25,7 +25,7 @@ interface CheckoutInputType {
 
 const CheckoutForm: React.FC = () => {
   const { t } = useTranslation();
-  const { items, isEmpty, total, resetCart } = useCart();
+  const { items, isEmpty, totalSum, resetCart } = useCart();
   const [isLoading, setLoading] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>("");
   const {
@@ -41,7 +41,7 @@ const CheckoutForm: React.FC = () => {
   const config = {
     public_key: secret_key,
     tx_ref: Date.now(),
-    amount: total,
+    amount: totalSum,
     currency: "USD",
     payment_options: "card,mobilemoney,ussd",
     customer: {

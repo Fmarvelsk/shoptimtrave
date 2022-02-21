@@ -27,7 +27,7 @@ export default function Shop() {
   } = useGetByCategory("byCategory", null, {
     category: slug,
   });
-  
+
   return (
     <div className="border-t-2 border-borderBottom">
       <Container>

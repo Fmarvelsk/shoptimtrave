@@ -34,7 +34,7 @@ export default function ProductPopup() {
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { sizes, image, name, description } = data;
+  const { sizes, image, images, name, description } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -101,9 +101,19 @@ export default function ProductPopup() {
                 {name}
               </h2>
             </div>
-            <p className="text-sm leading-6 md:text-body md:leading-7">
-              {description}
-            </p>
+            
+            {Object.keys(description).map((key, desc) => {
+						return (
+              <span key={desc}>
+              {description[key] !== null ? 
+              <p className="text-sm capitalize font-bold leading-6 md:text-body md:leading-7">
+                  {key} : {description[key]}
+
+            </p> : null }
+            </span>	
+						)}
+            )}
+            
 
             <div className="flex items-center mt-3">
               <div className="text-heading font-semibold text-base md:text-xl lg:text-2xl">
