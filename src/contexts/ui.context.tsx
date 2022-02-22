@@ -54,10 +54,10 @@ type Action =
       text: ToastText;
     }
   | {
-      type: "OPEN_BOOKING_MODAL";
+      type: "OPEN_MODAL";
     }
   | {
-      type: "CLOSE_BOOKING_MODAL";
+      type: "CLOSE_MODAL";
     }
   | {
       type: "SET_MODAL_VIEW";
@@ -139,14 +139,14 @@ function uiReducer(state: State, action: Action) {
         displaySearch: false,
       };
     }
-    case "OPEN_BOOKING_MODAL": {
+    case "OPEN_MODAL": {
       return {
         ...state,
         displayModal: true,
         displaySidebar: false,
       };
     }
-    case "CLOSE_BOOKING_MODAL": {
+    case "CLOSE_MODAL": {
       return {
         ...state,
         displayModal: false,
@@ -195,8 +195,8 @@ export const UIProvider: React.FC = (props) => {
   const openCart = () => dispatch({ type: "OPEN_CART" });
   const closeCart = () => dispatch({ type: "CLOSE_CART" });
 
-  const openBookingModal = () => dispatch({ type: "OPEN_BOOKING_MODAL" });
-  const closeBookingModal = () => dispatch({ type: "CLOSE_BOOKING_MODAL" });
+  const openModal = () => dispatch({ type: "OPEN_MODAL" });
+  const closeModal = () => dispatch({ type: "CLOSE_MODAL" });
   const openSearch = () => dispatch({ type: "OPEN_SEARCH" });
   const closeSearch = () => dispatch({ type: "CLOSE_SEARCH" });
 
@@ -219,8 +219,8 @@ export const UIProvider: React.FC = (props) => {
       closeSidebar,
       openCart,
       closeCart,
-      openBookingModal,
-      closeBookingModal,
+      openModal,
+      closeModal,
       openSearch,
       closeSearch,
       setModalView,

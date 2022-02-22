@@ -3,8 +3,12 @@ import Button from "@components/ui/button";
 import { useUI } from "@contexts/ui.context";
 
 const Appointment = () => {
-    const { openBookingModal } = useUI();
+    const { openModal, setModalView } = useUI();
 
+	function handleBooking() {
+		setModalView("BOOKING_VIEW");
+		return openModal();
+	}
     return (
         <div
             className={cn("pb-6 md:pb-7 leading-7 text-sm text-gray-600")}
@@ -37,7 +41,7 @@ const Appointment = () => {
             <div className="mt-5">
                 <Button
                     className="w-full h-12 sm:w-auto"
-                    onClick={() => openBookingModal()}
+                    onClick={handleBooking}
                 //loading={isLoading}
                 //disabled={isLoading}
                 >

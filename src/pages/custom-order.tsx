@@ -4,15 +4,15 @@ import Subscription from "@components/common/subscription";
 import PageHeader from "@components/ui/page-header";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
-import Appointment from "@components/common/appointment";
+import CustomBeautyOrder from "@components/common/customorder";
 
-export default function BookAppointment() {
+export default function CustomOrder() {
     return (
         <>
             <PageHeader pageHeader="Book Appointment" />
             <Container>
                 <div className="md:w-9/12 py-12 " style={{ margin: "auto" }}>
-                    <Appointment />
+                    <CustomBeautyOrder/>
                 </div>
                 <Subscription />
             </Container>
@@ -20,7 +20,7 @@ export default function BookAppointment() {
     );
 }
 
-BookAppointment.Layout = Layout;
+CustomOrder.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     return {
