@@ -52,11 +52,10 @@ mutation createBeautyOrder(
             style_inspiration: $style_inspiration
             colour: $colour
             notes: $notes
-          }
+          })
           {
             id
           }
-)
     }
 `
 export const sendAppointmentBooking = async (variables, config = {}) => {
