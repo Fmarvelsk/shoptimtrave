@@ -48,9 +48,8 @@ const Header: React.FC = () => {
             </span>
           </button>
           <Logo />
-          {slug === "beauty" &&
+          {slug === "beauty" && (
             <nav className={`headerMenu flex w-full relative`}>
-
               <Link
                 href="/book-appointment"
                 className="inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
@@ -64,8 +63,7 @@ const Header: React.FC = () => {
                 Custom Order
               </Link>
             </nav>
-
-          }
+          )}
           <div className="lang">
             <LanguageSwitcher />
           </div>

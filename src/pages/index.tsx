@@ -24,11 +24,7 @@ Home.Layout = Layout;
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, [
-        "common",
-        "menu",
-        "footer",
-      ])),
+      ...(await serverSideTranslations(locale!, ["common", "menu", "footer"])),
     },
   };
 };

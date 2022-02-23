@@ -2,7 +2,7 @@ interface Item {
   id: string | number;
   name: string;
   slug: string;
-  images: Array<string>
+  images: Array<string>;
   price?: number;
   sale_price: number;
   [key: string]: unknown;

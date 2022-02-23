@@ -14,7 +14,7 @@ import { useTranslation } from "next-i18next";
 
 export default function Products() {
   const { t } = useTranslation("common");
-  
+
   const {
     data,
     isFetching: isLoading,
@@ -27,7 +27,7 @@ export default function Products() {
     <>
       <Container>
         <div className={`flex pt-8 pb-16 lg:pb-20`}>
-        <div className="flex-shrink-0 pe-24 hidden lg:block w-96">
+          <div className="flex-shrink-0 pe-24 hidden lg:block w-96">
             <StickyBox offsetTop={50} offsetBottom={20}>
               <div className="pb-7">
                 <BreadcrumbItems separator="/">
@@ -38,14 +38,13 @@ export default function Products() {
                     <a>{t("breadcrumb-home")}</a>
                   </ActiveLink>
                   <ActiveLink
-                    href={'/products'}
+                    href={"/products"}
                     activeClassName="font-semibold text-heading"
                   >
                     <a className="capitalize">{t("products")}</a>
                   </ActiveLink>
                 </BreadcrumbItems>
               </div>
-           
             </StickyBox>
           </div>
 

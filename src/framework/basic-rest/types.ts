@@ -31,7 +31,7 @@ export type AllProduct = {
   sale_price?: number;
   category?: string;
   image?: string;
-  images?: Array<string>
+  images?: Array<string>;
 };
 
 export type QueryOptionsType = {
@@ -96,13 +96,13 @@ export type Product = {
   category?: Category;
   tag?: Tag[];
   meta?: any[];
-  description: DescriptionItem
+  description: DescriptionItem;
   variations?: object;
-  images?: Array<string>
+  images?: Array<string>;
   [key: string]: unknown;
 };
 export type DescriptionItem = {
-  texture? : string;
+  texture?: string;
   cap_construction?: string;
   closure_type?: string;
   lace_colour?: string;
@@ -111,7 +111,7 @@ export type DescriptionItem = {
   hairline?: string;
   bleached_knots?: string;
   info?: string;
-}
+};
 export type OrderItem = {
   id: number | string;
   name: string;

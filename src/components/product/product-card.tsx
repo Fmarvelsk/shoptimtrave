@@ -71,7 +71,7 @@ const ProductCard: FC<ProductProps> = ({
           imageContentClassName
         )}
       >
-       {/*  <Carousel
+        {/*  <Carousel
             data={product.images}
             time={2000}
             width={imgWidth}
@@ -96,7 +96,7 @@ const ProductCard: FC<ProductProps> = ({
               margin: "40px auto",
             }}
           />*/}
-          
+
         <Image
           src={product?.images?.[0] ?? placeholderImage}
           width={imgWidth}

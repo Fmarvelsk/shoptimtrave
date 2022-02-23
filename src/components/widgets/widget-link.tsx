@@ -20,7 +20,6 @@ const WidgetLink: FC<Props> = ({ className, data }) => {
   const { t } = useTranslation("footer");
   return (
     <div className={`${className}`}>
- 
       <h4 className="text-heading text-sm md:text-base xl:text-lg font-semibold mb-5 2xl:mb-6 3xl:mb-7">
         {t(`${widgetTitle}`)}
       </h4>

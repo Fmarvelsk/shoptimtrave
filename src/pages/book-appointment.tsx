@@ -7,30 +7,30 @@ import { GetStaticProps } from "next";
 import Appointment from "@components/common/appointment";
 
 export default function BookAppointment() {
-    return (
-        <>
-            <PageHeader pageHeader="Book Appointment" />
-            <Container>
-                <div className="md:w-9/12 py-12 " style={{ margin: "auto" }}>
-                    <Appointment />
-                </div>
-                <Subscription />
-            </Container>
-        </>
-    );
+  return (
+    <>
+      <PageHeader pageHeader="Book Appointment" />
+      <Container>
+        <div className="md:w-9/12 py-12 " style={{ margin: "auto" }}>
+          <Appointment />
+        </div>
+        <Subscription />
+      </Container>
+    </>
+  );
 }
 
 BookAppointment.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale!, [
-                "common",
-                "forms",
-                "menu",
-                "footer",
-            ])),
-        },
-    };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

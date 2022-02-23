@@ -16,8 +16,8 @@ const CheckoutCard: React.FC = () => {
     currencyCode: "USD",
   });
   const { t } = useTranslation("common");
-  const [shippingPrice, setShippingPrice] = useState<number>(35)
-  
+  const [shippingPrice, setShippingPrice] = useState<number>(35);
+
   const checkoutFooter = [
     {
       id: 1,
@@ -36,8 +36,8 @@ const CheckoutCard: React.FC = () => {
     },
   ];
   useEffect(() => {
-    updateShippingFee(shippingPrice)
-  }, [shippingPrice])
+    updateShippingFee(shippingPrice);
+  }, [shippingPrice]);
 
   return (
     <div className="pt-12 md:pt-0 2xl:ps-4">
@@ -60,25 +60,28 @@ const CheckoutCard: React.FC = () => {
       <div className="flex flex-wrap justify-between mt-5">
         <div className="mt-2">
           <label className="inline-flex items-center">
-            <input type="radio" className="form-radio" 
-            name="basic" 
-            value={35} 
-            defaultChecked
-            onChange={(e) => setShippingPrice(Number(e.target.value))} />
+            <input
+              type="radio"
+              className="form-radio"
+              name="basic"
+              value={35}
+              defaultChecked
+              onChange={(e) => setShippingPrice(Number(e.target.value))}
+            />
             <span className="ml-2"> Basic: $35(3-4wks)</span>
           </label>
           <label className="inline-flex items-center ml-6">
-            <input 
-            type="radio" 
-            className="form-radio" 
-            name="express" 
-            value={50} 
-            onChange={(e) => setShippingPrice(Number(e.target.value))} />
+            <input
+              type="radio"
+              className="form-radio"
+              name="express"
+              value={50}
+              onChange={(e) => setShippingPrice(Number(e.target.value))}
+            />
             <span className="ml-2"> Express: $50(1{"&"}1/2wk)</span>
           </label>
         </div>
       </div>
-
     </div>
   );
 };

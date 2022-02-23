@@ -7,30 +7,30 @@ import { GetStaticProps } from "next";
 import CustomBeautyOrder from "@components/common/customorder";
 
 export default function CustomOrder() {
-    return (
-        <>
-            <PageHeader pageHeader="Book Appointment" />
-            <Container>
-                <div className="md:w-9/12 py-12 " style={{ margin: "auto" }}>
-                    <CustomBeautyOrder/>
-                </div>
-                <Subscription />
-            </Container>
-        </>
-    );
+  return (
+    <>
+      <PageHeader pageHeader="Custom Order " />
+      <Container>
+        <div className="md:w-9/12 py-12 " style={{ margin: "auto" }}>
+          <CustomBeautyOrder />
+        </div>
+        <Subscription />
+      </Container>
+    </>
+  );
 }
 
 CustomOrder.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale!, [
-                "common",
-                "forms",
-                "menu",
-                "footer",
-            ])),
-        },
-    };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
 };

@@ -11,6 +11,7 @@ import { generateCartItem } from "@utils/generate-cart-item";
 import usePrice from "@framework/product/use-price";
 import { getVariations } from "@framework/utils/get-variations";
 import { useTranslation } from "next-i18next";
+import EmblaCarousel from "@components/carousel/carousel";
 
 export default function ProductPopup() {
   const { t } = useTranslation("common");
@@ -36,13 +37,13 @@ export default function ProductPopup() {
   const variations = getVariations(data.variations);
   const { sizes, image, images, name, description } = data;
 
-  console.log(images)
+  console.log(images);
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
-      Object.keys(variations).every((variation) =>
-        attributes.hasOwnProperty(variation)
-      )
+    Object.keys(variations).every((variation) =>
+      attributes.hasOwnProperty(variation)
+    )
     : true;
 
   function addToCart() {
@@ -85,11 +86,13 @@ export default function ProductPopup() {
     <div className="rounded-lg bg-white">
       <div className="flex flex-col lg:flex-row w-full md:w-[650px] lg:w-[960px] mx-auto overflow-hidden">
         <div className="flex-shrink-0 flex items-center justify-center w-full lg:w-430px max-h-430px lg:max-h-full overflow-hidden bg-gray-300">
-          <img
+
+          <EmblaCarousel slides={images} />
+          {/*<img
             src={image ?? "/assets/placeholder/products/product-thumbnail.svg"}
             alt={name}
             className="lg:object-cover lg:w-full lg:h-full"
-          />
+          />*/}
         </div>
 
         <div className="flex flex-col p-5 md:p-8 w-full">
@@ -103,20 +106,19 @@ export default function ProductPopup() {
                 {name}
               </h2>
             </div>
-            
-            {Object.keys(description).map((key, desc) => {
-						return (
-              <span key={desc}>
-              {description[key] !== null ? 
-              <p className="text-sm capitalize font-bold leading-6 md:text-body md:leading-7">
-                  {key} : {description[key]}
-
-            </p> : null }
-            </span>	
-						)}
-            )}
-            
-
+            <div className="grid grid-cols-2 gap-2">
+              {Object.keys(description).map((key, desc) => {
+                return (
+                  <span key={desc}>
+                    {description[key] !== null ? (
+                      <p className="text-sm capitalize font-bold leading-6 md:text-body md:leading-7">
+                        {key} : {description[key]}
+                      </p>
+                    ) : null}
+                  </span>
+                );
+              })}
+            </div>
             <div className="flex items-center mt-3">
               <div className="text-heading font-semibold text-base md:text-xl lg:text-2xl">
                 {price}
@@ -171,9 +173,8 @@ export default function ProductPopup() {
               <Button
                 onClick={addToCart}
                 variant="flat"
-                className={`w-full h-11 md:h-12 px-1.5 ${
-                  !isSelected && "bg-gray-400 hover:bg-gray-400"
-                }`}
+                className={`w-full h-11 md:h-12 px-1.5 ${!isSelected && "bg-gray-400 hover:bg-gray-400"
+                  }`}
                 disabled={!select || !selectSize}
                 loading={addToCartLoader}
               >

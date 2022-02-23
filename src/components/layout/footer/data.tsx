@@ -17,7 +17,7 @@ export const footer = {
           path: "https://www.instagram.com/aloverest/",
           icon: <IoLogoInstagram />,
         },
-       ],
+      ],
     },
     {
       id: 2,
@@ -79,7 +79,7 @@ export const footer = {
         },*/
       ],
     },
-    
+
     {
       id: 4,
       widgetTitle: "widget-title-contact",
@@ -89,7 +89,7 @@ export const footer = {
           title: "link-contact-us",
           path: "/contact-us",
         },
-        
+
         {
           id: 2,
           title: "timtraveww@gmail.com",
@@ -105,7 +105,6 @@ export const footer = {
           title: "link-faq",
           path: "/faq",
         },
-   
       ],
     },
   ],
