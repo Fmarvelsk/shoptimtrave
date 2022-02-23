@@ -44,8 +44,8 @@ const EmblaCarousel = ({ slides }: EmbalIProps) => {
   
                   <img
                     className="lg:object-cover lg:w-full lg:h-full"
-                    src={index}
-                    alt={i.toString()}
+                    src={index || "/assets/placeholder/products/product-thumbnail.svg"}
+                    alt={i.toString() + slug?.toString()}
                   />
           
                 </div>

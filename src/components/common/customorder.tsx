@@ -66,8 +66,7 @@ const CustomBeautyOrder: React.FC = () => {
     setLoading(true);
     await sendCustomBeautyOrder(data)
       .then((response) => {
-        console.log(response);
-        toast.success("Suceesfully Booked Appointment");
+        toast.success(`Sucessfully Requested for custom for ${response.name}`);
       })
       .catch((err) => {
         toast.error("Something went wrong, Unable to create appointment");

@@ -37,9 +37,8 @@ const AppointmentForm: React.FC = () => {
       service: service,
     })
       .then((response) => {
-        console.log(response);
         closeModal();
-        toast.success("Suceesfully Booked Appointment");
+        toast.success(`Booked Appointment for ${response.name}`);
       })
       .catch((err) => {
         toast.error("Something went wrong, Unable to create appointment");

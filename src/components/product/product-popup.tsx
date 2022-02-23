@@ -35,9 +35,8 @@ export default function ProductPopup() {
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { sizes, image, images, name, description } = data;
+  const { sizes, images, name, description } = data;
 
-  console.log(images);
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -89,7 +88,7 @@ export default function ProductPopup() {
 
           <EmblaCarousel slides={images} />
           {/*<img
-            src={image ?? "/assets/placeholder/products/product-thumbnail.svg"}
+            src={image ?? ""}
             alt={name}
             className="lg:object-cover lg:w-full lg:h-full"
           />*/}
@@ -130,18 +129,6 @@ export default function ProductPopup() {
               )}
             </div>
           </div>
-
-          {/*Object.keys(variations).map((variation) => {
-						return (
-							<ProductAttributes
-								key={`popup-attribute-key${variation}`}
-								title={variation}
-								attributes={variations[variation]}
-								active={attributes[variation]}
-								onClick={handleAttribute}
-							/>
-						);
-					})*/}
 
           {sizes.length >= 1 && (
             <ProductAttributes
@@ -190,14 +177,6 @@ export default function ProductPopup() {
                 {t("text-view-cart")}
               </button>
             )}
-
-            {/* <Button
-              onClick={navigateToProductPage}
-              variant="flat"
-              className="w-full h-11 md:h-12"
-            >
-              {t("text-view-details")}
-           </Button>*/}
           </div>
         </div>
       </div>
