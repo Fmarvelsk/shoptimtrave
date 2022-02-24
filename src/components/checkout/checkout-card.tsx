@@ -74,7 +74,7 @@ const CheckoutCard: React.FC = () => {
             <input
               type="radio"
               className="form-radio"
-              name="express"
+              name="basic"
               value={50}
               onChange={(e) => setShippingPrice(Number(e.target.value))}
             />
