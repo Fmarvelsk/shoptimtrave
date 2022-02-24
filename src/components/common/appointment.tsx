@@ -17,8 +17,7 @@ const Appointment = () => {
       </p>
 
       <p className="font-bold">
-        Location: FATIH MAH. 852. SOK. NO:8-10, DAIRE: 7, ESENYURT/ISTANBUL
-        34513.
+        Location: FATİH MAHALLESI, SOKAK 851, NO: 15, ESENYURT/İSTANBUL 34513
       </p>
 
       <p>
