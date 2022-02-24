@@ -49,18 +49,24 @@ const Header: React.FC = () => {
           </button>
           <Logo />
           {slug === "beauty" && (
-            <nav className={`headerMenu flex w-full relative`}>
+            <nav className={`headerMenu justify-center flex w-full relative`}>
               <Link
                 href="/book-appointment"
-                className="inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
+                className="inline-flex items-center text-xs xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
               >
                 Book Appointment
               </Link>
               <Link
                 href="/custom-order"
-                className="inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
+                className="inline-flex items-center text-xs xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
               >
                 Custom Order
+              </Link>
+              <Link
+                href="/service-list"
+                className="inline-flex items-center text-xs xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
+              >
+                Service Price List
               </Link>
             </nav>
           )}
