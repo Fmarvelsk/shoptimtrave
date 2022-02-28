@@ -28,21 +28,23 @@ export default function ProductPopup() {
   const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
   const [select, setIsSelected] = useState<boolean>(false);
   const [selectSize, setIsSelectedSize] = useState<boolean>(false);
+  const [newPrice, setNewPrice] = useState<number>(
+    data.sale_price ? data.sale_price : data.price
+  );
 
   const { price, basePrice, discount } = usePrice({
-    amount: data.sale_price ? data.sale_price : data.price,
+    amount: newPrice,
     baseAmount: data.price,
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { sizes, images, name, description } = data;
-
+  const { sizes, images, name, description, price_range } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
-    Object.keys(variations).every((variation) =>
-      attributes.hasOwnProperty(variation)
-    )
+      Object.keys(variations).every((variation) =>
+        attributes.hasOwnProperty(variation)
+      )
     : true;
 
   function addToCart() {
@@ -53,7 +55,15 @@ export default function ProductPopup() {
       setAddToCartLoader(false);
       setViewCartBtn(true);
     }, 600);
-    const item = generateCartItem(data!, attributes, quantity);
+    let newData = {
+      id: data.id,
+      images: data.images,
+      name: data.name,
+      description: data.description,
+      sale_price: newPrice,
+      category: data.category,
+    };
+    const item = generateCartItem(newData!, attributes, quantity);
     addItemToCart(item, quantity);
   }
 
@@ -65,6 +75,10 @@ export default function ProductPopup() {
   }
 
   function handleAttribute(attribute: any) {
+    price_range.length > 0 &&
+      price_range.forEach((price: any) => {
+        if (price.size === attribute.sizes) setNewPrice(Number(price.price));
+      });
     setAttributes((prev) => ({
       ...prev,
       ...attribute,
@@ -85,7 +99,6 @@ export default function ProductPopup() {
     <div className="rounded-lg bg-white">
       <div className="flex flex-col lg:flex-row w-full md:w-[650px] lg:w-[960px] mx-auto overflow-hidden">
         <div className="flex-shrink-0 flex items-center justify-center w-full lg:w-430px max-h-430px lg:max-h-full overflow-hidden bg-gray-300">
-
           <EmblaCarousel slides={images} />
           {/*<img
             src={image ?? ""}
@@ -160,8 +173,9 @@ export default function ProductPopup() {
               <Button
                 onClick={addToCart}
                 variant="flat"
-                className={`w-full h-11 md:h-12 px-1.5 ${!isSelected && "bg-gray-400 hover:bg-gray-400"
-                  }`}
+                className={`w-full h-11 md:h-12 px-1.5 ${
+                  !isSelected && "bg-gray-400 hover:bg-gray-400"
+                }`}
                 disabled={!select || !selectSize}
                 loading={addToCartLoader}
               >

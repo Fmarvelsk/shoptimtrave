@@ -15,9 +15,12 @@ const Pricelist = [
   { name: "hair colouring", price: 30 },
   { name: "sew-in installation", price: 30 },
   { name: "wig making", price: 25 },
+  { name: "hair washing (with treatment)", price: 15 },
+  { name: "hair washing (without treatment)", price: 8 },
+  { name: "hair retouch (without treatment)", price: 18 },
+  { name: "hair retouch (with treatment)", price: 25 },
   { name: "natural hair treatment" },
-]
-
+];
 
 export default function ServicePriceList() {
   return (
@@ -28,13 +31,13 @@ export default function ServicePriceList() {
           <div>
             <h3 className="font-bold text-lg text-black">SERVICE PRICE LIST</h3>
             <ul className="mb-5" style={{ listStyle: "disc" }}>
-              { Pricelist.map((list, index) => (
+              {Pricelist.map((list, index) => (
                 <li className="py-3 capitalize" key={index}>
-                  {list.name} : <b>{list.price ? '$' + list.price : "Contact us"}</b>
+                  {list.name} :{" "}
+                  <b>{list.price ? "$" + list.price : "Contact us"}</b>
                 </li>
-              )) }
-              </ul>
-
+              ))}
+            </ul>
           </div>
         </div>
         <Subscription />

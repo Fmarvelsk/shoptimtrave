@@ -7,6 +7,15 @@ import { useTranslation } from "next-i18next";
 import { sendAppointmentBooking } from "@framework/requestBooking/booking-mutation";
 import { toast } from "react-toastify";
 
+const serviceOption = [
+  "wigging",
+  "revamping",
+  "installation",
+  "customisation",
+  "washing",
+  "retouching",
+  "hair treatment",
+];
 interface AppointmentType {
   name: string;
   email: string;
@@ -70,11 +79,13 @@ const AppointmentForm: React.FC = () => {
 						font-body rounded-md placeholder-body min-h-12 
 						transition duration-200 ease-in-out cursor-pointer
 						bg-white border-gray-300 focus:outline-none 
-						focus:border-heading h-11 md:h-12"
+						focus:border-heading h-11 md:h-12 capitalize"
             >
-              <option value="customisation">Customisation</option>
-              <option value="installation">Installation</option>
-              <option value="wigging">Wigging</option>
+              {serviceOption.map((service, i) => (
+                <option key={i} value={service}>
+                  {service}
+                </option>
+              ))}
             </select>
           </div>
 

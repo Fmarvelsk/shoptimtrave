@@ -21,10 +21,14 @@ const Appointment = () => {
       </p>
 
       <p>
-        We accept any hair, or you can contact us via email or our Instagram if
-        you want us to provide the unit. Appointment is for Collection,
-        Installation {"&"} Styling of the Wig Only All wigs are made a few days
-        before collection/installation.
+        We accept any type of hair, or you can contact us via email or our
+        Instagram if you want us to provide the unit. Appointment is for
+        Collection, Installation {"&"} Styling of the Wig Only All wigs are made
+        a before or prior to collection/installation.
+      </p>
+
+      <p className="font-bold my-2 text-lg">
+        FOR WIG REVAMPING OR CUSTOMIZATION
       </p>
       <ul className="mb-5" style={{ listStyle: "disc" }}>
         <li>
@@ -55,7 +59,7 @@ const Appointment = () => {
 
       <p>
         {" "}
-        Address will be sent to your contact for postage immediately after
+        Our Address will be sent to your contact for postage immediately after
         bookings has been confirmed.
       </p>
 

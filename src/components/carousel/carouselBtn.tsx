@@ -1,10 +1,10 @@
 import React from "react";
 
 type CarouselBtnIprops = {
-  enabled : boolean;
-  onClick : () => void;
-}
-export const PrevButton = ({ enabled, onClick } : CarouselBtnIprops) => (
+  enabled: boolean;
+  onClick: () => void;
+};
+export const PrevButton = ({ enabled, onClick }: CarouselBtnIprops) => (
   <button
     className="embla__button embla__button--prev"
     onClick={onClick}
@@ -16,7 +16,7 @@ export const PrevButton = ({ enabled, onClick } : CarouselBtnIprops) => (
   </button>
 );
 
-export const NextButton = ({ enabled, onClick } : CarouselBtnIprops) => (
+export const NextButton = ({ enabled, onClick }: CarouselBtnIprops) => (
   <button
     className="embla__button embla__button--next"
     onClick={onClick}

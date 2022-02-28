@@ -33,12 +33,28 @@ const ALLPRODUCTQUERY = gql`
     returnAllProduct {
       id
       name
-      description
+      description {
+        texture
+        cap_construction
+        texture
+        closure_type
+        lace_colour
+        elastic_band
+        cap_size
+        hairline
+        bleached_knots
+        info
+      }
       colours
-      price
       sizes
+      price
       sale_price
-      image
+      price_range {
+        size
+        price
+      }
+      category
+      images
     }
   }
 `;

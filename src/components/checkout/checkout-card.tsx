@@ -11,12 +11,14 @@ const CheckoutCard: React.FC = () => {
     amount: total,
     currencyCode: "USD",
   });
+
+  const [shippingPrice, setShippingPrice] = useState<number>(35);
+
   const { price: sumTotal } = usePrice({
     amount: totalSum,
     currencyCode: "USD",
   });
   const { t } = useTranslation("common");
-  const [shippingPrice, setShippingPrice] = useState<number>(35);
 
   const checkoutFooter = [
     {
@@ -27,7 +29,7 @@ const CheckoutCard: React.FC = () => {
     {
       id: 2,
       name: t("text-shipping"),
-      price: shippingPrice,
+      price: `$${shippingPrice}.00`,
     },
     {
       id: 3,
