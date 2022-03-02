@@ -51,7 +51,7 @@ const ContactInfoBlock: FC<Props> = () => {
           </div>
         </div>
       ))}
-   {/*   <img src={mapImage} alt={t("text-map")} className="rounded-md" />*/}
+      {/*   <img src={mapImage} alt={t("text-map")} className="rounded-md" />*/}
     </div>
   );
 };

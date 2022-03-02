@@ -17,7 +17,7 @@ export const footer = {
           path: "https://www.instagram.com/aloverest/",
           icon: <IoLogoInstagram />,
         },
-       ],
+      ],
     },
     {
       id: 2,
@@ -79,7 +79,7 @@ export const footer = {
         },*/
       ],
     },
-    
+
     {
       id: 4,
       widgetTitle: "widget-title-contact",
@@ -89,7 +89,7 @@ export const footer = {
           title: "link-contact-us",
           path: "/contact-us",
         },
-        
+
         {
           id: 2,
           title: "timtraveww@gmail.com",
@@ -97,7 +97,7 @@ export const footer = {
         },
         {
           id: 3,
-          title: "link-phone",
+          title: "+905386040620",
           path: "/",
         },
         {
@@ -105,45 +105,7 @@ export const footer = {
           title: "link-faq",
           path: "/faq",
         },
-   
       ],
     },
-   /* {
-      id: 5,
-      widgetTitle: "widget-title-about",
-      lists: [
-        {
-          id: 1,
-          title: "link-about-us",
-          path: "/contact-us",
-        },
-        {
-          id: 2,
-          title: "link-faq",
-          path: "/faq",
-        },
-        {
-          id: 4,
-          title: "link-copyright",
-          path: "/",
-        },
-      ],
-    },
-  {
-      id: 6,
-      widgetTitle: "widget-title-our-information",
-      lists: [
-        {
-          id: 1,
-          title: "link-terms",
-          path: "/terms",
-        },
-        {
-          id: 2,
-          title: "link-return-policy",
-          path: "/privacy",
-        },
-      ],
-    },*/
   ],
 };

@@ -77,7 +77,7 @@ type Action =
     };
 
 type MODAL_VIEWS =
-  | "SIGN_UP_VIEW"
+  | "BOOKING_VIEW"
   | "LOGIN_VIEW"
   | "FORGET_PASSWORD"
   | "PRODUCT_VIEW";
