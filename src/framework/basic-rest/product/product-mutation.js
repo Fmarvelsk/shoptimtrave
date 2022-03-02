@@ -98,7 +98,6 @@ export const usePaymentMutation = async (variables, config = {}) => {
   let vard = {
     items: variables,
   };
-  console.log(vard);
 
   let result = await graphQLClient.request(MAKEPAYMENT, vard);
   return Promise.resolve(result);

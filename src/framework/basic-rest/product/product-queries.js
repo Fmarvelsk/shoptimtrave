@@ -33,11 +33,17 @@ const ALLPRODUCTQUERY = gql`
     returnAllProduct {
       id
       name
+      closure_types
+      out_of_stock {
+        sizes
+        colours
+        closure_types
+        all
+      }
       description {
         texture
         cap_construction
         texture
-        closure_type
         lace_colour
         elastic_band
         cap_size
@@ -64,11 +70,17 @@ const GETBYCATEGORY = gql`
     returnProductsByCategory(category: $category) {
       id
       name
+      closure_types
+      out_of_stock {
+        sizes
+        colours
+        closure_types
+        all
+      }
       description {
         texture
         cap_construction
         texture
-        closure_type
         lace_colour
         elastic_band
         cap_size

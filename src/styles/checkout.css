@@ -35,8 +35,7 @@
 
 .embla {
   position: relative;
-  background-color: #f7f7f7;
-  padding: 20px;
+  padding: 0 20px;
   max-width: 670px;
   margin-left: auto;
   margin-right: auto;
@@ -97,7 +96,7 @@
   touch-action: manipulation;
   position: absolute;
   z-index: 1;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
   border: 0;
   width: 30px;
