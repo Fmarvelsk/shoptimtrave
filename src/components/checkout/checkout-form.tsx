@@ -84,6 +84,7 @@ const CheckoutForm: React.FC = () => {
             quantity: item.quantity,
             size: item.attributes.sizes || "",
             colour: item.attributes.colours,
+            closure_type: item.attributes["closure types"] || "",
             image: item.image,
           })),
         })

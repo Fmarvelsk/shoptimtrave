@@ -28,6 +28,7 @@ export default function ProductPopup() {
   const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
   const [select, setIsSelected] = useState<boolean>(false);
   const [selectSize, setIsSelectedSize] = useState<boolean>(false);
+  const [selectedType, setSelectedType] = useState<boolean>(false);
   const [newPrice, setNewPrice] = useState<number>(
     data.sale_price ? data.sale_price : data.price
   );
@@ -38,7 +39,7 @@ export default function ProductPopup() {
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { sizes, images, name, description, price_range } = data;
+  const { sizes, images, name, description, price_range, closure_types } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -75,10 +76,11 @@ export default function ProductPopup() {
   }
 
   function handleAttribute(attribute: any) {
-    price_range.length > 0 &&
+    if (attribute.sizes && price_range.length > 0) {
       price_range.forEach((price: any) => {
         if (price.size === attribute.sizes) setNewPrice(Number(price.price));
       });
+    }
     setAttributes((prev) => ({
       ...prev,
       ...attribute,
@@ -93,12 +95,13 @@ export default function ProductPopup() {
   }
   useEffect(() => {
     if (sizes.length === 0) setIsSelectedSize(true);
+    if (closure_types.length === 0) setSelectedType(false);
   }, [sizes]);
 
   return (
     <div className="rounded-lg bg-white">
       <div className="flex flex-col lg:flex-row w-full md:w-[650px] lg:w-[960px] mx-auto overflow-hidden">
-        <div className="flex-shrink-0 flex items-center justify-center w-full lg:w-430px max-h-430px lg:max-h-full overflow-hidden bg-gray-300">
+        <div className="flex-shrink-0 flex justify-center w-full lg:w-430px max-h-430px lg:max-h-full overflow-hidden">
           <EmblaCarousel slides={images} />
           {/*<img
             src={image ?? ""}
@@ -159,6 +162,15 @@ export default function ProductPopup() {
             active={attributes.colours}
             onClick={handleAttribute}
           />
+          {closure_types.length >= 1 && (
+            <ProductAttributes
+              title={"closure types"}
+              isSelected={setSelectedType}
+              attributes={closure_types}
+              active={attributes.closure_types}
+              onClick={handleAttribute}
+            />
+          )}
 
           <div className="pt-2 md:pt-4">
             <div className="flex items-center justify-between mb-4 space-s-3 sm:space-s-4">
@@ -176,7 +188,7 @@ export default function ProductPopup() {
                 className={`w-full h-11 md:h-12 px-1.5 ${
                   !isSelected && "bg-gray-400 hover:bg-gray-400"
                 }`}
-                disabled={!select || !selectSize}
+                disabled={!select || !selectSize || !selectedType}
                 loading={addToCartLoader}
               >
                 {t("text-add-to-cart")}

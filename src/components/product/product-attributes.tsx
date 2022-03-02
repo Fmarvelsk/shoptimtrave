@@ -22,11 +22,11 @@ export const ProductAttributes: React.FC<Props> = ({
 
   return (
     <div className={className}>
-      <h3 className="text-base md:text-lg text-heading font-semibold mb-2.5 capitalize">
+      <h3 className="text-base lg:text-lg text-heading font-semibold mb-2 capitalize">
         {title}
       </h3>
       <ul className="colors flex flex-wrap -me-3">
-        {attributes?.map((value, id) => (
+        {attributes?.map((value: any, id: number) => (
           <li
             key={`${value}-${id}`}
             className={`${cn(
