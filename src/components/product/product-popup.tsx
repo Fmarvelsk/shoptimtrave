@@ -29,6 +29,7 @@ export default function ProductPopup() {
   const [select, setIsSelected] = useState<boolean>(false);
   const [selectSize, setIsSelectedSize] = useState<boolean>(false);
   const [selectedType, setSelectedType] = useState<boolean>(false);
+  const [outOfStockMessage, setOutOfStockMessage] = useState<string>("")
   const [newPrice, setNewPrice] = useState<number>(
     data.sale_price ? data.sale_price : data.price
   );
@@ -39,13 +40,13 @@ export default function ProductPopup() {
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { sizes, images, name, description, price_range, closure_types } = data;
+  const { sizes, images, name, description, price_range, closure_types, out_of_stock } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
-      Object.keys(variations).every((variation) =>
-        attributes.hasOwnProperty(variation)
-      )
+    Object.keys(variations).every((variation) =>
+      attributes.hasOwnProperty(variation)
+    )
     : true;
 
   function addToCart() {
@@ -75,7 +76,10 @@ export default function ProductPopup() {
     });
   }
 
-  function handleAttribute(attribute: any) {
+  function handleAttribute(attribute: any, title: string) {
+    if (out_of_stock && out_of_stock[title] === attribute[title])
+      return setOutOfStockMessage(`${out_of_stock[title]} is out of stock`)
+
     if (attribute.sizes && price_range.length > 0) {
       price_range.forEach((price: any) => {
         if (price.size === attribute.sizes) setNewPrice(Number(price.price));
@@ -85,6 +89,7 @@ export default function ProductPopup() {
       ...prev,
       ...attribute,
     }));
+    setOutOfStockMessage("")
   }
 
   function navigateToCartPage() {
@@ -95,7 +100,7 @@ export default function ProductPopup() {
   }
   useEffect(() => {
     if (sizes.length === 0) setIsSelectedSize(true);
-    if (closure_types.length === 0) setSelectedType(false);
+    if (closure_types.length === 0) setSelectedType(true);
   }, [sizes]);
 
   return (
@@ -124,7 +129,7 @@ export default function ProductPopup() {
             <div className="grid grid-cols-2 gap-2">
               {Object.keys(description).map((key, desc) => {
                 return (
-                  <span key={desc}>
+                  <span className={`${description[key] === null && 'hidden'}`} key={desc}>
                     {description[key] !== null ? (
                       <p className="text-sm capitalize font-bold leading-6 md:text-body md:leading-7">
                         {key} : {description[key]}
@@ -145,32 +150,38 @@ export default function ProductPopup() {
               )}
             </div>
           </div>
-
-          {sizes.length >= 1 && (
-            <ProductAttributes
-              title={"sizes"}
-              isSelected={setIsSelectedSize}
-              attributes={sizes}
-              active={attributes.sizes}
-              onClick={handleAttribute}
-            />
-          )}
-          <ProductAttributes
-            title={"colours"}
-            isSelected={setIsSelected}
-            attributes={data.colours}
-            active={attributes.colours}
-            onClick={handleAttribute}
-          />
-          {closure_types.length >= 1 && (
-            <ProductAttributes
-              title={"closure types"}
-              isSelected={setSelectedType}
-              attributes={closure_types}
-              active={attributes.closure_types}
-              onClick={handleAttribute}
-            />
-          )}
+          {out_of_stock && out_of_stock.all ? <div className="text-red-400 text-base">Out of Stock</div>
+            :
+            <>
+              {sizes.length >= 1 && (
+                <ProductAttributes
+                  title={"sizes"}
+                  isSelected={setIsSelectedSize}
+                  attributes={sizes}
+                  active={attributes.sizes}
+                  onClick={handleAttribute}
+                />
+              )}
+              <ProductAttributes
+                cls
+                title={"colours"}
+                isSelected={setIsSelected}
+                attributes={data.colours}
+                active={attributes.colours}
+                onClick={handleAttribute}
+              />
+              {closure_types.length >= 1 && (
+                <ProductAttributes
+                  title={"closure types"}
+                  isSelected={setSelectedType}
+                  attributes={closure_types}
+                  active={attributes['closure types']}
+                  onClick={handleAttribute}
+                />
+              )}
+            </>
+          }
+          {outOfStockMessage && <div className="text-red-400 text-base">{outOfStockMessage}</div>}
 
           <div className="pt-2 md:pt-4">
             <div className="flex items-center justify-between mb-4 space-s-3 sm:space-s-4">
@@ -185,9 +196,8 @@ export default function ProductPopup() {
               <Button
                 onClick={addToCart}
                 variant="flat"
-                className={`w-full h-11 md:h-12 px-1.5 ${
-                  !isSelected && "bg-gray-400 hover:bg-gray-400"
-                }`}
+                className={`w-full h-11 md:h-12 px-1.5 ${!isSelected && "bg-gray-400 hover:bg-gray-400"
+                  }`}
                 disabled={!select || !selectSize || !selectedType}
                 loading={addToCartLoader}
               >
