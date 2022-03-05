@@ -161,7 +161,7 @@ export default function ProductPopup() {
               )}
             </div>
           </div>
-          {out_of_stock && out_of_stock.all ? (
+          {out_of_stock && out_of_stock?.all ? (
             <div className="text-red-400 text-base">Out of Stock</div>
           ) : (
             <>
@@ -197,7 +197,7 @@ export default function ProductPopup() {
             <div className="text-red-400 text-base">{outOfStockMessage}</div>
           )}
 
-          {!out_of_stock && !out_of_stock.all &&
+          {!out_of_stock && !out_of_stock?.all &&
             <div className="pt-2 md:pt-4">
               <div className="flex items-center justify-between mb-4 space-s-3 sm:space-s-4">
                 <Counter
