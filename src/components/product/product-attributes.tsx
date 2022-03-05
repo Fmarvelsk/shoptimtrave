@@ -7,7 +7,7 @@ interface Props {
   active: string;
   onClick: any;
   isSelected?: any;
-  cls?:boolean
+  cls?: boolean;
 }
 
 export const ProductAttributes: React.FC<Props> = ({

@@ -29,18 +29,26 @@ export default function ProductPopup() {
   const [select, setIsSelected] = useState<boolean>(false);
   const [selectSize, setIsSelectedSize] = useState<boolean>(false);
   const [selectedType, setSelectedType] = useState<boolean>(false);
-  const [outOfStockMessage, setOutOfStockMessage] = useState<string>("")
+  const [outOfStockMessage, setOutOfStockMessage] = useState<string>("");
   const [newPrice, setNewPrice] = useState<number>(
     data.sale_price ? data.sale_price : data.price
   );
-
+  console.log(data)
   const { price, basePrice, discount } = usePrice({
     amount: newPrice,
     baseAmount: data.price,
     currencyCode: "USD",
   });
   const variations = getVariations(data.variations);
-  const { sizes, images, name, description, price_range, closure_types, out_of_stock } = data;
+  const {
+    sizes,
+    images,
+    name,
+    description,
+    price_range,
+    closure_types,
+    out_of_stock,
+  } = data;
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -78,7 +86,7 @@ export default function ProductPopup() {
 
   function handleAttribute(attribute: any, title: string) {
     if (out_of_stock && out_of_stock[title] === attribute[title])
-      return setOutOfStockMessage(`${out_of_stock[title]} is out of stock`)
+      return setOutOfStockMessage(`${out_of_stock[title]} is out of stock`);
 
     if (attribute.sizes && price_range.length > 0) {
       price_range.forEach((price: any) => {
@@ -89,7 +97,7 @@ export default function ProductPopup() {
       ...prev,
       ...attribute,
     }));
-    setOutOfStockMessage("")
+    setOutOfStockMessage("");
   }
 
   function navigateToCartPage() {
@@ -129,7 +137,10 @@ export default function ProductPopup() {
             <div className="grid grid-cols-2 gap-2">
               {Object.keys(description).map((key, desc) => {
                 return (
-                  <span className={`${description[key] === null && 'hidden'}`} key={desc}>
+                  <span
+                    className={`${description[key] === null && "hidden"}`}
+                    key={desc}
+                  >
                     {description[key] !== null ? (
                       <p className="text-sm capitalize font-bold leading-6 md:text-body md:leading-7">
                         {key} : {description[key]}
@@ -150,8 +161,9 @@ export default function ProductPopup() {
               )}
             </div>
           </div>
-          {out_of_stock && out_of_stock.all ? <div className="text-red-400 text-base">Out of Stock</div>
-            :
+          {out_of_stock && out_of_stock.all ? (
+            <div className="text-red-400 text-base">Out of Stock</div>
+          ) : (
             <>
               {sizes.length >= 1 && (
                 <ProductAttributes
@@ -175,45 +187,48 @@ export default function ProductPopup() {
                   title={"closure types"}
                   isSelected={setSelectedType}
                   attributes={closure_types}
-                  active={attributes['closure types']}
+                  active={attributes["closure types"]}
                   onClick={handleAttribute}
                 />
               )}
             </>
-          }
-          {outOfStockMessage && <div className="text-red-400 text-base">{outOfStockMessage}</div>}
+          )}
+          {outOfStockMessage && (
+            <div className="text-red-400 text-base">{outOfStockMessage}</div>
+          )}
 
-          <div className="pt-2 md:pt-4">
-            <div className="flex items-center justify-between mb-4 space-s-3 sm:space-s-4">
-              <Counter
-                quantity={quantity}
-                onIncrement={() => setQuantity((prev) => prev + 1)}
-                onDecrement={() =>
-                  setQuantity((prev) => (prev !== 1 ? prev - 1 : 1))
-                }
-                disableDecrement={quantity === 1}
-              />
-              <Button
-                onClick={addToCart}
-                variant="flat"
-                className={`w-full h-11 md:h-12 px-1.5 ${!isSelected && "bg-gray-400 hover:bg-gray-400"
-                  }`}
-                disabled={!select || !selectSize || !selectedType}
-                loading={addToCartLoader}
-              >
-                {t("text-add-to-cart")}
-              </Button>
-            </div>
+          {!out_of_stock && !out_of_stock.all &&
+            <div className="pt-2 md:pt-4">
+              <div className="flex items-center justify-between mb-4 space-s-3 sm:space-s-4">
+                <Counter
+                  quantity={quantity}
+                  onIncrement={() => setQuantity((prev) => prev + 1)}
+                  onDecrement={() =>
+                    setQuantity((prev) => (prev !== 1 ? prev - 1 : 1))
+                  }
+                  disableDecrement={quantity === 1}
+                />
+                <Button
+                  onClick={addToCart}
+                  variant="flat"
+                  className={`w-full h-11 md:h-12 px-1.5 ${!isSelected && "bg-gray-400 hover:bg-gray-400"
+                    }`}
+                  disabled={!select || !selectSize || !selectedType}
+                  loading={addToCartLoader}
+                >
+                  {t("text-add-to-cart")}
+                </Button>
+              </div>
 
-            {viewCartBtn && (
-              <button
-                onClick={navigateToCartPage}
-                className="w-full mb-4 h-11 md:h-12 rounded bg-gray-100 text-heading focus:outline-none border border-gray-300 transition-colors hover:bg-gray-50 focus:bg-gray-50"
-              >
-                {t("text-view-cart")}
-              </button>
-            )}
-          </div>
+              {viewCartBtn && (
+                <button
+                  onClick={navigateToCartPage}
+                  className="w-full mb-4 h-11 md:h-12 rounded bg-gray-100 text-heading focus:outline-none border border-gray-300 transition-colors hover:bg-gray-50 focus:bg-gray-50"
+                >
+                  {t("text-view-cart")}
+                </button>
+              )}
+            </div>}
         </div>
       </div>
     </div>
