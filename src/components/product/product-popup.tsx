@@ -33,7 +33,7 @@ export default function ProductPopup() {
   const [newPrice, setNewPrice] = useState<number>(
     data.sale_price ? data.sale_price : data.price
   );
-  console.log(data)
+  
   const { price, basePrice, discount } = usePrice({
     amount: newPrice,
     baseAmount: data.price,
