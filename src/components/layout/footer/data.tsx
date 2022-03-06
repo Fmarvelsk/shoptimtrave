@@ -2,6 +2,8 @@ import {
   IoLogoInstagram,
   IoLogoTwitter,
   IoLogoFacebook,
+  IoMail,
+  IoLogoWhatsapp
   //IoLogoYoutube,
 } from "react-icons/io5";
 
@@ -17,7 +19,19 @@ export const footer = {
           path: "https://www.instagram.com/aloverest/",
           icon: <IoLogoInstagram />,
         },
-      ],
+        {
+          id: 2,
+          title: "timtraveww@gmail.com",
+          path: "mailto:timtraveww@gmail.com",
+          icon: <IoMail />,
+        },
+        {
+          id: 3,
+          title: "+905386040620",
+          path: "tel:+905386040620",
+          icon: <IoLogoWhatsapp/>
+        },
+       ],
     },
     {
       id: 2,
@@ -98,7 +112,7 @@ export const footer = {
         {
           id: 3,
           title: "+905386040620",
-          path: "/",
+          path: "tel:+905386040620",
         },
         {
           id: 4,

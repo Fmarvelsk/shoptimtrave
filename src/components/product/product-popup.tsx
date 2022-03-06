@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import isEmpty from "lodash/isEmpty";
 import { ROUTES } from "@utils/routes";
 import { useUI } from "@contexts/ui.context";
 import Button from "@components/ui/button";
@@ -9,10 +8,13 @@ import { useCart } from "@contexts/cart/cart.context";
 import { ProductAttributes } from "@components/product/product-attributes";
 import { generateCartItem } from "@utils/generate-cart-item";
 import usePrice from "@framework/product/use-price";
-import { getVariations } from "@framework/utils/get-variations";
 import { useTranslation } from "next-i18next";
 import EmblaCarousel from "@components/carousel/carousel";
 
+interface IPriceRange {
+  price: number;
+  size: string;
+}
 export default function ProductPopup() {
   const { t } = useTranslation("common");
   const {
@@ -33,13 +35,15 @@ export default function ProductPopup() {
   const [newPrice, setNewPrice] = useState<number>(
     data.sale_price ? data.sale_price : data.price
   );
-  
+  const [priceRange, setPriceRange] = useState<Array<IPriceRange>>(
+    data.price_range
+  );
+
   const { price, basePrice, discount } = usePrice({
     amount: newPrice,
     baseAmount: data.price,
     currencyCode: "USD",
   });
-  const variations = getVariations(data.variations);
   const {
     sizes,
     images,
@@ -48,18 +52,17 @@ export default function ProductPopup() {
     price_range,
     closure_types,
     out_of_stock,
+    category,
   } = data;
 
-  const isSelected = !isEmpty(variations)
+  /*  const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
     Object.keys(variations).every((variation) =>
       attributes.hasOwnProperty(variation)
     )
-    : true;
-
+    : true;*/
+    
   function addToCart() {
-    if (!isSelected) return;
-    // to show btn feedback while product carting
     setAddToCartLoader(true);
     setTimeout(() => {
       setAddToCartLoader(false);
@@ -85,6 +88,7 @@ export default function ProductPopup() {
   }
 
   function handleAttribute(attribute: any, title: string) {
+    setPriceRange([]);
     if (out_of_stock && out_of_stock[title] === attribute[title])
       return setOutOfStockMessage(`${out_of_stock[title]} is out of stock`);
 
@@ -134,10 +138,12 @@ export default function ProductPopup() {
                 {name}
               </h2>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+
+            {category === "beauty" && <p> WIG IN THE PICTURE </p> }
+            <ul>
               {Object.keys(description).map((key, desc) => {
                 return (
-                  <span
+                  <li
                     className={`${description[key] === null && "hidden"}`}
                     key={desc}
                   >
@@ -146,13 +152,17 @@ export default function ProductPopup() {
                         {key} : {description[key]}
                       </p>
                     ) : null}
-                  </span>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
             <div className="flex items-center mt-3">
               <div className="text-heading font-semibold text-base md:text-xl lg:text-2xl">
-                {price}
+                {priceRange?.length > 1
+                  ? ` $${priceRange[0].price.toFixed(2)} - $${priceRange
+                      .slice(-1)[0]
+                      .price.toFixed(2)}`
+                  : price}
               </div>
               {discount && (
                 <del className="font-segoe text-gray-400 text-base lg:text-xl ps-2.5 -mt-0.5 md:mt-0">
@@ -197,7 +207,7 @@ export default function ProductPopup() {
             <div className="text-red-400 text-base">{outOfStockMessage}</div>
           )}
 
-          {!out_of_stock && !out_of_stock?.all &&
+          {!out_of_stock && !out_of_stock?.all && (
             <div className="pt-2 md:pt-4">
               <div className="flex items-center justify-between mb-4 space-s-3 sm:space-s-4">
                 <Counter
@@ -211,8 +221,11 @@ export default function ProductPopup() {
                 <Button
                   onClick={addToCart}
                   variant="flat"
-                  className={`w-full h-11 md:h-12 px-1.5 ${!isSelected && "bg-gray-400 hover:bg-gray-400"
-                    }`}
+                  className={`w-full h-11 md:h-12 px-1.5 ${
+                    !select || !selectSize || !selectedType
+                      ? "bg-gray-400 hover:bg-gray-400"
+                      : ""
+                  }`}
                   disabled={!select || !selectSize || !selectedType}
                   loading={addToCartLoader}
                 >
@@ -228,7 +241,8 @@ export default function ProductPopup() {
                   {t("text-view-cart")}
                 </button>
               )}
-            </div>}
+            </div>
+          )}
         </div>
       </div>
     </div>

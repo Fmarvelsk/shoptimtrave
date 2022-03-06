@@ -38,6 +38,7 @@ const CREATEBEAUTYORDER = gql`
     $cap_size: String!
     $gram: String!
     $hair_texture: String!
+    $hair_type: String!
     $length: String!
     $style_inspiration: String!
     $colour: String!
@@ -55,6 +56,7 @@ const CREATEBEAUTYORDER = gql`
         style_inspiration: $style_inspiration
         colour: $colour
         notes: $notes
+        hair_texture: $hair_texture
         name: $name
         email: $email
         phoneNumber: $phoneNumber
