@@ -8,6 +8,35 @@ import { toast } from "react-toastify";
 import Input from "@components/ui/input";
 import { useTranslation } from "next-i18next";
 
+const sizeInches = [
+  `8"`,
+  `10"`,
+  `12"`,
+  `14"`,
+  `16"`,
+  `18"`,
+  `20"`,
+  `22"`,
+  `24"`,
+  `26"`,
+  `28"`,
+  `30"`,
+  `32"`,
+  `34"`,
+  `36"`,
+  `38"`,
+];
+const texture = [
+  "afro curl",
+  "kinky curl",
+  "deep curl",
+  "kinky straight",
+  "straight",
+  "body wave",
+  "bob",
+  "pixie",
+  "pixie curly",
+];
 interface CustomBeautyForm {
   notes: string;
   name: string;
@@ -23,8 +52,9 @@ const CustomBeautyOrder: React.FC = () => {
   const { t } = useTranslation();
   const [capSize, setCapSize] = React.useState<string>("small");
   const [gram, setGram] = React.useState<string>("200g");
-  const [length, setLength] = React.useState<string>(`8"`);
-  const [hairTexture, setHairTexture] = React.useState<string>("double drawn");
+  const [length, setLength] = React.useState<string>(sizeInches[0]);
+  const [hairType, setHairType] = React.useState<string>("single drawn");
+  const [hairTexture, setHairTexture] = React.useState<string>(texture[0]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [imageStyle, setImageStyle] = React.useState<string>("");
   const [imageColor, setImageColor] = React.useState<string>("");
@@ -59,6 +89,7 @@ const CustomBeautyOrder: React.FC = () => {
       cap_size: capSize,
       gram: gram,
       hair_texture: hairTexture,
+      hair_type: hairType,
       length: length,
       colour: imageColor,
       style_inspiration: imageStyle,
@@ -171,6 +202,27 @@ const CustomBeautyOrder: React.FC = () => {
 
           <div className="w-full pt-3">
             <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+              Hair Type
+            </label>
+
+            <select
+              onChange={(e: any) => setHairType(e.target.value)}
+              className="py-2 px-4 md:px-5 w-full 
+						transition duration-150 
+						ease-in-out border text-input text-xs lg:text-sm 
+						font-body rounded-md placeholder-body min-h-12 
+						transition duration-200 ease-in-out cursor-pointer
+						bg-white border-gray-300 focus:outline-none 
+						focus:border-heading h-11 md:h-12"
+            >
+              <option value="single drawn">Single Drawn</option>
+              <option value="double drawn">Double Drawn</option>
+              <option value="super double drawn">Super Double Drawn</option>
+            </select>
+          </div>
+
+          <div className="w-full pt-3">
+            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Hair Texture
             </label>
 
@@ -182,10 +234,13 @@ const CustomBeautyOrder: React.FC = () => {
 						font-body rounded-md placeholder-body min-h-12 
 						transition duration-200 ease-in-out cursor-pointer
 						bg-white border-gray-300 focus:outline-none 
-						focus:border-heading h-11 md:h-12"
+						focus:border-heading h-11 md:h-12 capitalize"
             >
-              <option value="double drawn">Double Drawn</option>
-              <option value="super double drawn">Super Double Drawn</option>
+              {texture.map((texture, i) => (
+                <option key={i} value={texture}>
+                  {texture}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -204,18 +259,11 @@ const CustomBeautyOrder: React.FC = () => {
 						bg-white border-gray-300 focus:outline-none 
 						focus:border-heading h-11 md:h-12"
             >
-              <option value={`8"`}>8"</option>
-              <option value={`10"`}>10"</option>
-              <option value={`12"`}>12"</option>
-              <option value={`14"`}>14"</option>
-              <option value={`16"`}>16"</option>
-              <option value={`18"`}>18"</option>
-              <option value={`20"`}>20"</option>
-              <option value={`22"`}>22"</option>
-              <option value={`24"`}>24"</option>
-              <option value={`26"`}>26"</option>
-              <option value={`28"`}>28"</option>
-              <option value={`30"`}>30"</option>
+              {sizeInches.map((size, i) => (
+                <option key={i} value={size}>
+                  {size}
+                </option>
+              ))}
             </select>
           </div>
           <div className="flex pt-3 flex-wrap justify-between">

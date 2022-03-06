@@ -23,8 +23,8 @@ const Appointment = () => {
       <p>
         We accept any type of hair, or you can contact us via email or our
         Instagram if you want us to provide the unit. Appointment is for
-        Collection, Installation {"&"} Styling of the Wig Only All wigs are made
-        a before or prior to collection/installation.
+        Wahsing, Hair Treatment, Collection, Installation {"&"} Styling only.
+        All wigs are made before or prior to collection/installation.
       </p>
 
       <p className="font-bold my-2 text-lg">
