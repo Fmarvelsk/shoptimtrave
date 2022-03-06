@@ -22,13 +22,13 @@ export const footer = {
         {
           id: 2,
           title: "timtraveww@gmail.com",
-          path: "mailto:timtraveww@gmail.com",
+          path: "mailto:aloverestbeautyworld@gmail.com",
           icon: <IoMail />,
         },
         {
           id: 3,
-          title: "+905386040620",
-          path: "tel:+905386040620",
+          title: "+905388862158",
+          path: "tel:+905388862158",
           icon: <IoLogoWhatsapp/>
         },
        ],
