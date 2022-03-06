@@ -140,7 +140,7 @@ export default function ProductPopup() {
             </div>
 
             {category === "beauty" && <p> WIG IN THE PICTURE </p> }
-            <ul>
+            <ul style={{ listStyle: "disc" }}>
               {Object.keys(description).map((key, desc) => {
                 return (
                   <li
