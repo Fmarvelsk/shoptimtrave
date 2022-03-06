@@ -28,7 +28,7 @@ export const footer = {
         {
           id: 3,
           title: "+905388862158",
-          path: "tel:+905388862158",
+          path: " https://wa.me/message/PVPX47HCDY4TF1",
           icon: <IoLogoWhatsapp/>
         },
        ],
