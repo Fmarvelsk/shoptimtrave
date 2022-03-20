@@ -11,6 +11,7 @@ const CREATEBOOKINGAPPOINTMENT = gql`
     $name: String!
     $email: String!
     $phoneNumber: String!
+    $additional_notes : String!
   ) {
     createAppointment(
       data: {
@@ -20,6 +21,7 @@ const CREATEBOOKINGAPPOINTMENT = gql`
         name: $name
         email: $email
         phoneNumber: $phoneNumber
+        additional_notes: $additional_notes
       }
     ) {
       id

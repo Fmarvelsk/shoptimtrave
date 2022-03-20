@@ -6,6 +6,7 @@ import { useUI } from "@contexts/ui.context";
 import { useTranslation } from "next-i18next";
 import { sendAppointmentBooking } from "@framework/requestBooking/booking-mutation";
 import { toast } from "react-toastify";
+import TextArea from "@components/ui/text-area";
 
 const serviceOption = [
   "wigging",
@@ -21,6 +22,7 @@ interface AppointmentType {
   email: string;
   phoneNumber: string;
   date: any;
+  additional_notes : string
 }
 const AppointmentForm: React.FC = () => {
   const { t } = useTranslation();
@@ -34,7 +36,7 @@ const AppointmentForm: React.FC = () => {
   const [service, setService] = React.useState<string>("customisation");
   const [loading, setLoading] = React.useState<boolean>(false);
 
-  async function onSubmit({ name, phoneNumber, date, email }: AppointmentType) {
+  async function onSubmit({ name, phoneNumber, date, email, additional_notes }: AppointmentType) {
     if (!Date.parse(date)) return toast.warn("Date and Time is required");
     setLoading(true);
     await sendAppointmentBooking({
@@ -44,6 +46,7 @@ const AppointmentForm: React.FC = () => {
       email,
       cap_size: capSize,
       service: service,
+      additional_notes,
     })
       .then((response) => {
         closeModal();
@@ -153,6 +156,13 @@ const AppointmentForm: React.FC = () => {
             })}
             errorKey={errors.phoneNumber?.message}
           />
+          
+        <TextArea
+          labelKey="forms:label-message"
+          {...register("additional_notes")}
+          className="relative mb-4"
+          placeholderKey="forms:placeholder-message"
+        />
           <div className="relative">
             <Button
               type="submit"
