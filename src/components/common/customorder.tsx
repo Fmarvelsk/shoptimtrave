@@ -9,22 +9,22 @@ import Input from "@components/ui/input";
 import { useTranslation } from "next-i18next";
 
 const sizeInches = [
-  `8"`,
-  `10"`,
-  `12"`,
-  `14"`,
-  `16"`,
-  `18"`,
-  `20"`,
-  `22"`,
-  `24"`,
-  `26"`,
-  `28"`,
-  `30"`,
-  `32"`,
-  `34"`,
-  `36"`,
-  `38"`,
+  `8`,
+  `10`,
+  `12`,
+  `14`,
+  `16`,
+  `18`,
+  `20`,
+  `22`,
+  `24`,
+  `26`,
+  `28`,
+  `30`,
+  `32`,
+  `34`,
+  `36`,
+  `38`,
 ];
 const texture = [
   "afro curl",
@@ -90,7 +90,7 @@ const CustomBeautyOrder: React.FC = () => {
       gram: gram,
       hair_texture: hairTexture,
       hair_type: hairType,
-      length: length,
+      length: `${length} inches`,
       colour: imageColor,
       style_inspiration: imageStyle,
     };
@@ -261,13 +261,13 @@ const CustomBeautyOrder: React.FC = () => {
             >
               {sizeInches.map((size, i) => (
                 <option key={i} value={size}>
-                  {size}
+                  {size}""
                 </option>
               ))}
             </select>
           </div>
           <div className="flex pt-3 flex-wrap justify-between">
-            <div>
+            <div className="mb-3 lg:mb-0">
               <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
                 Style Inspiration (Upload Image)
               </label>
