@@ -123,6 +123,7 @@ const CustomBeautyOrder: React.FC = () => {
         <Input
           labelKey="forms:label-name"
           type="text"
+          required
           className="pt-3"
           variant="solid"
           {...register("name", {
@@ -134,6 +135,7 @@ const CustomBeautyOrder: React.FC = () => {
           labelKey="forms:label-email"
           type="email"
           className="pt-5"
+          required
           variant="solid"
           {...register("email", {
             required: `${t("forms:email-required")}`,
@@ -148,6 +150,7 @@ const CustomBeautyOrder: React.FC = () => {
         <Input
           labelKey="Phone number"
           type="tel"
+          required
           className="pt-5"
           variant="solid"
           {...register("phoneNumber", {
@@ -158,7 +161,7 @@ const CustomBeautyOrder: React.FC = () => {
 
         <div className="flex flex-col pt-5 space-y-4">
           <div className="w-full">
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+            <label className="block required text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Cap Size
             </label>
 
@@ -179,7 +182,7 @@ const CustomBeautyOrder: React.FC = () => {
           </div>
 
           <div className="w-full pt-3">
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+            <label className="required block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Gram
             </label>
 
@@ -201,7 +204,7 @@ const CustomBeautyOrder: React.FC = () => {
           </div>
 
           <div className="w-full pt-3">
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+            <label className="block required text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Hair Type
             </label>
 
@@ -222,7 +225,7 @@ const CustomBeautyOrder: React.FC = () => {
           </div>
 
           <div className="w-full pt-3">
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+            <label className="block required text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Hair Texture
             </label>
 
@@ -245,7 +248,7 @@ const CustomBeautyOrder: React.FC = () => {
           </div>
 
           <div className="w-full pt-3">
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+            <label className="block required text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Length inches
             </label>
 

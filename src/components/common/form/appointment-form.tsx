@@ -70,7 +70,7 @@ const AppointmentForm: React.FC = () => {
       >
         <div className="flex flex-col space-y-4">
           <div className="w-full">
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+            <label className="block required text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Service
             </label>
 
@@ -93,7 +93,7 @@ const AppointmentForm: React.FC = () => {
           </div>
 
           <div className="w-full">
-            <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+            <label className="block required text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
               Cap Size
             </label>
 
@@ -117,6 +117,7 @@ const AppointmentForm: React.FC = () => {
             labelKey={`Date ${`&`} Time`}
             type="datetime-local"
             variant="solid"
+            required
             {...register("date", {
               valueAsDate: true,
               required: "forms:date-required",
@@ -128,6 +129,7 @@ const AppointmentForm: React.FC = () => {
             labelKey="forms:label-name"
             type="text"
             variant="solid"
+            required
             {...register("name", {
               required: "forms:name-required",
             })}
@@ -137,6 +139,7 @@ const AppointmentForm: React.FC = () => {
             labelKey="forms:label-email"
             type="email"
             variant="solid"
+            required
             {...register("email", {
               required: `${t("forms:email-required")}`,
               pattern: {
@@ -150,6 +153,7 @@ const AppointmentForm: React.FC = () => {
           <Input
             labelKey="Phone number"
             type="tel"
+            required
             variant="solid"
             {...register("phoneNumber", {
               required: "forms:phoneNumber-required",
