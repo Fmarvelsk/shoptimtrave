@@ -96,7 +96,7 @@ const CustomBeautyOrder: React.FC = () => {
     };
     setLoading(true);
     await sendCustomBeautyOrder(data)
-      .then((response) => {
+      .then(() => {
         toast.success(`Sucessfully Requested for custom for ${value.name}`);
       })
       .catch((err) => {
