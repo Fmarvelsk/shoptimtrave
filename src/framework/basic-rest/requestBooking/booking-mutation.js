@@ -58,7 +58,7 @@ const CREATEBEAUTYORDER = gql`
         style_inspiration: $style_inspiration
         colour: $colour
         notes: $notes
-        hair_texture: $hair_texture
+        hair_type: $hair_type
         name: $name
         email: $email
         phoneNumber: $phoneNumber
