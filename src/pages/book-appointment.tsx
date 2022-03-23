@@ -1,6 +1,5 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
-import Subscription from "@components/common/subscription";
 import PageHeader from "@components/ui/page-header";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
@@ -14,7 +13,6 @@ export default function BookAppointment() {
         <div className="md:w-9/12 py-12 " style={{ margin: "auto" }}>
           <Appointment />
         </div>
-        <Subscription />
       </Container>
     </>
   );

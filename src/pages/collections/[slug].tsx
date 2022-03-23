@@ -1,6 +1,5 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
-import Subscription from "@components/common/subscription";
 import StickyBox from "react-sticky-box";
 import { ProductGrid } from "@components/product/product-grid";
 import ActiveLink from "@components/ui/active-link";
@@ -62,7 +61,6 @@ export default function Shop() {
             />
           </div>
         </div>
-        <Subscription />
       </Container>
     </div>
   );
