@@ -1,6 +1,5 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
-import Subscription from "@components/common/subscription";
 //import StickyBox from "react-sticky-box";
 import { ProductGrid } from "@components/product/product-grid";
 import SearchTopBar from "@components/shop/top-bar";
@@ -57,7 +56,6 @@ export default function Products() {
             />
           </div>
         </div>
-        <Subscription />
       </Container>
     </>
   );
