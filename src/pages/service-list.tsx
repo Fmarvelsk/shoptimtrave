@@ -38,6 +38,7 @@ export default function ServicePriceList() {
               ))}
             </ul>
           </div>
+          <p className="font-bold text-base">Kindly NOTE that every service rendered without an appointment will attract an extra $5 fee.</p>
         </div>
       </Container>
     </>
