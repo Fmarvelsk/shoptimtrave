@@ -1,6 +1,6 @@
 {
   "name": "timtrave",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "scripts": {
     "clean": "rimraf \"{.next,dist,build,out,node_modules}\"",
@@ -22,7 +22,6 @@
     "framer-motion": "^4.1.17",
     "graphql": "^15.5.1",
     "graphql-request": "^3.6.1",
-    "js-cookie": "^2.2.1",
     "lodash": "^4.17.21",
     "next": "11.0.0",
     "next-i18next": "^8.5.0",
