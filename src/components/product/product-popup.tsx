@@ -120,12 +120,7 @@ export default function ProductPopup() {
       <div className="flex flex-col lg:flex-row w-full md:w-[650px] lg:w-[960px] mx-auto overflow-hidden">
         <div className="flex-shrink-0 flex justify-center w-full lg:w-430px max-h-430px lg:max-h-full overflow-hidden">
           <EmblaCarousel slides={images} />
-          {/*<img
-            src={image ?? ""}
-            alt={name}
-            className="lg:object-cover lg:w-full lg:h-full"
-          />*/}
-        </div>
+         </div>
 
         <div className="flex flex-col p-5 md:p-8 w-full">
           <div className="pb-5">

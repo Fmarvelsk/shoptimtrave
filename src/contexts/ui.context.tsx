@@ -1,9 +1,7 @@
 import React from "react";
-import { getToken } from "@framework/utils/get-token";
 import { CartProvider } from "./cart/cart.context";
 
 export interface State {
-  isAuthorized: boolean;
   displayModal: boolean;
   displayCart: boolean;
   displaySearch: boolean;
@@ -14,7 +12,6 @@ export interface State {
 }
 
 const initialState = {
-  isAuthorized: getToken() ? true : false,
   displayModal: false,
   displayCart: false,
   displaySearch: false,
@@ -25,12 +22,6 @@ const initialState = {
 };
 
 type Action =
-  | {
-      type: "SET_AUTHORIZED";
-    }
-  | {
-      type: "SET_UNAUTHORIZED";
-    }
   | {
       type: "OPEN_SIDEBAR";
     }
@@ -90,18 +81,6 @@ UIContext.displayName = "UIContext";
 
 function uiReducer(state: State, action: Action) {
   switch (action.type) {
-    case "SET_AUTHORIZED": {
-      return {
-        ...state,
-        isAuthorized: true,
-      };
-    }
-    case "SET_UNAUTHORIZED": {
-      return {
-        ...state,
-        isAuthorized: false,
-      };
-    }
     case "OPEN_SIDEBAR": {
       return {
         ...state,
@@ -188,8 +167,6 @@ function uiReducer(state: State, action: Action) {
 export const UIProvider: React.FC = (props) => {
   const [state, dispatch] = React.useReducer(uiReducer, initialState);
 
-  const authorize = () => dispatch({ type: "SET_AUTHORIZED" });
-  const unauthorize = () => dispatch({ type: "SET_UNAUTHORIZED" });
   const openSidebar = () => dispatch({ type: "OPEN_SIDEBAR" });
   const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
   const openCart = () => dispatch({ type: "OPEN_CART" });
@@ -213,8 +190,6 @@ export const UIProvider: React.FC = (props) => {
   const value = React.useMemo(
     () => ({
       ...state,
-      authorize,
-      unauthorize,
       openSidebar,
       closeSidebar,
       openCart,
