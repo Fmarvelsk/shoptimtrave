@@ -22,7 +22,6 @@ import "@fontsource/satisfy";
 import "react-toastify/dist/ReactToastify.css";
 // base css file
 import "@styles/scrollbar.css";
-import "@styles/swiper-carousel.css";
 import "@styles/custom-plugins.css";
 import "@styles/tailwind.css";
 import "@styles/checkout.css";
