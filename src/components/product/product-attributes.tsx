@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import cn from "classnames";
 interface Props {
   className?: string;
@@ -6,6 +7,7 @@ interface Props {
   active: string;
   onClick: any;
   isSelected?: any;
+  cls?: boolean;
 }
 
 export const ProductAttributes: React.FC<Props> = ({
@@ -15,50 +17,36 @@ export const ProductAttributes: React.FC<Props> = ({
   active,
   onClick,
   isSelected,
+  cls,
 }) => {
+  // @ts-ignore: Unreachable code error
+  const [show, setShow] = useState(false);
   return (
     <div className={className}>
-      <h3 className="text-base md:text-lg text-heading font-semibold mb-2.5 capitalize">
+      <h3 className="text-base lg:text-lg text-heading font-semibold mb-2 capitalize">
         {title}
       </h3>
       <ul className="colors flex flex-wrap -me-3">
-        {attributes?.map((value, id) => (
+        {attributes?.map((value: any, id: number) => (
           <li
             key={`${value}-${id}`}
             className={`${cn(
-              "cursor-pointer rounded border border-gray-100 w-9 md:w-11 h-9 md:h-11 p-1 mb-2 md:mb-3 me-2 md:me-3 flex justify-center items-center text-heading text-xs md:text-sm uppercase font-semibold transition duration-200 ease-in-out hover:border-black"
-            )} ${value === active && "border-black"}`}
+              `cursor-pointer rounded border text-center border-gray-300 h-9 md:h-11 p-1 mb-2 md:mb-3 me-2 md:me-3 flex flex-wrap justify-center items-center text-heading text-xs font-semibold transition duration-200 ease-in-out hover:border-black`
+            )} ${value === active && "border-black"}
+            ${value.length < 4 || cls ? "w-9 md:w-11" : ""}
+            `}
             onClick={() => {
               isSelected(true);
-              onClick({ [title]: value });
+              onClick({ [title]: value }, title);
             }}
+            onMouseOver={() => setShow(true)}
+            onMouseLeave={() => setShow(false)}
           >
-            {title === "colours" ? (
+            {cls ? (
               <span
                 className="h-full w-full rounded block"
                 style={{
-                  backgroundColor:
-                    value === "Purple"
-                      ? "#8224e3"
-                      : value === "Pink"
-                      ? "#ffa5b4"
-                      : value === "Orange"
-                      ? "#e86c25"
-                      : value === "Green"
-                      ? "#008000"
-                      : value === "Brown"
-                      ? "#A52A2A"
-                      : value === "Red"
-                      ? "#dd3333"
-                      : value === "Black"
-                      ? "#000000"
-                      : value === "Navy Blue" || value === "Blue"
-                      ? "#0066CC"
-                      : value === "Yellow"
-                      ? "#FFFF00"
-                      : value === "Gray" || value === "Grey"
-                      ? "#808080"
-                      : "#ffffff",
+                  backgroundColor: value,
                 }}
               />
             ) : (

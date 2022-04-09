@@ -1,5 +1,3 @@
-import { CategoryFilter } from "./category-filter";
-import { BrandFilter } from "./brand-filter";
 import { FilteredItem } from "./filtered-item";
 import { ColorFilter } from "./color-filter";
 import { PriceFilter } from "./price-filter";
@@ -45,8 +43,6 @@ export const ShopFilters: React.FC = () => {
         </div>
       </div>
 
-      <CategoryFilter />
-      <BrandFilter />
       <PriceFilter />
       <ColorFilter />
     </div>

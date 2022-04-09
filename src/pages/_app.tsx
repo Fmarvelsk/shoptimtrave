@@ -11,7 +11,6 @@ import { ToastContainer } from "react-toastify";
 // import { ReactQueryDevtools } from "react-query/devtools";
 import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "@components/common/default-seo";
-//import { client, ApolloProvider } from "../framework/basic-rest/utils/apollo";
 
 // Load Open Sans and satisfy typeface font
 import "@fontsource/open-sans";
@@ -23,7 +22,6 @@ import "@fontsource/satisfy";
 import "react-toastify/dist/ReactToastify.css";
 // base css file
 import "@styles/scrollbar.css";
-import "@styles/swiper-carousel.css";
 import "@styles/custom-plugins.css";
 import "@styles/tailwind.css";
 import "@styles/checkout.css";

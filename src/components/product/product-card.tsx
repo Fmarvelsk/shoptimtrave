@@ -4,6 +4,8 @@ import type { FC } from "react";
 import { useUI } from "@contexts/ui.context";
 import usePrice from "@framework/product/use-price";
 import { Product } from "@framework/types";
+//import Carousel from "@components/ui/carousel/carousel";
+//import { Carousel } from 'react-carousel-minimal';
 
 interface ProductProps {
   product: Product;
@@ -69,8 +71,34 @@ const ProductCard: FC<ProductProps> = ({
           imageContentClassName
         )}
       >
+        {/*  <Carousel
+            data={product.images}
+            time={2000}
+            width={imgWidth}
+            height={imgHeight}
+            //captionStyle={captionStyle}
+            radius="10px"
+            slideNumber={true}
+            //slideNumberStyle={slideNumberStyle}
+            captionPosition="bottom"
+            automatic={true}
+            dots={true}
+            pauseIconColor="white"
+            pauseIconSize="40px"
+            slideBackgroundColor="darkgrey"
+            slideImageFit="cover"
+            thumbnails={true}
+            thumbnailWidth="100px"
+            style={{
+              textAlign: "center",
+              maxWidth: "850px",
+              maxHeight: "500px",
+              margin: "40px auto",
+            }}
+          />*/}
+
         <Image
-          src={product?.image ?? placeholderImage}
+          src={product?.images?.[0] ?? placeholderImage}
           width={imgWidth}
           height={imgHeight}
           loading={imgLoading}
@@ -111,7 +139,7 @@ const ProductCard: FC<ProductProps> = ({
         </h2>
         {product?.description && (
           <p className="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate">
-            {product?.description}
+            {product?.description.info}
           </p>
         )}
         <div

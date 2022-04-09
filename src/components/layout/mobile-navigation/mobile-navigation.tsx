@@ -1,48 +1,18 @@
 import Link from "@components/ui/link";
 import SearchIcon from "@components/icons/search-icon";
-//import UserIcon from "@components/icons/user-icon";
-import MenuIcon from "@components/icons/menu-icon";
 import HomeIcon from "@components/icons/home-icon";
 import { useUI } from "@contexts/ui.context";
-import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import { Drawer } from "@components/common/drawer/drawer";
-import { getDirection } from "@utils/get-direction";
 const CartButton = dynamic(() => import("@components/cart/cart-button"), {
   ssr: false,
 });
-const MobileMenu = dynamic(
-  () => import("@components/layout/header/mobile-menu")
-);
 
 const BottomNavigation: React.FC = () => {
-  const {
-    openSidebar,
-    closeSidebar,
-    displaySidebar,
-    setDrawerView,
-    openSearch,
-  } = useUI();
-
-  function handleMobileMenu() {
-    setDrawerView("MOBILE_MENU");
-    return openSidebar();
-  }
-
-  const { locale } = useRouter();
-  const dir = getDirection(locale);
-  const contentWrapperCSS = dir === "ltr" ? { left: 0 } : { right: 0 };
+  const { openSearch } = useUI();
 
   return (
     <>
       <div className="md:hidden fixed z-10 bottom-0 flex items-center justify-between shadow-bottomNavigation text-gray-700 body-font bg-white w-full h-14 sm:h-16 px-4">
-        <button
-          aria-label="Menu"
-          className="menuBtn flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none"
-          onClick={handleMobileMenu}
-        >
-          <MenuIcon />
-        </button>
         <button
           className="flex items-center justify-center flex-shrink-0 h-auto relative focus:outline-none"
           onClick={openSearch}
@@ -55,17 +25,6 @@ const BottomNavigation: React.FC = () => {
         </Link>
         <CartButton />
       </div>
-      <Drawer
-        placement={dir === "rtl" ? "right" : "left"}
-        open={displaySidebar}
-        onClose={closeSidebar}
-        handler={false}
-        showMask={true}
-        level={null}
-        contentWrapperStyle={contentWrapperCSS}
-      >
-        <MobileMenu />
-      </Drawer>
     </>
   );
 };

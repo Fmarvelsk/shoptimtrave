@@ -11,7 +11,7 @@ export const CheckoutItem: React.FC<{ item: Item }> = ({ item }) => {
     <div className="flex py-4 items-center lg:px-3 border-b border-gray-300">
       <div className="flex border rounded-md border-gray-300 w-16 h-16 flex-shrink-0">
         <img
-          src={item.image ?? "/assets/placeholder/order-product.svg"}
+          src={item.image?.[0] ?? "/assets/placeholder/order-product.svg"}
           width="64"
           height="64"
           className="object-cover"

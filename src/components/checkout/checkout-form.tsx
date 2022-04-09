@@ -1,18 +1,16 @@
 import React from "react";
 import Input from "@components/ui/input";
 import { useForm } from "react-hook-form";
-import { CheckBox } from "@components/ui/checkbox";
 import Button from "@components/ui/button";
 import Router from "next/router";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 //import Payment from './payment'
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import {
-  usePaymentMutation,
-  usePushOrderedItem,
-} from "@framework/product/product-mutation";
+import { usePushOrderedItem } from "@framework/product/product-mutation";
 import { useCart } from "@contexts/cart/cart.context";
+import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
+
+const secret_key = process.env.NEXT_PUBLIC_FLUTTERWAVE_KEY;
 
 interface CheckoutInputType {
   fName: string;
@@ -27,90 +25,78 @@ interface CheckoutInputType {
 
 const CheckoutForm: React.FC = () => {
   const { t } = useTranslation();
-  const { items, isEmpty, resetCart } = useCart();
+  const { items, isEmpty, totalSum, resetCart } = useCart();
   const [isLoading, setLoading] = React.useState<boolean>(false);
+  const [email, setEmail] = React.useState<string>("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<CheckoutInputType>();
+  const [phoneNumber, setPhoneNumber] = React.useState<string>("");
+  const [firstname, setFirstname] = React.useState<string>("");
+  const [lastname, setLastname] = React.useState<string>("");
+  const [msgCarts, setMsgCarts] = React.useState<string>("");
 
-  const stripe = useStripe();
-  const elements = useElements();
+  const config = {
+    public_key: secret_key,
+    tx_ref: Date.now(),
+    amount: totalSum,
+    currency: "USD",
+    payment_options: "card,mobilemoney,ussd",
+    customer: {
+      email: email,
+      phone_number: phoneNumber,
+      name: `${firstname} ${lastname}`,
+    },
 
-  const CARD_ELEMENT_OPTIONS = {
-    style: {
-      base: {
-        color: "#32325d",
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: "antialiased",
-        fontSize: "16px",
-        "::placeholder": {
-          color: "#aab7c4",
-        },
-      },
-      invalid: {
-        color: "#fa755a",
-        iconColor: "#fa755a",
-      },
+    customizations: {
+      title: "Timtrave",
+      description: "Payment for items in cart",
+      logo: "https://chawk-shop.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fbanner%2Fmasonry%2Fbanner-2.jpg&w=1080&q=100",
     },
   };
 
-  async function onSubmit(input: CheckoutInputType) {
-    let cardElement;
-    if (!stripe || !elements || isEmpty) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
-      return;
-    }
+  // @ts-ignore: Unreachable code error
+  const handleFlutterPayment = useFlutterwave(config);
+
+  function onSubmit(input: CheckoutInputType) {
+    if (isEmpty) return setMsgCarts("Carts is Empty");
     setLoading(true);
-
-    let variables = items.map((item) => ({
-      quantity: item.quantity,
-      sale_price: item.price,
-    }));
-
-    await usePaymentMutation(variables)
-      .then(async (res) => {
-        cardElement = elements.getElement(CardElement);
-
-        if (cardElement) {
-          const result = await stripe.confirmCardPayment(`${res.makePayment}`, {
-            payment_method: {
-              card: cardElement,
-              /*	billing_details: {
-								name: 'Jenny Rosen',
-							},*/
-            },
-          });
-
-          if (result.error) {
-            // Show error to your customer (e.g., insufficient funds)
-            console.log(result.error.message);
-          } else {
-            // The payment has been processed!
-            if (result.paymentIntent.status === "succeeded") {
-              await usePushOrderedItem({
-                ...input,
-                items: items.map((item) => ({
-                  name: item.name,
-                  sale_price: item.price,
-                  quantity: item.quantity,
-                  size: item.attributes.sizes,
-                  colour: item.attributes.colours,
-                  image: item.image,
-                })),
-              })
-                .then(() => {
-                  resetCart();
-                  Router.push(ROUTES.ORDER);
-                })
-                .catch((err) => console.log(err));
-            }
-          }
-        }
-      })
-      .catch((err) => console.log(err));
+    setMsgCarts("");
+    handleFlutterPayment({
+      callback: async (response: any) => {
+        //console.log(response);
+        await usePushOrderedItem({
+          transactionId: response.transaction_id,
+          fName: firstname,
+          lName: lastname,
+          phoneNo: response.customer.phone_number
+            ? response.customer.phone_number
+            : phoneNumber,
+          email: response.customer.email,
+          address: input.address,
+          city: input.city,
+          postcode: input.postcode,
+          items: items.map((item) => ({
+            name: item.name,
+            sale_price: item.price,
+            quantity: item.quantity,
+            size: item.attributes.sizes || "",
+            colour: item.attributes.colours,
+            closure_type: item.attributes["closure types"] || "",
+            image: item.image,
+          })),
+        })
+          .then(() => {
+            resetCart();
+            Router.push(ROUTES.ORDER);
+          })
+          .catch((err) => console.log(err));
+        closePaymentModal(); // this will close the modal programmatically
+      },
+      onClose: () => {},
+    });
     setLoading(false);
   }
 
@@ -134,6 +120,7 @@ const CheckoutForm: React.FC = () => {
               errorKey={errors.fName?.message}
               variant="solid"
               className="w-full lg:w-1/2 "
+              onChange={(e: any) => setFirstname(e.target.value)}
             />
             <Input
               labelKey="forms:label-last-name"
@@ -143,8 +130,34 @@ const CheckoutForm: React.FC = () => {
               errorKey={errors.lName?.message}
               variant="solid"
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
+              onChange={(e: any) => setLastname(e.target.value)}
             />
           </div>
+          <div className="flex flex-col lg:flex-row space-y-4 gap-3 lg:space-y-0">
+            <Input
+              type="tel"
+              labelKey="forms:label-phone"
+              {...register("phoneNo", {
+                required: "forms:phone-required",
+              })}
+              onChange={(e: any) => setPhoneNumber(e.target.value)}
+              errorKey={errors.phoneNo?.message}
+              variant="solid"
+              className="w-full lg:w-1/2 "
+            />
+            <div className="w-full lg:w-1/2 ">
+              <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+                Email *
+              </label>
+              <input
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                //style={{border : '1px solid black'}}
+                className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body rounded-md placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+              />
+            </div>
+          </div>
+
           <Input
             labelKey="forms:label-address"
             {...register("address", {
@@ -153,39 +166,13 @@ const CheckoutForm: React.FC = () => {
             errorKey={errors.address?.message}
             variant="solid"
           />
-          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
-            <Input
-              type="tel"
-              labelKey="forms:label-phone"
-              {...register("phoneNo", {
-                required: "forms:phone-required",
-              })}
-              errorKey={errors.phoneNo?.message}
-              variant="solid"
-              className="w-full lg:w-1/2 "
-            />
 
-            <Input
-              type="email"
-              labelKey="forms:label-email-star"
-              {...register("email", {
-                required: "forms:email-required",
-                pattern: {
-                  value:
-                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: "forms:email-error",
-                },
-              })}
-              errorKey={errors.email?.message}
-              variant="solid"
-              className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
-            />
-          </div>
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
             <Input
               labelKey="forms:label-city"
               {...register("city")}
               variant="solid"
+              /*onChange={(e) => }*/
               className="w-full lg:w-1/2 "
             />
 
@@ -196,29 +183,18 @@ const CheckoutForm: React.FC = () => {
               className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
             />
           </div>
-          <div>
-            <label className="block mb-2 text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
-              Card details
-            </label>
-            <CardElement
-              options={CARD_ELEMENT_OPTIONS}
-              className="w-full lg:w-1/2 lg:ms-3 mt-2 md:mt-0"
-            />
-          </div>
 
-          <div className="relative flex items-center ">
-            <CheckBox labelKey="forms:label-save-information" />
-          </div>
           <div className="flex w-full">
             <Button
               className="w-full sm:w-auto"
               loading={isLoading}
-              disabled={isLoading || !stripe}
+              disabled={isLoading}
             >
               {t("common:button-place-order")}
             </Button>
           </div>
         </div>
+        <p className="text-red-500">{msgCarts}</p>
       </form>
     </>
   );

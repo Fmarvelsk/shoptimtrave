@@ -33,12 +33,34 @@ const ALLPRODUCTQUERY = gql`
     returnAllProduct {
       id
       name
-      description
+      closure_types
+      out_of_stock {
+        sizes
+        colours
+        closure_types
+        all
+      }
+      description {
+        texture
+        cap_construction
+        texture
+        lace_colour
+        elastic_band
+        cap_size
+        hairline
+        bleached_knots
+        info
+      }
       colours
-      price
       sizes
+      price
       sale_price
-      image
+      price_range {
+        size
+        price
+      }
+      category
+      images
     }
   }
 `;
@@ -48,12 +70,34 @@ const GETBYCATEGORY = gql`
     returnProductsByCategory(category: $category) {
       id
       name
-      description
+      closure_types
+      out_of_stock {
+        sizes
+        colours
+        closure_types
+        all
+      }
+      description {
+        texture
+        cap_construction
+        texture
+        lace_colour
+        elastic_band
+        cap_size
+        hairline
+        bleached_knots
+        info
+      }
       colours
-      price
       sizes
+      price
       sale_price
-      image
+      price_range {
+        size
+        price
+      }
+      category
+      images
     }
   }
 `;

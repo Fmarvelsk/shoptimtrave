@@ -1,11 +1,8 @@
 interface Item {
   id: string | number;
   name: string;
-  slug: string;
-  image: {
-    thumbnail: string;
-    [key: string]: unknown;
-  };
+  category: string;
+  images: Array<string>;
   price?: number;
   sale_price: number;
   [key: string]: unknown;
@@ -15,13 +12,13 @@ export function generateCartItem(
   attributes: object,
   quantity: number
 ) {
-  const { id, name, slug, image, sale_price } = item;
+  const { id, name, images, sale_price, category } = item;
   return {
     id: id,
     name,
-    slug,
+    category,
     quantity,
-    image: image,
+    image: images,
     price: sale_price,
     attributes,
   };

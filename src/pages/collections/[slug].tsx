@@ -1,6 +1,5 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
-import Subscription from "@components/common/subscription";
 import StickyBox from "react-sticky-box";
 import { ProductGrid } from "@components/product/product-grid";
 import ActiveLink from "@components/ui/active-link";
@@ -9,7 +8,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 import CollectionTopBar from "@components/collection/collection-top-bar";
-import { CollectionFilters } from "@components/collection/collection-filters";
+//import { CollectionFilters } from "@components/collection/collection-filters";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useGetByCategory } from "@framework/product/product-queries";
@@ -50,12 +49,11 @@ export default function Shop() {
                   </ActiveLink>
                 </BreadcrumbItems>
               </div>
-              <CollectionFilters />
             </StickyBox>
           </div>
 
           <div className="w-full lg:-ms-9">
-            <CollectionTopBar />
+            <CollectionTopBar total={data?.returnProductsByCategory?.length} />
             <ProductGrid
               data={data?.returnProductsByCategory}
               error={error}
@@ -63,7 +61,6 @@ export default function Shop() {
             />
           </div>
         </div>
-        <Subscription />
       </Container>
     </div>
   );

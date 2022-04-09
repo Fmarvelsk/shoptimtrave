@@ -1,5 +1,4 @@
 import Container from "@components/ui/container";
-import { siteSettings } from "@settings/site-settings";
 import { useTranslation } from "next-i18next";
 
 interface CopyrightProps {
@@ -12,13 +11,14 @@ interface CopyrightProps {
     height: number;
   }[];
 }
-const year = new Date().getFullYear();
+//const year = new Date().getFullYear();
+
 const Copyright: React.FC<CopyrightProps> = ({ payment }) => {
   const { t } = useTranslation("footer");
   return (
     <div className="border-t border-gray-300 pt-5 pb-16 sm:pb-20 md:pb-5 mb-2 sm:mb-0">
       <Container className="flex flex-col-reverse md:flex-row text-center md:justify-between">
-        <p className="text-body text-xs lg:text-sm leading-6">
+        {/* <p className="text-body text-xs lg:text-sm leading-6">
           {t("text-copyright")} &copy; {year}&nbsp;
           <a
             className="font-semibold text-gray-700 transition-colors duration-200 ease-in-out hover:text-body"
@@ -27,7 +27,7 @@ const Copyright: React.FC<CopyrightProps> = ({ payment }) => {
             {siteSettings.author.name}
           </a>
           &nbsp; {t("text-all-rights-reserved")}
-        </p>
+  </p>*/}
 
         {payment && (
           <ul className="hidden md:flex flex-wrap justify-center items-center space-s-4 xs:space-s-5 lg:space-s-7 mb-1 md:mb-0 mx-auto md:mx-0">

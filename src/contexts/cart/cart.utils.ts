@@ -78,3 +78,8 @@ export const calculateTotalItems = (items: Item[]) =>
   items.reduce((sum, item) => sum + item.quantity!, 0);
 
 export const calculateUniqueItems = (items: Item[]) => items.length;
+
+export const calculateSumTotal = (items: Item[], fee: number) => {
+  let sum = calculateTotal(items);
+  return sum + fee;
+};
