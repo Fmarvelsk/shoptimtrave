@@ -26,8 +26,7 @@ const Layout: React.FC = ({ children }) => {
         openGraph={{
           url: "https://shoptimtrave.com",
           title: "",
-          description:
-            "Buy your Cosmetics, Clothing and Customize media here",
+          description: "Buy your Cosmetics, Clothing and Customize media here",
           images: [
             {
               url: "/assets/images/og-image-01.png",

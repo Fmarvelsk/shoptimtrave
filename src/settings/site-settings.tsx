@@ -6,7 +6,7 @@ import { DEFlag } from "@components/icons/DEFlag";
 import { ESFlag } from "@components/icons/ESFlag";
 export const siteSettings = {
   name: "Timtrave",
-  description:"Buy your Cosmetics, Clothing and Customize media here",
+  description: "Buy your Cosmetics, Clothing and Customize media here",
   logo: {
     url: "/assets/images/logo.svg",
     alt: "Timtrave",

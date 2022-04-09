@@ -61,7 +61,7 @@ export default function ProductPopup() {
       attributes.hasOwnProperty(variation)
     )
     : true;*/
-    
+
   function addToCart() {
     setAddToCartLoader(true);
     setTimeout(() => {
@@ -120,7 +120,7 @@ export default function ProductPopup() {
       <div className="flex flex-col lg:flex-row w-full md:w-[650px] lg:w-[960px] mx-auto overflow-hidden">
         <div className="flex-shrink-0 flex justify-center w-full lg:w-430px max-h-430px lg:max-h-full overflow-hidden">
           <EmblaCarousel slides={images} />
-         </div>
+        </div>
 
         <div className="flex flex-col p-5 md:p-8 w-full">
           <div className="pb-5">
@@ -134,7 +134,7 @@ export default function ProductPopup() {
               </h2>
             </div>
 
-            {category === "beauty" && <p> WIG IN THE PICTURE </p> }
+            {category === "beauty" && <p> WIG IN THE PICTURE </p>}
             <ul style={{ listStyle: "disc" }}>
               {Object.keys(description).map((key, desc) => {
                 return (

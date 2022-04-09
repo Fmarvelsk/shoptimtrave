@@ -12,7 +12,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   type?: string;
   onChange?: any;
   shadow?: boolean;
-  required?:boolean;
+  required?: boolean;
   variant?: "normal" | "solid" | "outline";
 }
 const classes = {
@@ -59,7 +59,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>(
         {labelKey && (
           <label
             htmlFor={name}
-            className={`block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer ${required && 'required'}`}
+            className={`block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer ${
+              required && "required"
+            }`}
           >
             {t(labelKey)}
           </label>
