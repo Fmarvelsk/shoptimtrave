@@ -3,7 +3,7 @@ import {
   IoLogoTwitter,
   IoLogoFacebook,
   IoMail,
-  IoLogoWhatsapp
+  IoLogoWhatsapp,
   //IoLogoYoutube,
 } from "react-icons/io5";
 
@@ -29,9 +29,9 @@ export const footer = {
           id: 3,
           title: "+905388862158",
           path: " https://wa.me/message/PVPX47HCDY4TF1",
-          icon: <IoLogoWhatsapp/>
+          icon: <IoLogoWhatsapp />,
         },
-       ],
+      ],
     },
     {
       id: 2,
