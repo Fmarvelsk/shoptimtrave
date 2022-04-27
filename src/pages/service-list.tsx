@@ -9,7 +9,7 @@ const Pricelist = [
   { name: "hair installation", price: 15 },
   { name: "eyelash fixing", price: 5 },
   { name: "hair styling", price: 15 },
-  { name: "wig revamping", price: 24 },
+  { name: "wig revamping", price: 27 },
   { name: "eyelash fixing", price: 5 },
   { name: "hair colouring", price: 30 },
   { name: "sew-in installation", price: 30 },
